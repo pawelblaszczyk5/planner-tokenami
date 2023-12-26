@@ -25,13 +25,7 @@ const replicache = new Replicache({
 const useSubscribe = <T>(query: (tx: ReadTransaction) => Promise<T>) => {
 	const [state, setState] = useState<T>();
 
-	useEffect(
-		() =>
-			replicache.subscribe(query, state => {
-				setState(state);
-			}),
-		[setState, query],
-	);
+	useEffect(() => replicache.subscribe(query, setState), [setState, query]);
 
 	return state;
 };
