@@ -9,6 +9,7 @@
 		"allowJs": true,
 		"verbatimModuleSyntax": true,
 		"allowSyntheticDefaultImports": true,
+		"plugins": [{ "name": "@tokenami/ts-plugin" }],
 
 		/* Paths */
 		"baseUrl": ".",
@@ -40,6 +41,6 @@
 		"forceConsistentCasingInFileNames": true,
 		"useUnknownInCatchVariables": true
 	},
-	"include": ["src"],
+	"include": ["src", ".tokenami/tokenami.config.ts", ".tokenami/tokenami.d.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

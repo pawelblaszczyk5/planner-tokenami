@@ -8,6 +8,7 @@
 		"allowJs": true,
 		"verbatimModuleSyntax": true,
 		"allowSyntheticDefaultImports": true,
+		"emitDeclarationOnly": true,
 
 		/* Linting */
 		"strict": true,
