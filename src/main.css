@@ -1,22 +1,28 @@
-/* Preflight inspired by TailwindCSS one */
-*,
-::before,
-::after {
-	box-sizing: border-box;
+/* Preflight inspired by TailwindCSS/PandaCSS one */
+
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
 }
 
-html,
-:host {
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: currentColor;
+}
+
+html {
 	line-height: 1.5;
 	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	-moz-tab-size: 4;
 	tab-size: 4;
 	font-family: var(--font-sans);
-}
-
-body {
-	margin: 0;
-	line-height: inherit;
 }
 
 hr {
@@ -25,36 +31,94 @@ hr {
 	border-top-width: 1px;
 }
 
-abbr:where([title]) {
-	text-decoration: underline dotted;
+body {
+	height: 100%;
+	line-height: inherit;
 }
 
+img {
+	border-style: none;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+	vertical-align: middle;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	font-size: inherit;
-	font-weight: inherit;
+	overflow-wrap: break-word;
 }
 
-a {
-	color: inherit;
-	text-decoration: inherit;
-}
-
-b,
-strong {
-	font-weight: bolder;
+ol,
+ul {
+	list-style: none;
 }
 
 code,
 kbd,
-samp,
-pre {
-	font-family: var(--font-mono);
+pre,
+samp {
 	font-size: 1em;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+	background-color: transparent;
+	background-image: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+table {
+	text-indent: 0;
+	border-color: inherit;
+	border-collapse: collapse;
+}
+
+input::placeholder,
+textarea::placeholder {
+	opacity: 1;
+}
+
+textarea {
+	resize: vertical;
+}
+
+summary {
+	display: list-item;
 }
 
 small {
@@ -77,64 +141,47 @@ sup {
 	top: -0.5em;
 }
 
-table {
-	text-indent: 0;
-	border-color: inherit;
-	border-collapse: collapse;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-	font-family: inherit;
-	font-size: 100%;
-	font-weight: inherit;
-	line-height: inherit;
-	color: inherit;
-	margin: 0;
+dialog {
 	padding: 0;
-	border: none;
 }
 
-button,
-select {
-	text-transform: none;
+a {
+	color: inherit;
+	text-decoration: inherit;
 }
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-	-webkit-appearance: button;
-	background-color: transparent;
-	background-image: none;
+abbr:where([title]) {
+	text-decoration: underline dotted;
 }
 
-:-moz-focusring {
-	outline: auto;
+b,
+strong {
+	font-weight: bolder;
 }
 
-:-moz-ui-invalid {
-	box-shadow: none;
+code,
+kbd,
+samp,
+pre {
+	font-size: 1em;
+	font-family: var(--font-mono);
 }
 
-progress {
-	vertical-align: baseline;
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-	height: auto;
-}
-
-[type="search"] {
+input[type="search"] {
 	-webkit-appearance: textfield;
 	outline-offset: -2px;
 }
 
-::-webkit-search-decoration {
+::-webkit-search-decoration,
+::-webkit-search-cancel-button {
 	-webkit-appearance: none;
 }
 
@@ -143,74 +190,19 @@ progress {
 	font: inherit;
 }
 
-summary {
-	display: list-item;
-}
-
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-	margin: 0;
-}
-
-fieldset {
-	margin: 0;
-	padding: 0;
-}
-
-legend {
-	padding: 0;
-}
-
-ol,
-ul,
-menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-dialog {
-	padding: 0;
-}
-
-textarea {
-	resize: vertical;
-}
-
-input::placeholder,
-textarea::placeholder {
-	opacity: 1;
-}
-
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-	display: block;
-	vertical-align: middle;
-}
-
-img,
-video {
-	max-width: 100%;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
 	height: auto;
 }
 
-[hidden] {
-	display: none;
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+:-moz-ui-invalid {
+	box-shadow: none;
+}
+
+:-moz-focusring {
+	outline: auto;
 }
