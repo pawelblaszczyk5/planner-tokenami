@@ -20,6 +20,15 @@ dependencies:
   react-dom:
     specifier: 18.3.0-canary-c5b937576-20231219
     version: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
+  react-router-dom:
+    specifier: ^6.21.1
+    version: 6.21.1(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
+  replicache:
+    specifier: ^14.0.3
+    version: 14.0.3
+  replicache-react:
+    specifier: ^5.0.1
+    version: 5.0.1(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
 
 devDependencies:
   '@react-aria/optimize-locales-plugin':
@@ -165,6 +174,11 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.1
     dev: true
+
+  /@badrap/valita@0.3.0:
+    resolution: {integrity: sha512-bvsH70aYKOdB3rXVZXhJgGpHqxt+TcVperVvXCo9Dotpj9u0jBgQP5jgPmZNbIz0FyTvMP/oPUzqn6WS2L0l3w==}
+    engines: {node: '>= 16'}
+    dev: false
 
   /@esbuild/aix-ppc64@0.19.10:
     resolution: {integrity: sha512-Q+mk96KJ+FZ30h9fsJl+67IjNJm3x2eX+GBWGmocAKgzp27cowCOOqSdscX80s0SpdFXZnIv/+1xD1EctFx96Q==}
@@ -1902,6 +1916,27 @@ packages:
       '@react-types/overlays': 3.8.4(react@18.3.0-canary-c5b937576-20231219)
       '@react-types/shared': 3.22.0(react@18.3.0-canary-c5b937576-20231219)
       react: 18.3.0-canary-c5b937576-20231219
+    dev: false
+
+  /@remix-run/router@1.14.1:
+    resolution: {integrity: sha512-Qg4DMQsfPNAs88rb2xkdk03N3bjK4jgX5fR24eHCTR9q6PrhZQZ4UJBPzCHJkIpTRN1UKxx2DzjZmnC+7Lj0Ow==}
+    engines: {node: '>=14.0.0'}
+    dev: false
+
+  /@rocicorp/lock@1.0.3:
+    resolution: {integrity: sha512-aXRTG0Ul89KrV30J/p209RhMCRLIFFIT6RepvCPBicKTHaUtTlmJipgLl6QmSt5HJYYJ5P8Czp+4T4G1+6fcgQ==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      '@rocicorp/resolver': 1.0.1
+    dev: false
+
+  /@rocicorp/logger@5.2.1:
+    resolution: {integrity: sha512-/co4DJq3opjULOHe7hMAho/E2WJuv6rMOJ1QDlCKsPHZ09XkkKHDM8dPu+odmDHWBb5aMnnzC92WQLd05CTxnA==}
+    dev: false
+
+  /@rocicorp/resolver@1.0.1:
+    resolution: {integrity: sha512-9+IK9C/du8Nrqn3LaKBxJwV4H2HyIpa7HlTuc4eQ938lL4faxN6TuQV+IpvX6PxQeR14X7yMtz1f9dfiS5fvlw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: false
 
   /@rollup/rollup-android-arm-eabi@4.9.1:
@@ -5403,6 +5438,29 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
+  /react-router-dom@6.21.1(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219):
+    resolution: {integrity: sha512-QCNrtjtDPwHDO+AO21MJd7yIcr41UetYt5jzaB9Y1UYaPTCnVuJq6S748g1dE11OQlCFIQg+RtAA1SEZIyiBeA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8 || 18.3.0-canary-c5b937576-20231219'
+      react-dom: '>=16.8 || 18.3.0-canary-c5b937576-20231219'
+    dependencies:
+      '@remix-run/router': 1.14.1
+      react: 18.3.0-canary-c5b937576-20231219
+      react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
+      react-router: 6.21.1(react@18.3.0-canary-c5b937576-20231219)
+    dev: false
+
+  /react-router@6.21.1(react@18.3.0-canary-c5b937576-20231219):
+    resolution: {integrity: sha512-W0l13YlMTm1YrpVIOpjCADJqEUpz1vm+CMo47RuFX4Ftegwm6KOYsL5G3eiE52jnJpKvzm6uB/vTKTPKM8dmkA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8 || 18.3.0-canary-c5b937576-20231219'
+    dependencies:
+      '@remix-run/router': 1.14.1
+      react: 18.3.0-canary-c5b937576-20231219
+    dev: false
+
   /react-stately@3.29.0(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-JWPgEg2RxDtSmMkypsBLuhsuiaMDfJcnFw96oDRg8lAGqkslZmbmYH/O1Wz08k2W6P3Bds4rZz6iK91XMNXomA==}
     peerDependencies:
@@ -5554,6 +5612,27 @@ packages:
     dependencies:
       jsesc: 0.5.0
     dev: true
+
+  /replicache-react@5.0.1(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219):
+    resolution: {integrity: sha512-xwiVdoANIX9oagqK8sT/txx9ltfEmkKgbJivdVvyz13bj5PAT+b8o9xuMtY4X1bJgu+9mn04muWPKtPv9MV/ZA==}
+    peerDependencies:
+      react: '>=16.0 <19.0 || 18.3.0-canary-c5b937576-20231219'
+      react-dom: '>=16.0 <19.0 || 18.3.0-canary-c5b937576-20231219'
+    dependencies:
+      react: 18.3.0-canary-c5b937576-20231219
+      react-dom: 18.3.0-canary-c5b937576-20231219(react@18.3.0-canary-c5b937576-20231219)
+    dev: false
+
+  /replicache@14.0.3:
+    resolution: {integrity: sha512-BXj8Wg2LS15h+3H66ws5XDHlNT88mLjqEkvxhecg4OaqnfNMBJRr5/gM9Chu4gVciH5w90G1X6JTsshgvW2FBg==}
+    engines: {node: '>=14.8.0'}
+    hasBin: true
+    dependencies:
+      '@badrap/valita': 0.3.0
+      '@rocicorp/lock': 1.0.3
+      '@rocicorp/logger': 5.2.1
+      '@rocicorp/resolver': 1.0.1
+    dev: false
 
   /req-all@0.1.0:
     resolution: {integrity: sha512-ZdvPr8uXy9ujX3KujwE2P1HWkMYgogIhqeAeyb47MqWjSfyxERSm0TNbN/IapCCmWDufXab04AYrRgObaJCJ6Q==}

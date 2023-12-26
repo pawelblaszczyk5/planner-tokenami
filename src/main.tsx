@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 
-import { App } from "#/app";
+import { router } from "#/lib/router";
 import { invariant } from "#/utils/invariant";
 
-import "@fontsource-variable/inter";
 import "#/main.css";
 import "#/tokenami.css";
 
@@ -14,6 +14,6 @@ invariant(rootElement);
 
 createRoot(rootElement).render(
 	<StrictMode>
-		<App />
+		<RouterProvider router={router} />
 	</StrictMode>,
 );
