@@ -1,10 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+import { invariant } from "#/utils/invariant";
+
+const rootElement = document.querySelector("#root");
+
+invariant(rootElement);
+
+createRoot(rootElement).render(
+	<StrictMode>
+		<h1>Hello world</h1>
+	</StrictMode>,
+);
