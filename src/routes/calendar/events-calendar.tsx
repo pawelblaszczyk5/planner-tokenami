@@ -26,7 +26,7 @@ const WeekdayHeader = () => (
 						"--m": 0.75,
 						"--min-height": 8,
 						"--p": 2,
-						"--xs_font-size": "var(--font-size_sm)",
+						"--xs_font-size": "var(--font-size_base)",
 						"--xs_m": 1.5,
 						"--xs_p": 2.5,
 					}}
@@ -57,7 +57,7 @@ const DayCell = ({ date }: { date: CalendarDate }) => (
 			"--transition-duration": "var(--transition-duration_150)",
 			"--transition-property": "background-color",
 			"--transition-timing-function": "var(--transition-timing-function_ease-in-out)",
-			"--xs_font-size": "var(--font-size_base)",
+			"--xs_font-size": "var(--font-size_lg)",
 			"--xs_m": 1.5,
 			"--xs_p": 2.5,
 			"--xs_rac-focus-visible_outline-offset": 0.75,
