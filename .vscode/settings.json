@@ -1,4 +1,4 @@
 {
-	"cSpell.words": ["linebreak", "plusplus", "replicache", "tanstack", "taze", "tokenami"],
+	"cSpell.words": ["datetime", "Dexie", "linebreak", "plusplus", "taze", "tokenami"],
 	"typescript.tsdk": "node_modules/typescript/lib"
 }

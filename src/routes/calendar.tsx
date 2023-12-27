@@ -1,15 +1,40 @@
-import { Button } from "react-aria-components";
+import { Button, FieldError, Form, Input, Label, TextField } from "react-aria-components";
 
-import { decrementCount, incrementCount, useCount } from "#/lib/data";
+import { addEvent, useEvents } from "#/lib/data";
 
 export const Component = () => {
-	const count = useCount();
+	const events = useEvents();
+
+	if (!events) return;
 
 	return (
 		<>
-			<Button onPress={decrementCount}>Decrement</Button>
-			<h1>{count}</h1>
-			<Button onPress={incrementCount}>Increment</Button>
+			<Form
+				action={async data => {
+					const name = data.get("name") as string;
+
+					await addEvent(name);
+				}}
+				onSubmit={e => {
+					e.currentTarget.reset();
+				}}
+			>
+				<TextField minLength={3} name="name" isRequired>
+					<Label>Event name</Label>
+					<Input />
+					<FieldError />
+				</TextField>
+				<Button type="submit">Add event</Button>
+			</Form>
+			<ul>
+				{events.map(event => (
+					<li key={event.id}>
+						<span>{event.name}</span>
+						<span>{event.datetime}</span>
+					</li>
+				))}
+			</ul>
+			<title>Planner - Calendar</title>
 		</>
 	);
 };

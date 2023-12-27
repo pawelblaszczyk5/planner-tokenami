@@ -1,49 +1,57 @@
-import type { MutatorDefs, ReadTransaction } from "replicache";
-
+/* eslint-disable fp/no-class, fp/no-this -- stop */
+import Dexie, { liveQuery } from "dexie";
 import { useCallback, useEffect, useState } from "react";
-import { Replicache } from "replicache";
 
-const replicache = new Replicache({
-	licenseKey: import.meta.env.VITE_REPLICACHE_LICENSE_KEY,
-	mutators: {
-		decrementCount: async tx => {
-			const current = (await tx.get<number>("count")) ?? 0;
-			const next = current - 1;
+import { generateId } from "#/utils/id";
 
-			await tx.set("count", next);
-		},
-		incrementCount: async tx => {
-			const current = (await tx.get<number>("count")) ?? 0;
-			const next = current + 1;
+type Event = {
+	datetime: string;
+	id: string;
+	name: string;
+};
 
-			await tx.set("count", next);
-		},
-	} satisfies MutatorDefs,
-	name: "baseUser",
-});
+class PlannerDatabase extends Dexie {
+	events!: Dexie.Table<Event, string>;
 
-const useSubscribe = <T>(query: (tx: ReadTransaction) => Promise<T>) => {
+	constructor() {
+		super("PlannerDatabase");
+		this.version(1).stores({
+			events: "&id,name,datetime",
+		});
+	}
+}
+
+const db = new PlannerDatabase();
+
+const useSubscribe = <T>(query: () => Promise<T>) => {
 	const [state, setState] = useState<T>();
 
-	useEffect(() => replicache.subscribe(query, setState), [setState, query]);
+	useEffect(() => {
+		const subscription = liveQuery(query).subscribe(setState);
+
+		return subscription.unsubscribe.bind(subscription);
+	}, [setState, query]);
 
 	return state;
 };
 
-export const useCount = () => {
-	const countQuery = useCallback(async (tx: ReadTransaction) => {
-		const currentValue = await tx.get<number>("count");
+export const useEvents = () => {
+	const eventQuery = useCallback(async () => db.events.toArray(), []);
 
-		return currentValue ?? 0;
-	}, []);
-
-	return useSubscribe(countQuery);
+	return useSubscribe(eventQuery);
 };
 
-export const incrementCount = async () => replicache.mutate.incrementCount();
-export const decrementCount = async () => replicache.mutate.decrementCount();
+export const addEvent = async (name: string) => {
+	const eventDate = new Date().toISOString();
+
+	await db.events.add({
+		datetime: eventDate,
+		id: generateId(),
+		name,
+	});
+};
 
 if (import.meta.hot)
 	import.meta.hot.accept(() => {
-		void replicache.close();
+		db.close();
 	});

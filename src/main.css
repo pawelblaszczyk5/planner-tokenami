@@ -1,208 +1,96 @@
-/* Preflight inspired by TailwindCSS/PandaCSS one */
+/* Preflight from there https://elad2412.github.io/the-new-css-reset/ */
 
-* {
-	margin: 0;
-	padding: 0;
-	font: inherit;
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+	all: unset;
+	display: revert;
 }
 
+/* Preferred box-sizing value */
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
-	border-width: 0;
-	border-style: solid;
-	border-color: currentColor;
 }
 
-html {
-	line-height: 1.5;
-	-webkit-text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-moz-tab-size: 4;
-	tab-size: 4;
-	font-family: var(--font-sans);
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+	cursor: revert;
 }
 
-hr {
-	height: 0;
-	color: inherit;
-	border-top-width: 1px;
-}
-
-body {
-	height: 100%;
-	line-height: inherit;
-}
-
-img {
-	border-style: none;
-}
-
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-	display: block;
-	vertical-align: middle;
-}
-
-img,
-video {
-	max-width: 100%;
-	height: auto;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	overflow-wrap: break-word;
-}
-
+/* Remove list styles (bullets/numbers) */
 ol,
-ul {
+ul,
+menu {
 	list-style: none;
 }
 
-code,
-kbd,
-pre,
-samp {
-	font-size: 1em;
+/* For images to not be able to exceed their container */
+img {
+	max-inline-size: 100%;
+	max-block-size: 100%;
 }
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-	-webkit-appearance: button;
-	background-color: transparent;
-	background-image: none;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-	color: inherit;
-}
-
-button,
-select {
-	text-transform: none;
-}
-
+/* removes spacing between cells in tables */
 table {
-	text-indent: 0;
-	border-color: inherit;
 	border-collapse: collapse;
 }
 
-input::placeholder,
-textarea::placeholder {
-	opacity: 1;
-}
-
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
 textarea {
-	resize: vertical;
+	-webkit-user-select: auto;
 }
 
-summary {
-	display: list-item;
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+	white-space: revert;
 }
 
-small {
-	font-size: 80%;
+/* minimum style to allow to style meter element */
+meter {
+	-webkit-appearance: revert;
+	appearance: revert;
 }
 
-sub,
-sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+/* preformatted text - use only for this feature */
+:where(pre) {
+	all: revert;
 }
 
-sub {
-	bottom: -0.25em;
+/* reset default text opacity of input placeholder */
+::placeholder {
+	color: unset;
 }
 
-sup {
-	top: -0.5em;
+/* remove default dot (•) sign */
+::marker {
+	content: initial;
 }
 
-dialog {
-	padding: 0;
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+	display: none;
 }
 
-a {
-	color: inherit;
-	text-decoration: inherit;
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
+:where([contenteditable]:not([contenteditable="false"])) {
+	-moz-user-modify: read-write;
+	-webkit-user-modify: read-write;
+	overflow-wrap: break-word;
+	-webkit-line-break: after-white-space;
+	-webkit-user-select: auto;
 }
 
-abbr:where([title]) {
-	text-decoration: underline dotted;
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+	-webkit-user-drag: element;
 }
 
-b,
-strong {
-	font-weight: bolder;
-}
-
-code,
-kbd,
-samp,
-pre {
-	font-size: 1em;
-	font-family: var(--font-mono);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="search"],
-input[type="password"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-}
-
-input[type="search"] {
-	-webkit-appearance: textfield;
-	outline-offset: -2px;
-}
-
-::-webkit-search-decoration,
-::-webkit-search-cancel-button {
-	-webkit-appearance: none;
-}
-
-::-webkit-file-upload-button {
-	-webkit-appearance: button;
-	font: inherit;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	height: auto;
-}
-
-input[type="number"] {
-	-moz-appearance: textfield;
-}
-
-:-moz-ui-invalid {
-	box-shadow: none;
-}
-
-:-moz-focusring {
-	outline: auto;
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+	all: revert;
 }

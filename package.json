@@ -14,13 +14,14 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.0.16",
+		"@internationalized/date": "^3.5.1",
 		"@tokenami/css": "^0.0.7",
+		"dexie": "^3.2.4",
+		"nanoid": "^5.0.4",
 		"react": "18.3.0-canary-c5b937576-20231219",
 		"react-aria-components": "^1.0.0",
 		"react-dom": "18.3.0-canary-c5b937576-20231219",
-		"react-router-dom": "^6.21.1",
-		"replicache": "^14.0.3",
-		"replicache-react": "^5.0.1"
+		"react-router-dom": "^6.21.1"
 	},
 	"devDependencies": {
 		"@react-aria/optimize-locales-plugin": "^1.0.0",
