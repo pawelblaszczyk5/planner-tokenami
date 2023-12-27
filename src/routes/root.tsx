@@ -10,7 +10,6 @@ export const Component = () => {
 				<Outlet />
 				<ScrollRestoration />
 			</I18nProvider>
-			<title>Planner</title>
 		</RouterProvider>
 	);
 };

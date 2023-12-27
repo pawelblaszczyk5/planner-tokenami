@@ -2,6 +2,7 @@ import { createConfig, defaultConfig } from "@tokenami/dev";
 
 export default createConfig({
 	aliases: {
+		h: ["height"],
 		m: ["mt", "mr", "mb", "ml", "mx", "my", "margin"],
 		mb: ["margin-bottom"],
 		ml: ["margin-left"],
@@ -16,11 +17,21 @@ export default createConfig({
 		pt: ["padding-top"],
 		px: ["pl", "pr", "padding-left", "padding-right"],
 		py: ["pt", "pb", "padding-top", "padding-bottom"],
+		w: ["width"],
 	},
 	grid: "0.25rem",
 	include: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
+	properties: {
+		...defaultConfig.properties,
+		"outline-offset": ["grid"],
+		"outline-style": ["line-style"],
+		"outline-width": ["grid"],
+		"transition-duration": ["transition-duration"],
+		"transition-timing-function": ["transition-timing-function"],
+	},
 	responsive: {
 		/* eslint-disable perfectionist/sort-objects */
+		xs: "@media (min-width: 480px)",
 		sm: "@media (min-width: 640px)",
 		md: "@media (min-width: 768px)",
 		lg: "@media (min-width: 1024px)",
@@ -33,6 +44,7 @@ export default createConfig({
 		hover: ["@media (hover: hover) and (pointer: fine)", "&:hover"],
 		"rac-calendar-cell": "& td, & th",
 		"rac-focus": "&[data-focused]",
+		"rac-focus-visible": "&[data-focus-visible]",
 		"rac-hover": "&[data-hovered]",
 		"rac-outside-month": "&[data-outside-month]",
 		"rac-outside-visible-range": "&[data-outside-visible-range]",
@@ -168,12 +180,37 @@ export default createConfig({
 		"line-style": {
 			solid: "solid",
 		},
-		radii: {},
+		radii: {
+			/* eslint-disable perfectionist/sort-objects */
+			none: "0px",
+			sm: "2px",
+			base: "4px",
+			md: "6px",
+			lg: "8px",
+			xl: "12px",
+			"2xl": "16px",
+			"3xl": "24px",
+			full: "9999px",
+			/* eslint-enable perfectionist/sort-objects */
+		},
 		shadow: {},
 		size: {},
 		surface: {},
 		tracking: {},
 		transition: {},
+		"transition-duration": {
+			/* eslint-disable perfectionist/sort-objects */
+			"150": "150ms",
+			/* eslint-enable perfectionist/sort-objects */
+		},
+		"transition-timing-function": {
+			/* eslint-disable perfectionist/sort-objects */
+			"ease-linear": "linear",
+			"ease-in": "cubic-bezier(0.4, 0, 1, 1)",
+			"ease-out": "cubic-bezier(0, 0, 0.2, 1)",
+			"ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
+			/* eslint-enable perfectionist/sort-objects */
+		},
 		weight: {
 			/* eslint-disable perfectionist/sort-objects */
 			thin: "100",
