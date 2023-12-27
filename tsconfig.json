@@ -10,6 +10,7 @@
 		"verbatimModuleSyntax": true,
 		"allowSyntheticDefaultImports": true,
 		"plugins": [{ "name": "@tokenami/ts-plugin" }],
+		"types": ["unplugin-icons/types/react"],
 
 		/* Paths */
 		"baseUrl": ".",

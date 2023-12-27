@@ -25,6 +25,8 @@
 	},
 	"devDependencies": {
 		"@react-aria/optimize-locales-plugin": "^1.0.0",
+		"@svgr/core": "^8.1.0",
+		"@svgr/plugin-jsx": "^8.1.0",
 		"@tokenami/dev": "^0.0.8-next.1",
 		"@tokenami/ts-plugin": "^0.0.8-next.1",
 		"@types/react": "^18.2.45",
@@ -52,6 +54,7 @@
 		"prettier": "^3.1.1",
 		"taze": "^0.13.1",
 		"typescript": "^5.3.3",
+		"unplugin-icons": "^0.18.1",
 		"vite": "^5.0.10",
 		"vite-tsconfig-paths": "^4.2.2"
 	},
