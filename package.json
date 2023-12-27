@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "tokenami --output ./src/tokenami.css --watch & vite",
-		"build": "tokenami --output ./src/tokenami.css && vite build",
+		"build": "tokenami --output ./src/tokenami.css --minify && vite build",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-path .gitignore",
 		"preview": "vite preview",
 		"format": "prettier \".\" --write",
@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.0.16",
 		"@internationalized/date": "^3.5.1",
-		"@tokenami/css": "^0.0.7",
+		"@tokenami/css": "^0.0.8-next.1",
 		"dexie": "^3.2.4",
 		"nanoid": "^5.0.4",
 		"react": "18.3.0-canary-c5b937576-20231219",
@@ -25,8 +25,8 @@
 	},
 	"devDependencies": {
 		"@react-aria/optimize-locales-plugin": "^1.0.0",
-		"@tokenami/dev": "^0.0.7",
-		"@tokenami/ts-plugin": "^0.0.7",
+		"@tokenami/dev": "^0.0.8-next.1",
+		"@tokenami/ts-plugin": "^0.0.8-next.1",
 		"@types/react": "^18.2.45",
 		"@types/react-dom": "^18.2.18",
 		"@typescript-eslint/eslint-plugin": "^6.16.0",

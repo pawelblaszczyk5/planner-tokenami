@@ -1,6 +1,22 @@
 import { createConfig, defaultConfig } from "@tokenami/dev";
 
 export default createConfig({
+	aliases: {
+		m: ["mt", "mr", "mb", "ml", "mx", "my", "margin"],
+		mb: ["margin-bottom"],
+		ml: ["margin-left"],
+		mr: ["margin-right"],
+		mt: ["margin-top"],
+		mx: ["ml", "mr", "margin-left", "margin-right"],
+		my: ["mt", "mb", "margin-top", "margin-bottom"],
+		p: ["pt", "pr", "pb", "pl", "px", "py", "padding"],
+		pb: ["padding-bottom"],
+		pl: ["padding-left"],
+		pr: ["padding-right"],
+		pt: ["padding-top"],
+		px: ["pl", "pr", "padding-left", "padding-right"],
+		py: ["pt", "pb", "padding-top", "padding-bottom"],
+	},
 	grid: "0.25rem",
 	include: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
 	responsive: {
@@ -15,6 +31,12 @@ export default createConfig({
 	selectors: {
 		...defaultConfig.selectors,
 		hover: ["@media (hover: hover) and (pointer: fine)", "&:hover"],
+		"rac-calendar-cell": "& td, & th",
+		"rac-focus": "&[data-focused]",
+		"rac-hover": "&[data-hovered]",
+		"rac-outside-month": "&[data-outside-month]",
+		"rac-outside-visible-range": "&[data-outside-visible-range]",
+		"rac-selected": "&[data-selected]",
 	},
 	theme: {
 		alpha: {},
@@ -143,7 +165,9 @@ export default createConfig({
 			/* eslint-enable perfectionist/sort-objects */
 		},
 		leading: {},
-		"line-style": {},
+		"line-style": {
+			solid: "solid",
+		},
 		radii: {},
 		shadow: {},
 		size: {},

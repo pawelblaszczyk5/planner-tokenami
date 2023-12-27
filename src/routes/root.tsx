@@ -6,7 +6,7 @@ export const Component = () => {
 
 	return (
 		<RouterProvider navigate={navigate}>
-			<I18nProvider>
+			<I18nProvider locale="en-US">
 				<Outlet />
 				<ScrollRestoration />
 			</I18nProvider>

@@ -1,13 +1,15 @@
 /* eslint-disable fp/no-class, fp/no-this -- stop */
+import { parseAbsoluteToLocal } from "@internationalized/date";
 import Dexie, { liveQuery } from "dexie";
 import { useCallback, useEffect, useState } from "react";
 
 import { generateId } from "#/utils/id";
 
 type Event = {
-	datetime: string;
+	endDate: string;
 	id: string;
 	name: string;
+	startDate: string;
 };
 
 class PlannerDatabase extends Dexie {
@@ -42,12 +44,16 @@ export const useEvents = () => {
 };
 
 export const addEvent = async (name: string) => {
-	const eventDate = new Date().toISOString();
+	const eventDate = parseAbsoluteToLocal(new Date().toISOString());
+
+	const startDate = eventDate.toAbsoluteString();
+	const endDate = eventDate.add({ hours: 2 }).toAbsoluteString();
 
 	await db.events.add({
-		datetime: eventDate,
+		endDate,
 		id: generateId(),
 		name,
+		startDate,
 	});
 };
 
