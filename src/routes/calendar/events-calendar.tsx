@@ -60,7 +60,7 @@ const DayCell = ({ date }: { date: CalendarDate }) => (
 			"--xs_font-size": "var(--font-size_base)",
 			"--xs_m": 1.5,
 			"--xs_p": 2.5,
-			"--xs_rac-focus-visible_outline-offset": 1,
+			"--xs_rac-focus-visible_outline-offset": 0.75,
 			...(date.toDate("utc").getDay() % 6 === 0 && {
 				"--background-color": "var(--color_sand-2)",
 			}),
