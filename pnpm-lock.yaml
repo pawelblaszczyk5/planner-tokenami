@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.5.1
     version: 3.5.1
   '@tokenami/css':
-    specifier: ^0.0.8-next.2
-    version: 0.0.8-next.2(@tokenami/dev@0.0.8-next.2)(typescript@5.3.3)
+    specifier: ^0.0.9
+    version: 0.0.9(@tokenami/dev@0.0.9)(typescript@5.3.3)
   dexie:
     specifier: ^3.2.4
     version: 3.2.4
@@ -44,11 +44,11 @@ devDependencies:
     specifier: ^8.1.0
     version: 8.1.0(@svgr/core@8.1.0)
   '@tokenami/dev':
-    specifier: ^0.0.8-next.2
-    version: 0.0.8-next.2(typescript@5.3.3)
+    specifier: ^0.0.9
+    version: 0.0.9(typescript@5.3.3)
   '@tokenami/ts-plugin':
-    specifier: ^0.0.8-next.2
-    version: 0.0.8-next.2(@tokenami/dev@0.0.8-next.2)
+    specifier: ^0.0.9
+    version: 0.0.9(@tokenami/dev@0.0.9)
   '@types/react':
     specifier: ^18.2.45
     version: 18.2.45
@@ -64,9 +64,6 @@ devDependencies:
   '@vitejs/plugin-react-swc':
     specifier: ^3.5.0
     version: 3.5.0(vite@5.0.10)
-  csstype:
-    specifier: ^3.1.3
-    version: 3.1.3
   eslint:
     specifier: ^8.56.0
     version: 8.56.0
@@ -2545,30 +2542,30 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
 
-  /@tokenami/config@0.0.8-next.2:
-    resolution: {integrity: sha512-cvUT0gXOzYDihyB5gGqWc4eyfBjZiwawdml7mIj4v4RjBR0UzZBvjxxtLXcBzQ4zJTXthjHmwUzRHe6TYrWNUg==, tarball: https://npm.pkg.github.com/download/@tokenami/config/0.0.8-next.2/367f088169f3df62268169918a7d3a0b1a3db971}
+  /@tokenami/config@0.0.9:
+    resolution: {integrity: sha512-2Y502sSIZUMYMclnEa+b8ch9nMiDkHyCBuJx+Sq8uXnuuMh3EQzgBwypYVCbS/jIJCCho5E4cv5XyxUHyLAO8Q==, tarball: https://npm.pkg.github.com/download/@tokenami/config/0.0.9/dbc98430d0a13cbf626dafbbd510d6385370de70}
     dependencies:
-      zod: 3.22.4
+      valibot: 0.25.0
 
-  /@tokenami/css@0.0.8-next.2(@tokenami/dev@0.0.8-next.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-3G0d2dE6XGPfPfrvzEesB9GHdjBQuJqFJbBCCodtS4oe3WvpeSPenl2GEVtIb7TNoiZUM+/hUt4Q71MM+IHbDQ==, tarball: https://npm.pkg.github.com/download/@tokenami/css/0.0.8-next.2/a3621ec26ade0960014a9a717ca48d865e11b0a0}
+  /@tokenami/css@0.0.9(@tokenami/dev@0.0.9)(typescript@5.3.3):
+    resolution: {integrity: sha512-l90xT+o2G5iZyNBHw2f3kSGETDnQOiXVG1PHCmXonQokRK/HbBvjOglZuUVd18cpPVf1hbG85rYxFPGhBvRVgw==, tarball: https://npm.pkg.github.com/download/@tokenami/css/0.0.9/9bcec41a1b155f78c4304a21d830eed26493c50a}
     peerDependencies:
-      '@tokenami/dev': 0.0.8-next.2
+      '@tokenami/dev': 0.0.9
       typescript: '>= 5'
     dependencies:
-      '@tokenami/config': 0.0.8-next.2
-      '@tokenami/dev': 0.0.8-next.2(typescript@5.3.3)
+      '@tokenami/config': 0.0.9
+      '@tokenami/dev': 0.0.9(typescript@5.3.3)
       typescript: 5.3.3
     dev: false
 
-  /@tokenami/dev@0.0.8-next.2(typescript@5.3.3):
-    resolution: {integrity: sha512-Ki9ZnpwUdB28FULswgA3PSDzI45HaH4AbhpfSa6HdgjuoKqRJyzjKM5Djt8LynQnCVTVkH88ijBp3llwySglFg==, tarball: https://npm.pkg.github.com/download/@tokenami/dev/0.0.8-next.2/a1c791e4b2d4058b2377a7f319e83c5dbc0db4b0}
+  /@tokenami/dev@0.0.9(typescript@5.3.3):
+    resolution: {integrity: sha512-Zd7YZZmCc/cMO//Q/dhf/ZWzErUaUrScZg9RV2IMI+5/SB6fyGo+vUWTlPEIVPgU+qIFdbAYBEebxabctSCuLg==, tarball: https://npm.pkg.github.com/download/@tokenami/dev/0.0.9/f885147ada88bbc6d5e9301202ba4800b1a42513}
     hasBin: true
     peerDependencies:
       typescript: '>= 5'
     dependencies:
       '@stitches/stringify': 1.2.8
-      '@tokenami/config': 0.0.8-next.2
+      '@tokenami/config': 0.0.9
       browserslist: 4.22.2
       cac: 6.7.14
       chalk: 5.3.0
@@ -2582,13 +2579,13 @@ packages:
       sucrase: 3.35.0
       typescript: 5.3.3
 
-  /@tokenami/ts-plugin@0.0.8-next.2(@tokenami/dev@0.0.8-next.2):
-    resolution: {integrity: sha512-27qPgOVHV3/hzS4Tr2AgG571RewnE92B/IwS/jFvaRcrviIT6efyMxMzI/+5ZA50qguI8J42bGBBX2+G9pLBzw==, tarball: https://npm.pkg.github.com/download/@tokenami/ts-plugin/0.0.8-next.2/7660255f7238898926ce20b9c6662f48922291e2}
+  /@tokenami/ts-plugin@0.0.9(@tokenami/dev@0.0.9):
+    resolution: {integrity: sha512-89INuHlIwjhkmZFw4dKKiSIr4w8cOP/OvEQbifCe47+3KtUU+i4EZJik/8hKopq7RIf5xxa7KUa7m7eXYpW8Tw==, tarball: https://npm.pkg.github.com/download/@tokenami/ts-plugin/0.0.9/0022fcc0df3e0d3316f7aac1ef8f3331b0f3e711}
     peerDependencies:
-      '@tokenami/dev': 0.0.8-next.2
+      '@tokenami/dev': 0.0.9
     dependencies:
-      '@tokenami/config': 0.0.8-next.2
-      '@tokenami/dev': 0.0.8-next.2(typescript@5.3.3)
+      '@tokenami/config': 0.0.9
+      '@tokenami/dev': 0.0.9(typescript@5.3.3)
     dev: true
 
   /@tufjs/canonical-json@2.0.0:
@@ -6844,6 +6841,9 @@ packages:
       which-typed-array: 1.1.13
     dev: true
 
+  /valibot@0.25.0:
+    resolution: {integrity: sha512-cmD0ca15oyAbT75iYLNW6uU6doAeIwYfOshpXka/E1Bx4frzbkrgb7gvkI7K0YK/DVOksei4FfxWfRoBP3NFTg==}
+
   /validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
     dependencies:
@@ -7060,6 +7060,3 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
-
-  /zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}

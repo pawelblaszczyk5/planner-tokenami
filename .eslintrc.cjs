@@ -124,7 +124,7 @@ const typescriptRules = {
 		{
 			patterns: [
 				{
-					group: [".*"],
+					group: ["./*"],
 					message: "Don't use relative imports",
 				},
 				{
