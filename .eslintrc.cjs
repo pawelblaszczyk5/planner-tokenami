@@ -288,7 +288,7 @@ module.exports = {
 	ignorePatterns: ["dist", "!.tokenami"],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
-		project: ["tsconfig.json", "tsconfig.node.json"],
+		project: ["tsconfig.json", "tsconfig.node.json", "tsconfig.ci.json"],
 		// @ts-expect-error -- don't want to install @types/node
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		tsconfigRootDir: __dirname,

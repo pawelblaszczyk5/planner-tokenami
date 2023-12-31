@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.5.1
     version: 3.5.1
   '@tokenami/css':
-    specifier: ^0.0.9
-    version: 0.0.9(@tokenami/dev@0.0.9)(typescript@5.3.3)
+    specifier: ^0.0.11
+    version: 0.0.11(@tokenami/dev@0.0.11)(typescript@5.3.3)
   dexie:
     specifier: ^3.2.4
     version: 3.2.4
@@ -44,11 +44,11 @@ devDependencies:
     specifier: ^8.1.0
     version: 8.1.0(@svgr/core@8.1.0)
   '@tokenami/dev':
-    specifier: ^0.0.9
-    version: 0.0.9(typescript@5.3.3)
+    specifier: ^0.0.11
+    version: 0.0.11(typescript@5.3.3)
   '@tokenami/ts-plugin':
-    specifier: ^0.0.9
-    version: 0.0.9(@tokenami/dev@0.0.9)
+    specifier: ^0.0.11
+    version: 0.0.11(@tokenami/dev@0.0.11)
   '@types/react':
     specifier: ^18.2.45
     version: 18.2.45
@@ -2542,30 +2542,30 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
 
-  /@tokenami/config@0.0.9:
-    resolution: {integrity: sha512-2Y502sSIZUMYMclnEa+b8ch9nMiDkHyCBuJx+Sq8uXnuuMh3EQzgBwypYVCbS/jIJCCho5E4cv5XyxUHyLAO8Q==, tarball: https://npm.pkg.github.com/download/@tokenami/config/0.0.9/dbc98430d0a13cbf626dafbbd510d6385370de70}
+  /@tokenami/config@0.0.11:
+    resolution: {integrity: sha512-6WRxBQ5kjM1zz08ps+mJm55e3Yibhj4ewdgdbrS/D2IUd6RJITiNQIJiVWreJuGX5fRFFtnuqkx8lhiVofcPwg==, tarball: https://npm.pkg.github.com/download/@tokenami/config/0.0.11/b3615b3e544bcb58a2bafa2b1c5d2ca1feb47168}
     dependencies:
       valibot: 0.25.0
 
-  /@tokenami/css@0.0.9(@tokenami/dev@0.0.9)(typescript@5.3.3):
-    resolution: {integrity: sha512-l90xT+o2G5iZyNBHw2f3kSGETDnQOiXVG1PHCmXonQokRK/HbBvjOglZuUVd18cpPVf1hbG85rYxFPGhBvRVgw==, tarball: https://npm.pkg.github.com/download/@tokenami/css/0.0.9/9bcec41a1b155f78c4304a21d830eed26493c50a}
+  /@tokenami/css@0.0.11(@tokenami/dev@0.0.11)(typescript@5.3.3):
+    resolution: {integrity: sha512-55pG5oAezQpc9zDTf0GUuUkVlVub7XlaxFNwT9vavbvniquAQW9eeyQQnrsHtRKW3ogk91dZixv0s2p6yAHFCQ==, tarball: https://npm.pkg.github.com/download/@tokenami/css/0.0.11/68201433242554a11ee832dd231878060f366d87}
     peerDependencies:
-      '@tokenami/dev': 0.0.9
+      '@tokenami/dev': 0.0.11
       typescript: '>= 5'
     dependencies:
-      '@tokenami/config': 0.0.9
-      '@tokenami/dev': 0.0.9(typescript@5.3.3)
+      '@tokenami/config': 0.0.11
+      '@tokenami/dev': 0.0.11(typescript@5.3.3)
       typescript: 5.3.3
     dev: false
 
-  /@tokenami/dev@0.0.9(typescript@5.3.3):
-    resolution: {integrity: sha512-Zd7YZZmCc/cMO//Q/dhf/ZWzErUaUrScZg9RV2IMI+5/SB6fyGo+vUWTlPEIVPgU+qIFdbAYBEebxabctSCuLg==, tarball: https://npm.pkg.github.com/download/@tokenami/dev/0.0.9/f885147ada88bbc6d5e9301202ba4800b1a42513}
+  /@tokenami/dev@0.0.11(typescript@5.3.3):
+    resolution: {integrity: sha512-TEXdtuf5DBfuRmzSWpJkTIEmqmC7454QaFzF2S58Ty04/WPoppCzku4j5/Vz2BZSST5aSpyl18jBBZUePb+jQQ==, tarball: https://npm.pkg.github.com/download/@tokenami/dev/0.0.11/c8a0a6449bd6776f443ea4146c391d14d6fc461a}
     hasBin: true
     peerDependencies:
       typescript: '>= 5'
     dependencies:
       '@stitches/stringify': 1.2.8
-      '@tokenami/config': 0.0.9
+      '@tokenami/config': 0.0.11
       browserslist: 4.22.2
       cac: 6.7.14
       chalk: 5.3.0
@@ -2579,13 +2579,13 @@ packages:
       sucrase: 3.35.0
       typescript: 5.3.3
 
-  /@tokenami/ts-plugin@0.0.9(@tokenami/dev@0.0.9):
-    resolution: {integrity: sha512-89INuHlIwjhkmZFw4dKKiSIr4w8cOP/OvEQbifCe47+3KtUU+i4EZJik/8hKopq7RIf5xxa7KUa7m7eXYpW8Tw==, tarball: https://npm.pkg.github.com/download/@tokenami/ts-plugin/0.0.9/0022fcc0df3e0d3316f7aac1ef8f3331b0f3e711}
+  /@tokenami/ts-plugin@0.0.11(@tokenami/dev@0.0.11):
+    resolution: {integrity: sha512-5nFgdaUJqtV4GgC75VlTnDll8KDHyaDpmsgFjl2FOaW6dJSVPKSfUyd6cAJ6YD3YDaTc1Py4ZtQvUBcydVJ3Dg==, tarball: https://npm.pkg.github.com/download/@tokenami/ts-plugin/0.0.11/ea8a44e8f2d23727864c6046cedd580ff050bd1d}
     peerDependencies:
-      '@tokenami/dev': 0.0.9
+      '@tokenami/dev': 0.0.11
     dependencies:
-      '@tokenami/config': 0.0.9
-      '@tokenami/dev': 0.0.9(typescript@5.3.3)
+      '@tokenami/config': 0.0.11
+      '@tokenami/dev': 0.0.11(typescript@5.3.3)
     dev: true
 
   /@tufjs/canonical-json@2.0.0:

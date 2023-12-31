@@ -42,6 +42,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"useUnknownInCatchVariables": true
 	},
-	"include": ["src", ".tokenami/tokenami.config.ts", ".tokenami/tokenami.d.ts"],
+	"include": ["src", ".tokenami/**/*"],
+	"exclude": [".tokenami/tokenami.env.ci.d.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

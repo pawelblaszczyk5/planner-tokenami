@@ -42,7 +42,6 @@ export default createConfig({
 	selectors: {
 		...defaultConfig.selectors,
 		hover: ["@media (hover: hover) and (pointer: fine)", "&:hover"],
-		"rac-calendar-cell": "& td, & th",
 		"rac-focus": "&[data-focused]",
 		"rac-focus-visible": "&[data-focus-visible]",
 		"rac-hover": "&[data-hovered]",
@@ -199,9 +198,7 @@ export default createConfig({
 		tracking: {},
 		transition: {},
 		"transition-duration": {
-			/* eslint-disable perfectionist/sort-objects */
 			"150": "150ms",
-			/* eslint-enable perfectionist/sort-objects */
 		},
 		"transition-timing-function": {
 			/* eslint-disable perfectionist/sort-objects */
