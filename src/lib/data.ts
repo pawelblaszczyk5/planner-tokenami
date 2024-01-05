@@ -1,8 +1,8 @@
 /* eslint-disable fp/no-class, fp/no-this -- stop */
-import { parseAbsoluteToLocal } from "@internationalized/date";
 import Dexie, { liveQuery } from "dexie";
 import { useCallback, useEffect, useState } from "react";
 
+import { getCurrentZonedDateTime } from "#/utils/date";
 import { generateId } from "#/utils/id";
 
 type Event = {
@@ -44,7 +44,7 @@ export const useEvents = () => {
 };
 
 export const addEvent = async (name: string) => {
-	const eventDate = parseAbsoluteToLocal(new Date().toISOString());
+	const eventDate = getCurrentZonedDateTime();
 
 	const startDate = eventDate.toAbsoluteString();
 	const endDate = eventDate.add({ hours: 2 }).toAbsoluteString();

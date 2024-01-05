@@ -1,6 +1,5 @@
 import type { CalendarDate } from "@internationalized/date";
 
-import { parseAbsoluteToLocal, parseDate, toCalendarDate } from "@internationalized/date";
 import { useLayoutEffect, useMemo } from "react";
 import {
 	Calendar,
@@ -16,6 +15,7 @@ import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
 import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
 
 import { Button } from "#/components/button";
+import { getCurrentCalendarDate, parseDateParts } from "#/utils/date";
 
 const HeaderRow = () => (
 	<CalendarGridHeader style={{ "--min-height": 8 }}>
@@ -96,13 +96,7 @@ const Header = () => (
 const useParsedDate = () => {
 	const { day, month, year } = useParams();
 
-	const parsedDate = useMemo(() => {
-		try {
-			return parseDate(`${year}-${month?.padStart(2, "0")}-${day?.padStart(2, "0")}`);
-		} catch {
-			return null;
-		}
-	}, [day, month, year]);
+	const parsedDate = useMemo(() => parseDateParts(year, month, day), [day, month, year]);
 
 	return parsedDate;
 };
@@ -111,7 +105,7 @@ const useCalendarDate = () => {
 	const navigate = useNavigate();
 	const parsedDate = useParsedDate();
 
-	const currentDate = toCalendarDate(parseAbsoluteToLocal(new Date().toISOString()));
+	const currentDate = getCurrentCalendarDate();
 
 	// Using useLayoutEffect instead of using navigate during rendering because we shouldn't update parent state in render
 	useLayoutEffect(() => {
