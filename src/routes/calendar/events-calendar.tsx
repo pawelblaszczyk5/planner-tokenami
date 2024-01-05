@@ -1,7 +1,6 @@
 import type { CalendarDate } from "@internationalized/date";
 
 import {
-	Button,
 	Calendar,
 	CalendarCell,
 	CalendarGrid,
@@ -10,6 +9,10 @@ import {
 	CalendarHeaderCell,
 	Heading,
 } from "react-aria-components";
+import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
+import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
+
+import { Button } from "#/components/button";
 
 const HeaderRow = () => (
 	<CalendarGridHeader style={{ "--min-height": 8 }}>
@@ -70,10 +73,20 @@ const DayCell = ({ date }: { date: CalendarDate }) => (
 );
 
 const Header = () => (
-	<header style={{ "--display": "flex", "--justify-content": "space-between" }}>
-		<Button slot="previous">◀</Button>
-		<Heading />
-		<Button slot="next">▶</Button>
+	<header style={{ "--align-items": "center", "--display": "flex", "--justify-content": "space-between" }}>
+		<Button slot="previous" variant="muted">
+			<TablerArrowBigLeft />
+		</Button>
+		<Heading
+			style={{
+				"--color": "var(--color_orange-12)",
+				"--font-size": "var(--font-size_xl)",
+				"--font-weight": "var(--weight_semibold)",
+			}}
+		/>
+		<Button slot="next" variant="muted">
+			<TablerArrowBigRight />
+		</Button>
 	</header>
 );
 
