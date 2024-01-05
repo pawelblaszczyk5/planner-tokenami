@@ -9,3 +9,5 @@ export const css = createCss(tokenamiConfig);
 const emptyCss = css({});
 
 export const mergeCss = (...styles: Array<TokenamiProperties | false | undefined>) => emptyCss(null, ...styles);
+
+export { type Variants } from "@tokenami/css";
