@@ -1,5 +1,7 @@
 import type { CalendarDate } from "@internationalized/date";
 
+import { parseAbsoluteToLocal, parseDate, toCalendarDate } from "@internationalized/date";
+import { useLayoutEffect, useMemo } from "react";
 import {
 	Calendar,
 	CalendarCell,
@@ -9,6 +11,7 @@ import {
 	CalendarHeaderCell,
 	Heading,
 } from "react-aria-components";
+import { useNavigate, useParams } from "react-router-dom";
 import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
 import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
 
@@ -90,20 +93,59 @@ const Header = () => (
 	</header>
 );
 
-export const EventsCalendar = () => (
-	<Calendar
-		style={{
-			"--display": "flex",
-			"--flex-direction": "column",
-			"--gap": 4,
-			"--width": "var(---, 100%)",
-		}}
-		aria-label="Events"
-	>
-		<Header />
-		<CalendarGrid weekdayStyle="short">
-			<HeaderRow />
-			<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
-		</CalendarGrid>
-	</Calendar>
-);
+const useParsedDate = () => {
+	const { day, month, year } = useParams();
+
+	const parsedDate = useMemo(() => {
+		try {
+			return parseDate(`${year}-${month?.padStart(2, "0")}-${day?.padStart(2, "0")}`);
+		} catch {
+			return null;
+		}
+	}, [day, month, year]);
+
+	return parsedDate;
+};
+
+const useCalendarDate = () => {
+	const navigate = useNavigate();
+	const parsedDate = useParsedDate();
+
+	const currentDate = toCalendarDate(parseAbsoluteToLocal(new Date().toISOString()));
+
+	// Using useLayoutEffect instead of using navigate during rendering because we shouldn't update parent state in render
+	useLayoutEffect(() => {
+		if (!parsedDate) navigate(`/${currentDate.year}/${currentDate.month}/${currentDate.day}`);
+	}, [parsedDate, navigate, currentDate]);
+
+	return parsedDate ?? currentDate;
+};
+
+export const EventsCalendar = () => {
+	const navigate = useNavigate();
+	const date = useCalendarDate();
+
+	const navigateToDate = (date: CalendarDate) => {
+		navigate(`/${date.year}/${date.month}/${date.day}`);
+	};
+
+	return (
+		<Calendar
+			style={{
+				"--display": "flex",
+				"--flex-direction": "column",
+				"--gap": 4,
+				"--width": "var(---, 100%)",
+			}}
+			aria-label="Events"
+			onChange={navigateToDate}
+			value={date}
+		>
+			<Header />
+			<CalendarGrid weekdayStyle="short">
+				<HeaderRow />
+				<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
+			</CalendarGrid>
+		</Calendar>
+	);
+};

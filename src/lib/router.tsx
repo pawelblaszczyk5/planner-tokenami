@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
       },
       {
 				lazy: async () => import("#/routes/calendar/route"),
-				path: "/:year?/:month?",
+				path: "/:year?/:month?/:day?",
 			},
 		],
 		lazy: async () => import("#/routes/root"),
