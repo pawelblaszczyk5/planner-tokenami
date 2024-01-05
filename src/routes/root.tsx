@@ -1,5 +1,5 @@
 import { I18nProvider, RouterProvider } from "react-aria-components";
-import { Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
+import { Link, Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import FluentEmojiCalendar from "virtual:icons/fluent-emoji/calendar";
 import TablerCalendarPlus from "virtual:icons/tabler/calendar-plus";
 
@@ -43,7 +43,26 @@ export const Component = () => {
 					</header>
 					<Outlet />
 					<ScrollRestoration />
-					<footer style={{ "--mt": "var(---, auto)" }}>Footer content</footer>
+					<footer
+						style={{
+							"--color": "var(--color_sand-11)",
+							"--font-size": "var(--font-size_sm)",
+							"--mt": "var(---, auto)",
+							"--text-align": "center",
+						}}
+					>
+						<Link style={{ "--text-decoration": "underline" }} to="/">
+							Home
+						</Link>{" "}
+						|{" "}
+						<Link style={{ "--text-decoration": "underline" }} to="/info">
+							Info
+						</Link>{" "}
+						|{" "}
+						<a href="https://example.com" rel="noreferrer" style={{ "--text-decoration": "underline" }}>
+							Tailwind&nbsp;version
+						</a>
+					</footer>
 				</I18nProvider>
 			</RouterProvider>
 		</div>
