@@ -4,10 +4,10 @@ export const router = createBrowserRouter([
 	{
 		children: [
 			{
-				lazy: async () => import("#/routes/info"),
+				lazy: async () => import("#/routes/info/route"),
 				path: "info",
-      },
-      {
+			},
+			{
 				lazy: async () => import("#/routes/calendar/route"),
 				path: "/:year?/:month?/:day?",
 			},

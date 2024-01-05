@@ -41,7 +41,9 @@ export const Component = () => {
 							<TablerCalendarPlus />
 						</Button>
 					</header>
-					<Outlet />
+					<main>
+						<Outlet />
+					</main>
 					<ScrollRestoration />
 					<footer
 						style={{
