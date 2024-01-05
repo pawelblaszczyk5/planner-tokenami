@@ -11,7 +11,7 @@ import {
 	Heading,
 } from "react-aria-components";
 
-const WeekdayHeader = () => (
+const HeaderRow = () => (
 	<CalendarGridHeader style={{ "--min-height": 8 }}>
 		{day => (
 			<CalendarHeaderCell>
@@ -69,24 +69,27 @@ const DayCell = ({ date }: { date: CalendarDate }) => (
 	/>
 );
 
+const Header = () => (
+	<header style={{ "--display": "flex", "--justify-content": "space-between" }}>
+		<Button slot="previous">◀</Button>
+		<Heading />
+		<Button slot="next">▶</Button>
+	</header>
+);
+
 export const EventsCalendar = () => (
 	<Calendar
 		style={{
 			"--display": "flex",
 			"--flex-direction": "column",
 			"--gap": 4,
-			"--max-width": 300,
 			"--width": "var(---, 100%)",
 		}}
 		aria-label="Events"
 	>
-		<header style={{ "--display": "flex", "--justify-content": "space-between" }}>
-			<Button slot="previous">◀</Button>
-			<Heading />
-			<Button slot="next">▶</Button>
-		</header>
+		<Header />
 		<CalendarGrid weekdayStyle="short">
-			<WeekdayHeader />
+			<HeaderRow />
 			<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
 		</CalendarGrid>
 	</Calendar>

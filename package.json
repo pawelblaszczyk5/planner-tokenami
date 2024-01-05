@@ -25,6 +25,9 @@
 		"react-router-dom": "^6.21.1"
 	},
 	"devDependencies": {
+		"@iconify-json/fluent-emoji": "^1.1.15",
+		"@iconify-json/lucide": "^1.1.138",
+		"@iconify-json/tabler": "^1.1.100",
 		"@react-aria/optimize-locales-plugin": "^1.0.0",
 		"@svgr/core": "^8.1.0",
 		"@svgr/plugin-jsx": "^8.1.0",

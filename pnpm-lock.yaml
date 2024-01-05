@@ -34,6 +34,15 @@ dependencies:
     version: 6.21.1(react-dom@18.3.0-canary-c5b937576-20231219)(react@18.3.0-canary-c5b937576-20231219)
 
 devDependencies:
+  '@iconify-json/fluent-emoji':
+    specifier: ^1.1.15
+    version: 1.1.15
+  '@iconify-json/lucide':
+    specifier: ^1.1.138
+    version: 1.1.138
+  '@iconify-json/tabler':
+    specifier: ^1.1.100
+    version: 1.1.100
   '@react-aria/optimize-locales-plugin':
     specifier: ^1.0.0
     version: 1.0.0
@@ -674,6 +683,24 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
+    dev: true
+
+  /@iconify-json/fluent-emoji@1.1.15:
+    resolution: {integrity: sha512-C0HajGHrQpLsI7P8/C113xuV8vr8QTD8RG50SuEEG7OMRRA1TkuR+s5lJTuvq/9//yrzI9HMIO5dodh/hKo2sA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/lucide@1.1.138:
+    resolution: {integrity: sha512-CTjdE0zxp90omNY+xgFwSYFz1d2wU+aX0evd0pozUw+VyHUJvfgmdSP45KTeZFq6LnzCbDExgUKeeNQAeZJpIA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/tabler@1.1.100:
+    resolution: {integrity: sha512-mZq8s84tViM9Id15QchllIHRCvmoF8OZqY0u11vUDw9FNIxnM8IdvoJfuUke3iGgaqV0SYhMEmNOnY1O53Y45Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/types@2.0.0:
