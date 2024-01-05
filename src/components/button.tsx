@@ -28,8 +28,8 @@ const button = css(
 				"--hover_background-color": "var(--color_orange-10)",
 			},
 			muted: {
-				"--background-color": "var(--color_sand-3)",
-				"--hover_background-color": "var(--color_sand-4)",
+				"--background-color": "var(--color_orange-3)",
+				"--hover_background-color": "var(--color_orange-4)",
 			},
 			negative: {
 				"--background-color": "var(--color_red-9)",
