@@ -45,13 +45,7 @@ export const Component = () => {
 							</Button>
 							<ModalOverlay>
 								<Modal>
-									<Dialog
-										style={{
-											"--display": "flex",
-										}}
-									>
-										{({ close }) => <EventForm event={undefined} onCancel={close} onComplete={close} />}
-									</Dialog>
+									<Dialog>{({ close }) => <EventForm event={undefined} onCancel={close} onComplete={close} />}</Dialog>
 								</Modal>
 							</ModalOverlay>
 						</DialogTrigger>
