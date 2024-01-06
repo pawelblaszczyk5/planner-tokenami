@@ -20,6 +20,9 @@ const button = css(
 		"--rac-focus-visible_outline-offset": 0.75,
 		"--rac-focus-visible_outline-style": "var(--line-style_solid)",
 		"--rac-focus-visible_outline-width": 0.5,
+		"--transition-duration": "var(--transition-duration_150)",
+		"--transition-property": "background-color",
+		"--transition-timing-function": "var(--transition-timing-function_ease-in-out)",
 	},
 	{
 		variant: {
