@@ -1,4 +1,6 @@
-import { getLocalTimeZone, now, parseDate, today } from "@internationalized/date";
+import type { CalendarDate } from "@internationalized/date";
+
+import { Time, getLocalTimeZone, now, parseDate, toCalendarDateTime, today } from "@internationalized/date";
 
 export const parseDateParts = (year: string | undefined, month: string | undefined, day: string | undefined) => {
 	try {
@@ -11,3 +13,7 @@ export const parseDateParts = (year: string | undefined, month: string | undefin
 export const getCurrentCalendarDate = () => today(getLocalTimeZone());
 
 export const getCurrentZonedDateTime = () => now(getLocalTimeZone());
+
+export const getBeginningOfDay = (date: CalendarDate) => toCalendarDateTime(date, new Time(0, 0, 0));
+
+export const getEndOfDay = (date: CalendarDate) => toCalendarDateTime(date, new Time(23, 59, 59));
