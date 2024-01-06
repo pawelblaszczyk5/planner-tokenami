@@ -1,9 +1,11 @@
 /* eslint-disable fp/no-class, fp/no-this -- stop */
+import type { CalendarDate } from "@internationalized/date";
 import type { Except } from "type-fest";
 
 import Dexie, { liveQuery } from "dexie";
 import { useCallback, useEffect, useState } from "react";
 
+import { getBeginningOfDay, getEndOfDay } from "#/utils/date";
 import { generateId } from "#/utils/id";
 
 export type Event = {
@@ -20,7 +22,7 @@ class PlannerDatabase extends Dexie {
 	constructor() {
 		super("PlannerDatabase");
 		this.version(1).stores({
-			events: "&id,name,datetime",
+			events: "&id, name, startDate, endDate",
 		});
 	}
 }
@@ -45,14 +47,24 @@ export const useEvents = () => {
 	return useSubscribe(eventQuery);
 };
 
+export const useEventsCountForDate = (date: CalendarDate) => {
+	const eventQuery = useCallback(async () => {
+		const startDate = getBeginningOfDay(date);
+		const endDate = getEndOfDay(date);
+
+		return db.events
+			.where("startDate")
+			.belowOrEqual(endDate.toString())
+			.and(event => event.endDate >= startDate.toString())
+			.count();
+	}, [date]);
+
+	return useSubscribe(eventQuery);
+};
+
 export const addEvent = async (event: Except<Event, "id">) => {
 	await db.events.add({
 		id: generateId(),
 		...event,
 	});
 };
-
-if (import.meta.hot)
-	import.meta.hot.accept(() => {
-		db.close();
-	});
