@@ -3,7 +3,7 @@ import { Link, Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import FluentEmojiCalendar from "virtual:icons/fluent-emoji/calendar";
 import TablerCalendarPlus from "virtual:icons/tabler/calendar-plus";
 
-import { Button } from "#/components/button";
+import { Button } from "#/components/ui/button";
 
 export const Component = () => {
 	const navigate = useNavigate();

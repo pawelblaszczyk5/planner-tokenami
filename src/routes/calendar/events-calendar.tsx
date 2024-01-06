@@ -14,7 +14,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
 import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
 
-import { Button } from "#/components/button";
+import { Button } from "#/components/ui/button";
 import { getCurrentCalendarDate, parseDateParts } from "#/utils/date";
 
 const HeaderRow = () => (
