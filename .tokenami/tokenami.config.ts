@@ -45,8 +45,10 @@ export default createConfig({
 		"rac-focus": "&[data-focused]",
 		"rac-focus-visible": "&[data-focus-visible]",
 		"rac-hover": "&[data-hovered]",
+		"rac-invalid": "&[data-invalid]",
 		"rac-outside-month": "&[data-outside-month]",
 		"rac-outside-visible-range": "&[data-outside-visible-range]",
+		"rac-placeholder": "&[data-placeholder]",
 		"rac-selected": "&[data-selected]",
 	},
 	theme: {

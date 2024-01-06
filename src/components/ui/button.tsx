@@ -16,7 +16,7 @@ const button = css(
 		"--gap": 1.5,
 		"--px": 2.5,
 		"--py": 2,
-		"--rac-focus-visible_outline-color": "var(--color_blue-7)",
+		"--rac-focus-visible_outline-color": "var(--color_blue-8)",
 		"--rac-focus-visible_outline-offset": 0.75,
 		"--rac-focus-visible_outline-style": "var(--line-style_solid)",
 		"--rac-focus-visible_outline-width": 0.5,

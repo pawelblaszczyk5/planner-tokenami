@@ -1,11 +1,13 @@
 /* eslint-disable fp/no-class, fp/no-this -- stop */
+import type { Except } from "type-fest";
+
 import Dexie, { liveQuery } from "dexie";
 import { useCallback, useEffect, useState } from "react";
 
-import { getCurrentZonedDateTime } from "#/utils/date";
 import { generateId } from "#/utils/id";
 
-type Event = {
+export type Event = {
+	description: string;
 	endDate: string;
 	id: string;
 	name: string;
@@ -43,17 +45,10 @@ export const useEvents = () => {
 	return useSubscribe(eventQuery);
 };
 
-export const addEvent = async (name: string) => {
-	const eventDate = getCurrentZonedDateTime();
-
-	const startDate = eventDate.toAbsoluteString();
-	const endDate = eventDate.add({ hours: 2 }).toAbsoluteString();
-
+export const addEvent = async (event: Except<Event, "id">) => {
 	await db.events.add({
-		endDate,
 		id: generateId(),
-		name,
-		startDate,
+		...event,
 	});
 };
 

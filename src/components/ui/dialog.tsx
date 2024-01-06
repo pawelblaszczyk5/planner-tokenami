@@ -58,7 +58,7 @@ export const Dialog = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacD
 			{
 				"--background-color": "var(--color_sand-2)",
 				"--border-radius": "var(--radii_md)",
-				"--max-width": 175,
+				"--max-width": 150,
 				"--p": 6,
 				"--width": "var(---, 100%)",
 			},

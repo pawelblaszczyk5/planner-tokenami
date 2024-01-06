@@ -52,7 +52,7 @@ const DayCell = ({ date }: { date: CalendarDate }) => (
 			"--m": 0.75,
 			"--min-height": 16,
 			"--p": 2,
-			"--rac-focus-visible_outline-color": "var(--color_blue-7)",
+			"--rac-focus-visible_outline-color": "var(--color_blue-8)",
 			"--rac-focus-visible_outline-offset": 0.25,
 			"--rac-focus-visible_outline-style": "var(--line-style_solid)",
 			"--rac-focus-visible_outline-width": 0.5,

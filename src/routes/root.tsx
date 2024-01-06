@@ -3,7 +3,9 @@ import { Link, Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
 import FluentEmojiCalendar from "virtual:icons/fluent-emoji/calendar";
 import TablerCalendarPlus from "virtual:icons/tabler/calendar-plus";
 
+import { EventForm } from "#/components/event-form";
 import { Button } from "#/components/ui/button";
+import { Dialog, DialogTrigger, Modal, ModalOverlay } from "#/components/ui/dialog";
 
 export const Component = () => {
 	const navigate = useNavigate();
@@ -36,10 +38,23 @@ export const Component = () => {
 								"--font-size": "var(--font-size_4xl)",
 							}}
 						/>
-						<Button>
-							Add new event
-							<TablerCalendarPlus />
-						</Button>
+						<DialogTrigger>
+							<Button>
+								Add new event
+								<TablerCalendarPlus />
+							</Button>
+							<ModalOverlay>
+								<Modal>
+									<Dialog
+										style={{
+											"--display": "flex",
+										}}
+									>
+										{({ close }) => <EventForm event={undefined} onCancel={close} onComplete={close} />}
+									</Dialog>
+								</Modal>
+							</ModalOverlay>
+						</DialogTrigger>
 					</header>
 					<main>
 						<Outlet />
