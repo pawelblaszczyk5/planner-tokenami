@@ -62,6 +62,33 @@ export const useEventsCountForDate = (date: CalendarDate) => {
 	return useSubscribe(eventQuery);
 };
 
+const MIN_EVENTS_COUNT = 5;
+
+export const useEventsForDate = (date: CalendarDate) => {
+	const eventQuery = useCallback(async () => {
+		const startDate = getBeginningOfDay(date);
+		const endDate = getEndOfDay(date);
+
+		const eventsForDate = await db.events
+			.where("startDate")
+			.belowOrEqual(endDate.toString())
+			.and(event => event.endDate >= startDate.toString())
+			.toArray();
+
+		if (eventsForDate.length >= MIN_EVENTS_COUNT) return eventsForDate;
+
+		const eventsFromFuture = await db.events
+			.where("startDate")
+			.aboveOrEqual(endDate.toString())
+			.limit(MIN_EVENTS_COUNT - eventsForDate.length)
+			.toArray();
+
+		return [...eventsForDate, ...eventsFromFuture];
+	}, [date]);
+
+	return useSubscribe(eventQuery);
+};
+
 export const addEvent = async (event: Except<Event, "id">) => {
 	await db.events.add({
 		id: generateId(),

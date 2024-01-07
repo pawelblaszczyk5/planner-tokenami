@@ -20,6 +20,7 @@
 		"dexie": "^3.2.4",
 		"nanoid": "^5.0.4",
 		"react": "18.3.0-canary-c5b937576-20231219",
+		"react-aria": "^3.31.0",
 		"react-aria-components": "^1.0.0",
 		"react-dom": "18.3.0-canary-c5b937576-20231219",
 		"react-router-dom": "^6.21.1"

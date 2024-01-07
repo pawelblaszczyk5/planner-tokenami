@@ -1,22 +1,23 @@
 import type { CalendarDate } from "@internationalized/date";
 
 import { useLayoutEffect, useMemo } from "react";
+import { useDateFormatter } from "react-aria";
 import {
-	Calendar,
 	CalendarCell,
 	CalendarGrid,
 	CalendarGridBody,
 	CalendarGridHeader,
 	CalendarHeaderCell,
 	Heading,
+	Calendar as RacCalendar,
 } from "react-aria-components";
 import { useNavigate, useParams } from "react-router-dom";
 import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
 import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
 
 import { Button } from "#/components/ui/button";
-import { useEventsCountForDate } from "#/lib/data";
-import { getCurrentCalendarDate, parseDateParts } from "#/utils/date";
+import { useEventsCountForDate, useEventsForDate } from "#/lib/data";
+import { convertCalendarDateToDate, getCurrentCalendarDate, parseDateParts } from "#/utils/date";
 
 const HeaderRow = () => (
 	<CalendarGridHeader style={{ "--min-height": 8 }}>
@@ -139,6 +140,57 @@ const Header = () => (
 	</header>
 );
 
+const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (date: CalendarDate) => void }) => (
+	<RacCalendar
+		style={{
+			"--display": "flex",
+			"--flex-direction": "column",
+			"--gap": 4,
+			"--width": "var(---, 100%)",
+		}}
+		aria-label="Events"
+		onChange={onDateChange}
+		value={date}
+	>
+		<Header />
+		<CalendarGrid
+			style={{
+				"--table-layout": "fixed",
+			}}
+			weekdayStyle="short"
+		>
+			<HeaderRow />
+			<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
+		</CalendarGrid>
+	</RacCalendar>
+);
+
+const List = ({ date }: { date: CalendarDate }) => {
+	const formatter = useDateFormatter();
+
+	const events = useEventsForDate(date) ?? [];
+
+	return (
+		<div
+			style={{
+				"--display": "flex",
+				"--flex-direction": "column",
+				"--gap": 4,
+				"--width": "var(---, 100%)",
+			}}
+		>
+			<h1>Events from {formatter.format(convertCalendarDateToDate(date))}</h1>
+			<ul>
+				{events.map(event => (
+					<li key={event.id}>
+						{event.name} {event.description} {event.startDate} {event.endDate}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+};
+
 const useParsedDate = () => {
 	const { day, month, year } = useParams();
 
@@ -170,27 +222,15 @@ export const EventsCalendar = () => {
 	};
 
 	return (
-		<Calendar
+		<div
 			style={{
 				"--display": "flex",
 				"--flex-direction": "column",
-				"--gap": 4,
-				"--width": "var(---, 100%)",
+				"--gap": 8,
 			}}
-			aria-label="Events"
-			onChange={navigateToDate}
-			value={date}
 		>
-			<Header />
-			<CalendarGrid
-				style={{
-					"--table-layout": "fixed",
-				}}
-				weekdayStyle="short"
-			>
-				<HeaderRow />
-				<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
-			</CalendarGrid>
-		</Calendar>
+			<Calendar date={date} onDateChange={navigateToDate} />
+			<List date={date} />
+		</div>
 	);
 };
