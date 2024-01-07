@@ -15,12 +15,17 @@ import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
 import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
 
 import { Button } from "#/components/ui/button";
+import { useEventsCountForDate } from "#/lib/data";
 import { getCurrentCalendarDate, parseDateParts } from "#/utils/date";
 
 const HeaderRow = () => (
 	<CalendarGridHeader style={{ "--min-height": 8 }}>
 		{day => (
-			<CalendarHeaderCell>
+			<CalendarHeaderCell
+				style={{
+					"--width": "var(---, calc(100% / 7))",
+				}}
+			>
 				<span
 					style={{
 						"--align-items": "center",
@@ -44,36 +49,77 @@ const HeaderRow = () => (
 	</CalendarGridHeader>
 );
 
-const DayCell = ({ date }: { date: CalendarDate }) => (
-	<CalendarCell
-		style={{
-			"--border-radius": "var(--radii_md)",
-			"--font-size": "var(--font-size_sm)",
-			"--m": 0.75,
-			"--min-height": 16,
-			"--p": 2,
-			"--rac-focus-visible_outline-color": "var(--color_blue-8)",
-			"--rac-focus-visible_outline-offset": 0.25,
-			"--rac-focus-visible_outline-style": "var(--line-style_solid)",
-			"--rac-focus-visible_outline-width": 0.5,
-			"--rac-hover_background-color": "var(--color_sand-4)",
-			"--rac-outside-month_color": "var(--color_sand-10)",
-			"--rac-selected_background-color": "var(--color_orange-5)",
-			"--text-align": "right",
-			"--transition-duration": "var(--transition-duration_150)",
-			"--transition-property": "background-color",
-			"--transition-timing-function": "var(--transition-timing-function_ease-in-out)",
-			"--xs_font-size": "var(--font-size_lg)",
-			"--xs_m": 1.5,
-			"--xs_p": 2.5,
-			"--xs_rac-focus-visible_outline-offset": 0.75,
-			...(date.toDate("utc").getDay() % 6 === 0 && {
-				"--background-color": "var(--color_sand-2)",
-			}),
-		}}
-		date={date}
-	/>
-);
+const DayCell = ({ date }: { date: CalendarDate }) => {
+	const eventsForDate = useEventsCountForDate(date) ?? 0;
+
+	return (
+		<CalendarCell
+			style={{
+				"--border-radius": "var(--radii_md)",
+				"--display": "flex",
+				"--flex-direction": "column",
+				"--m": 0.75,
+				"--min-height": 16,
+				"--p": 2,
+				"--position": "relative",
+				"--rac-focus-visible_outline-color": "var(--color_blue-8)",
+				"--rac-focus-visible_outline-offset": 0.25,
+				"--rac-focus-visible_outline-style": "var(--line-style_solid)",
+				"--rac-focus-visible_outline-width": 0.5,
+				"--rac-hover_background-color": "var(--color_sand-4)",
+				"--rac-outside-month_color": "var(--color_sand-10)",
+				"--rac-selected_background-color": "var(--color_orange-5)",
+				"--transition-duration": "var(--transition-duration_150)",
+				"--transition-property": "background-color",
+				"--transition-timing-function": "var(--transition-timing-function_ease-in-out)",
+				"--xs_m": 1.5,
+				"--xs_p": 2.5,
+				"--xs_rac-focus-visible_outline-offset": 0.75,
+				...(date.toDate("utc").getDay() % 6 === 0 && {
+					"--background-color": "var(--color_sand-2)",
+				}),
+			}}
+			date={date}
+		>
+			{({ formattedDate }) => (
+				<>
+					<span
+						style={{
+							"--font-size": "var(--font-size_sm)",
+							"--text-align": "right",
+							"--xs_font-size": "var(--font-size_lg)",
+						}}
+					>
+						{formattedDate}
+					</span>
+					{eventsForDate > 0 && (
+						<div
+							style={{
+								"--align-items": "center",
+								"--display": "flex",
+								"--mt": "var(---, auto)",
+							}}
+						>
+							{/* TODO: Indicate somehow that ther're more events */}
+							{Array.from({ length: Math.min(eventsForDate, 4) }).map((_, index) => (
+								<span
+									style={{
+										"--background-color": "var(--color_orange-9)",
+										"--border-radius": "var(--radii_full)",
+										"--height": 2,
+										"--mr": -0.75,
+										"--width": 2,
+									}}
+									key={index}
+								/>
+							))}
+						</div>
+					)}
+				</>
+			)}
+		</CalendarCell>
+	);
+};
 
 const Header = () => (
 	<header style={{ "--align-items": "center", "--display": "flex", "--justify-content": "space-between" }}>
@@ -136,7 +182,12 @@ export const EventsCalendar = () => {
 			value={date}
 		>
 			<Header />
-			<CalendarGrid weekdayStyle="short">
+			<CalendarGrid
+				style={{
+					"--table-layout": "fixed",
+				}}
+				weekdayStyle="short"
+			>
 				<HeaderRow />
 				<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
 			</CalendarGrid>
