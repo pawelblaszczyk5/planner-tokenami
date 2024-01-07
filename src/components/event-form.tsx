@@ -105,6 +105,7 @@ export const EventForm = ({
 				"--width": "var(---, 100%)",
 			}}
 			action={handleSubmission}
+			autoComplete="off"
 			ref={form}
 		>
 			<Heading
