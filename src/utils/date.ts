@@ -17,3 +17,5 @@ export const getCurrentZonedDateTime = () => now(getLocalTimeZone());
 export const getBeginningOfDay = (date: CalendarDate) => toCalendarDateTime(date, new Time(0, 0, 0));
 
 export const getEndOfDay = (date: CalendarDate) => toCalendarDateTime(date, new Time(23, 59, 59));
+
+export const convertCalendarDateToDate = (date: CalendarDate) => date.toDate(getLocalTimeZone());
