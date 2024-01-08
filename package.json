@@ -78,6 +78,5 @@
 	"engines": {
 		"node": ">20.0.0",
 		"pnpm": "8.13.1"
-	},
-	"engineStrict": true
+	}
 }
