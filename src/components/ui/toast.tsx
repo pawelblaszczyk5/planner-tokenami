@@ -109,7 +109,6 @@ export const ToastRegion = () => {
 						"--width": "var(---, 100%)",
 						"--z-index": "var(--z_100)",
 					}}
-					className="absolute right-4 top-4 z-20 flex w-full max-w-[min(calc(100vw-theme(spacing.8)),31rem)] flex-col gap-4 outline-none ring-scorpion-950 rac-focus-visible:ring-2"
 					{...regionProps}
 				>
 					{state.visibleToasts.map(toast => (
