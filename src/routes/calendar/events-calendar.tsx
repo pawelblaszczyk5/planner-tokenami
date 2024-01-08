@@ -20,7 +20,9 @@ import TablerTrash from "virtual:icons/tabler/trash";
 
 import type { EventEntry } from "#/lib/data";
 
+import { EventForm } from "#/components/event-form";
 import { Button } from "#/components/ui/button";
+import { Dialog, DialogTrigger, Modal, ModalOverlay } from "#/components/ui/dialog";
 import { useEventsCountForDate, useEventsForDate } from "#/lib/data";
 import {
 	convertCalendarDateToDate,
@@ -222,9 +224,16 @@ const Event = ({ event }: { event: EventEntry }) => {
 				<Button variant="negative">
 					Delete event <TablerTrash />
 				</Button>
-				<Button>
-					Edit event <TablerPencil />
-				</Button>
+				<DialogTrigger>
+					<Button>
+						Edit event <TablerPencil />
+					</Button>
+					<ModalOverlay>
+						<Modal>
+							<Dialog>{({ close }) => <EventForm event={event} onCancel={close} onComplete={close} />}</Dialog>
+						</Modal>
+					</ModalOverlay>
+				</DialogTrigger>
 			</div>
 		</li>
 	);

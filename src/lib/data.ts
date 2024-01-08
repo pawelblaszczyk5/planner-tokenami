@@ -98,3 +98,7 @@ export const addEvent = async (event: Except<EventEntry, "id">) => {
 		...event,
 	});
 };
+
+export const editEvent = async (event: EventEntry) => {
+	await db.events.put(event);
+};

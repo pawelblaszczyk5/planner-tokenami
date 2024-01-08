@@ -2,7 +2,7 @@ import type { ZonedDateTime } from "@internationalized/date";
 import type { TokenamiProperties } from "@tokenami/dev";
 import type { ReactNode } from "react";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import {
 	DateField,
 	DateInput,
@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 import type { EventEntry } from "#/lib/data";
 
 import { Button } from "#/components/ui/button";
-import { addEvent } from "#/lib/data";
+import { addEvent, editEvent } from "#/lib/data";
 import { mergeCss } from "#/utils/css";
 import { convertDateFromForm, convertIsoStringToZonedDateTime, getCurrentZonedDateTime } from "#/utils/date";
 import { invariant } from "#/utils/invariant";
@@ -75,6 +75,15 @@ export const EventForm = ({
 	const form = useRef<HTMLFormElement>(null);
 	const navigate = useNavigate();
 
+	const defaultDates = useMemo(() => {
+		if (!event) return { endDate: null, startDate: null };
+
+		return {
+			endDate: convertIsoStringToZonedDateTime(event.endDate),
+			startDate: convertIsoStringToZonedDateTime(event.startDate),
+		};
+	}, [event]);
+
 	const handleSubmission = async (formData: FormData) => {
 		const name = formData.get("name");
 		const description = formData.get("description");
@@ -92,12 +101,19 @@ export const EventForm = ({
 		const convertedStartDate = convertDateFromForm(startDate);
 		const convertedEndDate = convertDateFromForm(endDate);
 
-		await addEvent({
+		const data = {
 			description,
 			endDate: convertedEndDate,
 			name,
 			startDate: convertedStartDate,
-		});
+		};
+
+		await (event
+			? editEvent({
+					id: event.id,
+					...data,
+				})
+			: addEvent(data));
 
 		const dateToNavigate = convertIsoStringToZonedDateTime(convertedStartDate);
 
@@ -139,6 +155,7 @@ export const EventForm = ({
 
 						return null;
 					}}
+					defaultValue={event?.name ?? ""}
 					maxLength={50}
 					minLength={3}
 					name="name"
@@ -156,6 +173,7 @@ export const EventForm = ({
 
 						return null;
 					}}
+					defaultValue={event?.description ?? ""}
 					maxLength={255}
 					minLength={3}
 					name="description"
@@ -171,7 +189,7 @@ export const EventForm = ({
 
 						const formElement = form.current;
 
-						invariant(formElement);
+						if (!formElement) return null;
 
 						const endDateElement = formElement.elements.namedItem("endDate");
 
@@ -182,7 +200,7 @@ export const EventForm = ({
 
 						return null;
 					}}
-					granularity="minute"
+					defaultValue={defaultDates.startDate}
 					name="startDate"
 					placeholderValue={getCurrentZonedDateTime()}
 					style={fieldCss}
@@ -212,7 +230,7 @@ export const EventForm = ({
 
 						const formElement = form.current;
 
-						invariant(formElement);
+						if (!formElement) return null;
 
 						const startDateElement = formElement.elements.namedItem("startDate");
 
@@ -223,7 +241,7 @@ export const EventForm = ({
 
 						return null;
 					}}
-					granularity="minute"
+					defaultValue={defaultDates.endDate}
 					name="endDate"
 					placeholderValue={getCurrentZonedDateTime()}
 					style={fieldCss}
