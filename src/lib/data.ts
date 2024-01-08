@@ -102,3 +102,7 @@ export const addEvent = async (event: Except<EventEntry, "id">) => {
 export const editEvent = async (event: EventEntry) => {
 	await db.events.put(event);
 };
+
+export const deleteEvent = async (id: EventEntry["id"]) => {
+	await db.events.delete(id);
+};

@@ -23,7 +23,7 @@ import type { EventEntry } from "#/lib/data";
 import { EventForm } from "#/components/event-form";
 import { Button } from "#/components/ui/button";
 import { Dialog, DialogTrigger, Modal, ModalOverlay } from "#/components/ui/dialog";
-import { useEventsCountForDate, useEventsForDate } from "#/lib/data";
+import { deleteEvent, useEventsCountForDate, useEventsForDate } from "#/lib/data";
 import {
 	convertCalendarDateToDate,
 	convertIsoStringToZonedDateTime,
@@ -221,7 +221,7 @@ const Event = ({ event }: { event: EventEntry }) => {
 					"--justify-content": "flex-end",
 				}}
 			>
-				<Button variant="negative">
+				<Button onPress={async () => deleteEvent(event.id)} variant="negative">
 					Delete event <TablerTrash />
 				</Button>
 				<DialogTrigger>
