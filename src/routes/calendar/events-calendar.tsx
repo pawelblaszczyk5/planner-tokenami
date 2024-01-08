@@ -168,7 +168,7 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 const List = ({ date }: { date: CalendarDate }) => {
 	const formatter = useDateFormatter();
 
-	const events = useEventsForDate(date) ?? [];
+	const { eventsForDate, eventsFromFuture } = useEventsForDate(date) ?? { eventsForDate: [], eventsFromFuture: [] };
 
 	return (
 		<div
@@ -179,9 +179,17 @@ const List = ({ date }: { date: CalendarDate }) => {
 				"--width": "var(---, 100%)",
 			}}
 		>
-			<h1>Events from {formatter.format(convertCalendarDateToDate(date))}</h1>
+			<h3>Events from {formatter.format(convertCalendarDateToDate(date))}</h3>
 			<ul>
-				{events.map(event => (
+				{eventsForDate.map(event => (
+					<li key={event.id}>
+						{event.name} {event.description} {event.startDate} {event.endDate}
+					</li>
+				))}
+			</ul>
+			<h3>Other close events</h3>
+			<ul>
+				{eventsFromFuture.map(event => (
 					<li key={event.id}>
 						{event.name} {event.description} {event.startDate} {event.endDate}
 					</li>

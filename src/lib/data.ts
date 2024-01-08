@@ -75,7 +75,7 @@ export const useEventsForDate = (date: CalendarDate) => {
 			.and(event => event.endDate >= startDate.toString())
 			.toArray();
 
-		if (eventsForDate.length >= MIN_EVENTS_COUNT) return eventsForDate;
+		if (eventsForDate.length >= MIN_EVENTS_COUNT) return { eventsForDate, eventsFromFuture: [] };
 
 		const eventsFromFuture = await db.events
 			.where("startDate")
@@ -83,7 +83,7 @@ export const useEventsForDate = (date: CalendarDate) => {
 			.limit(MIN_EVENTS_COUNT - eventsForDate.length)
 			.toArray();
 
-		return [...eventsForDate, ...eventsFromFuture];
+		return { eventsForDate, eventsFromFuture };
 	}, [date]);
 
 	return useSubscribe(eventQuery);
