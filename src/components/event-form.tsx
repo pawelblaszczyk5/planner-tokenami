@@ -38,12 +38,12 @@ const inputCss = {
 	"--border-style": "var(--line-style_solid)",
 	"--border-width": 0.25,
 	"--font-size": "var(--font-size_sm)",
+	"--outline-color": "var(--color_blue-8)",
+	"--outline-offset": 0.75,
+	"--outline-width": 0.5,
 	"--px": 2.5,
 	"--py": 2,
-	"--rac-focus_outline-color": "var(--color_blue-8)",
-	"--rac-focus_outline-offset": 0.75,
 	"--rac-focus_outline-style": "var(--line-style_solid)",
-	"--rac-focus_outline-width": 0.5,
 	"--rac-invalid_border-color": "var(--color_red-7)",
 } satisfies TokenamiProperties;
 
