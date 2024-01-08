@@ -37,7 +37,7 @@ const HeaderRow = () => (
 		{day => (
 			<CalendarHeaderCell
 				style={{
-					"--width": "var(---, calc(100% / 7))",
+					"--w": "var(---, calc(100% / 7))",
 				}}
 			>
 				<span
@@ -119,9 +119,9 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 									style={{
 										"--background-color": "var(--color_orange-9)",
 										"--border-radius": "var(--radii_full)",
-										"--height": 2,
+										"--h": 2,
 										"--mr": -0.75,
-										"--width": 2,
+										"--w": 2,
 									}}
 									key={index}
 								/>
@@ -166,7 +166,7 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 				"--display": "flex",
 				"--flex-direction": "column",
 				"--gap": 4,
-				"--width": "var(---, 100%)",
+				"--w": "var(---, 100%)",
 			}}
 			aria-label="Events"
 			defaultFocusedValue={date}
@@ -268,7 +268,7 @@ const List = ({ date }: { date: CalendarDate }) => {
 				"--display": "flex",
 				"--flex-direction": "column",
 				"--gap": 8,
-				"--width": "var(---, 100%)",
+				"--w": "var(---, 100%)",
 			}}
 		>
 			<div

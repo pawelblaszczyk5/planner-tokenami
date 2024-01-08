@@ -18,7 +18,7 @@ export const Modal = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacMo
 					"--px": 4,
 					"--top": 16,
 					"--transform": "translateX(-50%)",
-					"--width": "var(---, 100%)",
+					"--w": "var(---, 100%)",
 					"--xs_px": 8,
 				},
 				overrides,
@@ -60,7 +60,7 @@ export const Dialog = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacD
 				"--border-radius": "var(--radii_md)",
 				"--max-width": 150,
 				"--p": 6,
-				"--width": "var(---, 100%)",
+				"--w": "var(---, 100%)",
 			},
 			style,
 		)}

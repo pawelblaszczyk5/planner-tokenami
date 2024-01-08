@@ -14,7 +14,7 @@ const button = css(
 		"--display": "flex",
 		"--font-weight": "var(--weight_semibold)",
 		"--gap": 1.5,
-		"--height": 9,
+		"--h": 9,
 		"--outline-color": "var(--color_blue-8)",
 		"--outline-offset": 0.75,
 		"--outline-width": 0.5,
