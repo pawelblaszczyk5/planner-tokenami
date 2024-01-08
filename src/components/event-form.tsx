@@ -189,6 +189,7 @@ export const EventForm = ({
 
 						const formElement = form.current;
 
+						// This case handles default values and validation before rendered
 						if (!formElement) return null;
 
 						const endDateElement = formElement.elements.namedItem("endDate");
@@ -230,6 +231,7 @@ export const EventForm = ({
 
 						const formElement = form.current;
 
+						// This case handles default values and validation before rendered
 						if (!formElement) return null;
 
 						const startDateElement = formElement.elements.namedItem("startDate");
