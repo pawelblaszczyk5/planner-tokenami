@@ -76,7 +76,7 @@ export const useEventsForDate = (date: CalendarDate) => {
 			.where("startDate")
 			.belowOrEqual(endDate.toString())
 			.and(event => event.endDate >= startDate.toString())
-			.toArray();
+			.sortBy("startDate");
 
 		if (eventsForDate.length >= MIN_EVENTS_COUNT) return { eventsForDate, eventsFromFuture: [] };
 
@@ -84,7 +84,7 @@ export const useEventsForDate = (date: CalendarDate) => {
 			.where("startDate")
 			.aboveOrEqual(endDate.toString())
 			.limit(MIN_EVENTS_COUNT - eventsForDate.length)
-			.toArray();
+			.sortBy("startDate");
 
 		return { eventsForDate, eventsFromFuture };
 	}, [date]);
