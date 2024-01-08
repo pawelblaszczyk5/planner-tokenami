@@ -110,3 +110,7 @@ export const deleteEvent = async (id: EventEntry["id"]) => {
 export const restoreEvent = async (event: EventEntry) => {
 	await db.events.put(event);
 };
+
+export const insertBulkEvents = async (events: Array<EventEntry>) => {
+	await db.events.bulkAdd(events);
+};
