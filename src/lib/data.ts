@@ -9,13 +9,16 @@ import { getBeginningOfDay, getEndOfDay } from "#/utils/date";
 import { generateId } from "#/utils/id";
 
 class PlannerDatabase extends Dexie {
-	events!: Dexie.Table<{
-		description: string;
-		endDate: string;
-		id: string;
-		name: string;
-		startDate: string;
-	}, string>;
+	events!: Dexie.Table<
+		{
+			description: string;
+			endDate: string;
+			id: string;
+			name: string;
+			startDate: string;
+		},
+		string
+	>;
 
 	constructor() {
 		super("PlannerDatabase");
@@ -25,7 +28,7 @@ class PlannerDatabase extends Dexie {
 	}
 }
 
-export type EventEntry = PlannerDatabase['events'] extends Dexie.Table<infer T> ? T : never;
+export type EventEntry = PlannerDatabase["events"] extends Dexie.Table<infer T> ? T : never;
 
 const db = new PlannerDatabase();
 

@@ -22,11 +22,7 @@ import type { EventEntry } from "#/lib/data";
 import { Button } from "#/components/ui/button";
 import { addEvent } from "#/lib/data";
 import { mergeCss } from "#/utils/css";
-import {
-	convertAbsoluteStringToIsoString,
-	convertIsoStringToZonedDateTime,
-	getCurrentZonedDateTime,
-} from "#/utils/date";
+import { convertDateFromForm, convertIsoStringToZonedDateTime, getCurrentZonedDateTime } from "#/utils/date";
 import { invariant } from "#/utils/invariant";
 
 const fieldCss = {
@@ -93,8 +89,8 @@ export const EventForm = ({
 			"Form should have valid values after submission",
 		);
 
-		const convertedStartDate = convertAbsoluteStringToIsoString(startDate);
-		const convertedEndDate = convertAbsoluteStringToIsoString(endDate);
+		const convertedStartDate = convertDateFromForm(startDate);
+		const convertedEndDate = convertDateFromForm(endDate);
 
 		await addEvent({
 			description,

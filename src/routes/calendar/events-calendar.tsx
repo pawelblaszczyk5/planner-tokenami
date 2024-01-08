@@ -15,12 +15,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
 import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
 import TablerCalendar from "virtual:icons/tabler/calendar";
+import TablerPencil from "virtual:icons/tabler/pencil";
+import TablerTrash from "virtual:icons/tabler/trash";
 
 import type { EventEntry } from "#/lib/data";
 
 import { Button } from "#/components/ui/button";
 import { useEventsCountForDate, useEventsForDate } from "#/lib/data";
-import { convertCalendarDateToDate, getCurrentCalendarDate, parseDateParts } from "#/utils/date";
+import {
+	convertCalendarDateToDate,
+	convertIsoStringToZonedDateTime,
+	getCurrentCalendarDate,
+	parseDateParts,
+} from "#/utils/date";
 
 const HeaderRow = () => (
 	<CalendarGridHeader style={{ "--min-height": 8 }}>
@@ -180,11 +187,48 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 	);
 };
 
-const Event = ({ event }: { event: EventEntry }) => (
-	<li>
-		{event.name} {event.description} {event.startDate} {event.endDate}
-	</li>
-);
+const Event = ({ event }: { event: EventEntry }) => {
+	const formatter = useDateFormatter({
+		dateStyle: "short",
+		timeStyle: "short",
+	});
+
+	return (
+		<li style={{ "--display": "flex", "--flex-direction": "column", "--gap": 4 }}>
+			<div
+				style={{
+					"--align-items": "center",
+					"--display": "flex",
+					"--flex-wrap": "wrap",
+					"--gap": 3,
+					"--justify-content": "space-between",
+				}}
+			>
+				<h3 style={{ "--font-size": "var(--font-size_2xl)", "--font-weight": "var(--weight_medium)" }}>{event.name}</h3>
+				<p>
+					{formatter.format(convertIsoStringToZonedDateTime(event.startDate).toDate())} -{" "}
+					{formatter.format(convertIsoStringToZonedDateTime(event.endDate).toDate())}
+				</p>
+			</div>
+			<p>{event.description}</p>
+			<div
+				style={{
+					"--align-items": "center",
+					"--display": "flex",
+					"--gap": 3,
+					"--justify-content": "flex-end",
+				}}
+			>
+				<Button variant="negative">
+					Delete event <TablerTrash />
+				</Button>
+				<Button>
+					Edit event <TablerPencil />
+				</Button>
+			</div>
+		</li>
+	);
+};
 
 const List = ({ date }: { date: CalendarDate }) => {
 	const formatter = useDateFormatter();
@@ -203,7 +247,7 @@ const List = ({ date }: { date: CalendarDate }) => {
 			style={{
 				"--display": "flex",
 				"--flex-direction": "column",
-				"--gap": 6,
+				"--gap": 8,
 				"--width": "var(---, 100%)",
 			}}
 		>
@@ -211,24 +255,26 @@ const List = ({ date }: { date: CalendarDate }) => {
 				style={{
 					"--align-items": "center",
 					"--display": "flex",
+					"--gap": 3,
 					"--justify-content": "space-between",
 				}}
 			>
 				<h2
 					style={{
-						"--font-size": "var(--font-size_3xl)",
+						"--font-size": "var(--font-size_2xl)",
 						"--font-weight": "var(--weight_semibold)",
+						"--xs_font-size": "var(--font-size_3xl)",
 					}}
 				>
 					Events for {formatter.format(convertCalendarDateToDate(date))}
 				</h2>
-				<Button onPress={navigateToToday} variant="muted">
+				<Button onPress={navigateToToday} style={{ "--white-space": "nowrap" }} variant="muted">
 					Go to today
 					<TablerCalendar />
 				</Button>
 			</div>
 			{eventsForDate.length > 0 ? (
-				<ul>
+				<ul style={{ "--display": "flex", "--flex-direction": "column", "--gap": 4 }}>
 					{eventsForDate.map(event => (
 						<Event event={event} key={event.id} />
 					))}
@@ -240,13 +286,14 @@ const List = ({ date }: { date: CalendarDate }) => {
 				<>
 					<h2
 						style={{
-							"--font-size": "var(--font-size_3xl)",
+							"--font-size": "var(--font-size_2xl)",
 							"--font-weight": "var(--weight_semibold)",
+							"--xs_font-size": "var(--font-size_3xl)",
 						}}
 					>
 						Events for near future
 					</h2>
-					<ul>
+					<ul style={{ "--display": "flex", "--flex-direction": "column", "--gap": 4 }}>
 						{eventsFromFuture.map(event => (
 							<Event event={event} key={event.id} />
 						))}

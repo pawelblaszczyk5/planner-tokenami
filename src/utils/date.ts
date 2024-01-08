@@ -31,4 +31,5 @@ export const convertCalendarDateToDate = (date: CalendarDate) => date.toDate(get
 
 export const convertIsoStringToZonedDateTime = (date: string) => parseAbsoluteToLocal(date);
 
-export const convertAbsoluteStringToIsoString = (date: string) => parseZonedDateTime(date).toAbsoluteString();
+export const convertDateFromForm = (date: string) =>
+	parseZonedDateTime(date).set({ millisecond: 0, second: 0 }).toAbsoluteString();
