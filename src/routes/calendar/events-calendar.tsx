@@ -1,6 +1,6 @@
 import type { CalendarDate } from "@internationalized/date";
 
-import { useLayoutEffect, useMemo } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useDateFormatter } from "react-aria";
 import {
 	CalendarCell,
@@ -140,30 +140,42 @@ const Header = () => (
 	</header>
 );
 
-const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (date: CalendarDate) => void }) => (
-	<RacCalendar
-		style={{
-			"--display": "flex",
-			"--flex-direction": "column",
-			"--gap": 4,
-			"--width": "var(---, 100%)",
-		}}
-		aria-label="Events"
-		onChange={onDateChange}
-		value={date}
-	>
-		<Header />
-		<CalendarGrid
+const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (date: CalendarDate) => void }) => {
+	const [focusedDate, setFocusedDate] = useState(date);
+
+	// TODO: Maybe this one could be solved in a better way
+	useEffect(() => {
+		setFocusedDate(date);
+	}, [date]);
+
+	return (
+		<RacCalendar
 			style={{
-				"--table-layout": "fixed",
+				"--display": "flex",
+				"--flex-direction": "column",
+				"--gap": 4,
+				"--width": "var(---, 100%)",
 			}}
-			weekdayStyle="short"
+			aria-label="Events"
+			defaultFocusedValue={date}
+			focusedValue={focusedDate}
+			onChange={onDateChange}
+			onFocusChange={setFocusedDate}
+			value={date}
 		>
-			<HeaderRow />
-			<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
-		</CalendarGrid>
-	</RacCalendar>
-);
+			<Header />
+			<CalendarGrid
+				style={{
+					"--table-layout": "fixed",
+				}}
+				weekdayStyle="short"
+			>
+				<HeaderRow />
+				<CalendarGridBody>{date => <DayCell date={date} />}</CalendarGridBody>
+			</CalendarGrid>
+		</RacCalendar>
+	);
+};
 
 const List = ({ date }: { date: CalendarDate }) => {
 	const formatter = useDateFormatter();
