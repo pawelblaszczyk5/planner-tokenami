@@ -23,7 +23,8 @@ import type { EventEntry } from "#/lib/data";
 import { EventForm } from "#/components/event-form";
 import { Button } from "#/components/ui/button";
 import { Dialog, DialogTrigger, Modal, ModalOverlay } from "#/components/ui/dialog";
-import { deleteEvent, useEventsCountForDate, useEventsForDate } from "#/lib/data";
+import { addEventDeletionNotification } from "#/components/ui/toast";
+import { deleteEvent, restoreEvent, useEventsCountForDate, useEventsForDate } from "#/lib/data";
 import {
 	convertCalendarDateToDate,
 	convertIsoStringToZonedDateTime,
@@ -195,6 +196,17 @@ const Event = ({ event }: { event: EventEntry }) => {
 		timeStyle: "short",
 	});
 
+	const handleEventDelete = async () => {
+		await deleteEvent(event.id);
+
+		addEventDeletionNotification({
+			name: event.name,
+			onRestore: async () => {
+				await restoreEvent(event);
+			},
+		});
+	};
+
 	return (
 		<li style={{ "--display": "flex", "--flex-direction": "column", "--gap": 4 }}>
 			<div
@@ -221,7 +233,7 @@ const Event = ({ event }: { event: EventEntry }) => {
 					"--justify-content": "flex-end",
 				}}
 			>
-				<Button onPress={async () => deleteEvent(event.id)} variant="negative">
+				<Button onPress={handleEventDelete} variant="negative">
 					Delete event <TablerTrash />
 				</Button>
 				<DialogTrigger>

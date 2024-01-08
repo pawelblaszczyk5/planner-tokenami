@@ -11,6 +11,12 @@ dependencies:
   '@internationalized/date':
     specifier: ^3.5.1
     version: 3.5.1
+  '@react-aria/toast':
+    specifier: 3.0.0-beta.8
+    version: 3.0.0-beta.8(react@18.3.0-canary-c5b937576-20231219)
+  '@react-stately/toast':
+    specifier: 3.0.0-beta.1
+    version: 3.0.0-beta.1(react@18.3.0-canary-c5b937576-20231219)
   '@tokenami/css':
     specifier: ^0.0.17
     version: 0.0.17(@tokenami/dev@0.0.17)(typescript@5.3.3)
@@ -1180,6 +1186,18 @@ packages:
       react: 18.3.0-canary-c5b937576-20231219
     dev: false
 
+  /@react-aria/landmark@3.0.0-beta.8(react@18.3.0-canary-c5b937576-20231219):
+    resolution: {integrity: sha512-+8BOGc+2+JsDCXO5SQVLe+nXtVB6I1SDFoVBcP3Xi2967ur8MxVxb5bGkhjmkU0gJWbqmVxA7ocGSbKZ7hobIg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || 18.3.0-canary-c5b937576-20231219
+    dependencies:
+      '@react-aria/utils': 3.23.0(react@18.3.0-canary-c5b937576-20231219)
+      '@react-types/shared': 3.22.0(react@18.3.0-canary-c5b937576-20231219)
+      '@swc/helpers': 0.5.3
+      react: 18.3.0-canary-c5b937576-20231219
+      use-sync-external-store: 1.2.0(react@18.3.0-canary-c5b937576-20231219)
+    dev: false
+
   /@react-aria/link@3.6.3(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-8kPWc4u/lDow3Ll0LDxeMgaxt9Y3sl8UldKLGli8tzRSltYFugNh/n+i9sCnmo4Qv9Tp9kYv+yxBK50Uk9sINw==}
     peerDependencies:
@@ -1538,6 +1556,22 @@ packages:
       react: 18.3.0-canary-c5b937576-20231219
     dev: false
 
+  /@react-aria/toast@3.0.0-beta.8(react@18.3.0-canary-c5b937576-20231219):
+    resolution: {integrity: sha512-4LYxfrn2VOlOS9oj+9XNkTBtzL6i8KRNX0YCO/Uxpzlk4aoMoVqsFZeiHHh2XI9Jw+XquANawwvJYGFjeREZwA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || 18.3.0-canary-c5b937576-20231219
+    dependencies:
+      '@react-aria/i18n': 3.10.0(react@18.3.0-canary-c5b937576-20231219)
+      '@react-aria/interactions': 3.20.1(react@18.3.0-canary-c5b937576-20231219)
+      '@react-aria/landmark': 3.0.0-beta.8(react@18.3.0-canary-c5b937576-20231219)
+      '@react-aria/utils': 3.23.0(react@18.3.0-canary-c5b937576-20231219)
+      '@react-stately/toast': 3.0.0-beta.1(react@18.3.0-canary-c5b937576-20231219)
+      '@react-types/button': 3.9.1(react@18.3.0-canary-c5b937576-20231219)
+      '@react-types/shared': 3.22.0(react@18.3.0-canary-c5b937576-20231219)
+      '@swc/helpers': 0.5.3
+      react: 18.3.0-canary-c5b937576-20231219
+    dev: false
+
   /@react-aria/toggle@3.10.0(react@18.3.0-canary-c5b937576-20231219):
     resolution: {integrity: sha512-6cUf4V9TuG2J7AvXUdU/GspEPFCubUOID3mrselSe563RViy+mMZk0vUEOdyoNanDcEXl58W4dE3SGWxFn71vg==}
     peerDependencies:
@@ -1862,6 +1896,16 @@ packages:
       '@react-types/tabs': 3.3.4(react@18.3.0-canary-c5b937576-20231219)
       '@swc/helpers': 0.5.3
       react: 18.3.0-canary-c5b937576-20231219
+    dev: false
+
+  /@react-stately/toast@3.0.0-beta.1(react@18.3.0-canary-c5b937576-20231219):
+    resolution: {integrity: sha512-NeWdLXpHfXu8UXjmn+6iZv39Xvan/D0uNWzIyCxkDOeNNOHt1N4kSwdvQ56ScQ3f7KBVPqKz32t7K466Zpa8Jg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || 18.3.0-canary-c5b937576-20231219
+    dependencies:
+      '@swc/helpers': 0.5.3
+      react: 18.3.0-canary-c5b937576-20231219
+      use-sync-external-store: 1.2.0(react@18.3.0-canary-c5b937576-20231219)
     dev: false
 
   /@react-stately/toggle@3.7.0(react@18.3.0-canary-c5b937576-20231219):

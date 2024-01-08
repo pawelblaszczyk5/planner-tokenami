@@ -16,6 +16,8 @@
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.0.16",
 		"@internationalized/date": "^3.5.1",
+		"@react-aria/toast": "3.0.0-beta.8",
+		"@react-stately/toast": "3.0.0-beta.1",
 		"@tokenami/css": "^0.0.17",
 		"dexie": "^3.2.4",
 		"nanoid": "^5.0.4",

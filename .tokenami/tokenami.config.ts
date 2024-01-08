@@ -200,7 +200,9 @@ export default createConfig({
 			full: "9999px",
 			/* eslint-enable perfectionist/sort-objects */
 		},
-		shadow: {},
+		shadow: {
+			base: "0 4px 6px -1px var(--color_white-a1), 0 2px 4px -2px var(--color_white-a1)",
+		},
 		size: {},
 		surface: {},
 		tracking: {},

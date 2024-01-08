@@ -6,6 +6,7 @@ import TablerCalendarPlus from "virtual:icons/tabler/calendar-plus";
 import { EventForm } from "#/components/event-form";
 import { Button } from "#/components/ui/button";
 import { Dialog, DialogTrigger, Modal, ModalOverlay } from "#/components/ui/dialog";
+import { ToastRegion } from "#/components/ui/toast";
 
 export const Component = () => {
 	const navigate = useNavigate();
@@ -26,6 +27,7 @@ export const Component = () => {
 		>
 			<RouterProvider navigate={navigate}>
 				<I18nProvider locale="en-US">
+					<ToastRegion />
 					<header
 						style={{
 							"--align-items": "center",
