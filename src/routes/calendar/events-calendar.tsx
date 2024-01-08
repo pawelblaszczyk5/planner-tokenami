@@ -14,6 +14,9 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import TablerArrowBigLeft from "virtual:icons/tabler/arrow-big-left";
 import TablerArrowBigRight from "virtual:icons/tabler/arrow-big-right";
+import TablerCalendar from "virtual:icons/tabler/calendar";
+
+import type { EventEntry } from "#/lib/data";
 
 import { Button } from "#/components/ui/button";
 import { useEventsCountForDate, useEventsForDate } from "#/lib/data";
@@ -177,36 +180,79 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 	);
 };
 
+const Event = ({ event }: { event: EventEntry }) => (
+	<li>
+		{event.name} {event.description} {event.startDate} {event.endDate}
+	</li>
+);
+
 const List = ({ date }: { date: CalendarDate }) => {
 	const formatter = useDateFormatter();
+	const navigate = useNavigate();
 
 	const { eventsForDate, eventsFromFuture } = useEventsForDate(date) ?? { eventsForDate: [], eventsFromFuture: [] };
+
+	const navigateToToday = () => {
+		const currentDate = getCurrentCalendarDate();
+
+		navigate(`/${currentDate.year}/${currentDate.month}/${currentDate.day}`);
+	};
 
 	return (
 		<div
 			style={{
 				"--display": "flex",
 				"--flex-direction": "column",
-				"--gap": 4,
+				"--gap": 6,
 				"--width": "var(---, 100%)",
 			}}
 		>
-			<h3>Events from {formatter.format(convertCalendarDateToDate(date))}</h3>
-			<ul>
-				{eventsForDate.map(event => (
-					<li key={event.id}>
-						{event.name} {event.description} {event.startDate} {event.endDate}
-					</li>
-				))}
-			</ul>
-			<h3>Other close events</h3>
-			<ul>
-				{eventsFromFuture.map(event => (
-					<li key={event.id}>
-						{event.name} {event.description} {event.startDate} {event.endDate}
-					</li>
-				))}
-			</ul>
+			<div
+				style={{
+					"--align-items": "center",
+					"--display": "flex",
+					"--justify-content": "space-between",
+				}}
+			>
+				<h2
+					style={{
+						"--font-size": "var(--font-size_3xl)",
+						"--font-weight": "var(--weight_semibold)",
+					}}
+				>
+					Events for {formatter.format(convertCalendarDateToDate(date))}
+				</h2>
+				<Button onPress={navigateToToday} variant="muted">
+					Go to today
+					<TablerCalendar />
+				</Button>
+			</div>
+			{eventsForDate.length > 0 ? (
+				<ul>
+					{eventsForDate.map(event => (
+						<Event event={event} key={event.id} />
+					))}
+				</ul>
+			) : (
+				<p style={{ "--color": "var(--color_sand-11)" }}>No events for selected date</p>
+			)}
+			{eventsFromFuture.length > 0 && (
+				<>
+					<h2
+						style={{
+							"--font-size": "var(--font-size_3xl)",
+							"--font-weight": "var(--weight_semibold)",
+						}}
+					>
+						Events for near future
+					</h2>
+					<ul>
+						{eventsFromFuture.map(event => (
+							<Event event={event} key={event.id} />
+						))}
+					</ul>
+				</>
+			)}
 		</div>
 	);
 };
