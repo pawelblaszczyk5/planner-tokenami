@@ -1,1 +1,1 @@
-# Planner app styled with tokenami
+# Planner app styled with Tokenami

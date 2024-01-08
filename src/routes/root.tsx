@@ -78,8 +78,8 @@ export const Component = () => {
 							Info
 						</Link>{" "}
 						|{" "}
-						<a href="https://example.com" rel="noreferrer" style={link()}>
-							Tailwind&nbsp;version
+						<a href="https://planner-tailwind.vercel.app/" rel="noreferrer" style={link()}>
+							TailwindCSS&nbsp;version
 						</a>
 					</footer>
 				</I18nProvider>
