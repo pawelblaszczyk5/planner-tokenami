@@ -76,7 +76,7 @@
 	},
 	"packageManager": "pnpm@8.13.1",
 	"engines": {
-		"node": "20.10.0",
+		"node": ">20.0.0",
 		"pnpm": "8.13.1"
 	},
 	"engineStrict": true
