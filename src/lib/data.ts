@@ -8,16 +8,14 @@ import { useCallback, useEffect, useState } from "react";
 import { getBeginningOfDay, getEndOfDay } from "#/utils/date";
 import { generateId } from "#/utils/id";
 
-export type Event = {
-	description: string;
-	endDate: string;
-	id: string;
-	name: string;
-	startDate: string;
-};
-
 class PlannerDatabase extends Dexie {
-	events!: Dexie.Table<Event, string>;
+	events!: Dexie.Table<{
+		description: string;
+		endDate: string;
+		id: string;
+		name: string;
+		startDate: string;
+	}, string>;
 
 	constructor() {
 		super("PlannerDatabase");
@@ -26,6 +24,8 @@ class PlannerDatabase extends Dexie {
 		});
 	}
 }
+
+export type EventEntry = PlannerDatabase['events'] extends Dexie.Table<infer T> ? T : never;
 
 const db = new PlannerDatabase();
 
@@ -89,7 +89,7 @@ export const useEventsForDate = (date: CalendarDate) => {
 	return useSubscribe(eventQuery);
 };
 
-export const addEvent = async (event: Except<Event, "id">) => {
+export const addEvent = async (event: Except<EventEntry, "id">) => {
 	await db.events.add({
 		id: generateId(),
 		...event,

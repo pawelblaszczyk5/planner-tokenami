@@ -17,7 +17,7 @@ import {
 } from "react-aria-components";
 import { useNavigate } from "react-router-dom";
 
-import type { Event } from "#/lib/data";
+import type { EventEntry } from "#/lib/data";
 
 import { Button } from "#/components/ui/button";
 import { addEvent } from "#/lib/data";
@@ -72,7 +72,7 @@ export const EventForm = ({
 	onCancel,
 	onComplete,
 }: {
-	event: Event | undefined;
+	event: EventEntry | undefined;
 	onCancel: () => void;
 	onComplete: () => void;
 }) => {
