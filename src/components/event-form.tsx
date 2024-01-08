@@ -1,4 +1,4 @@
-import type { CalendarDateTime } from "@internationalized/date";
+import type { ZonedDateTime } from "@internationalized/date";
 import type { TokenamiProperties } from "@tokenami/dev";
 import type { ReactNode } from "react";
 
@@ -15,12 +15,18 @@ import {
 	TextArea,
 	TextField,
 } from "react-aria-components";
+import { useNavigate } from "react-router-dom";
 
 import type { Event } from "#/lib/data";
 
 import { Button } from "#/components/ui/button";
 import { addEvent } from "#/lib/data";
 import { mergeCss } from "#/utils/css";
+import {
+	convertAbsoluteStringToIsoString,
+	convertIsoStringToZonedDateTime,
+	getCurrentZonedDateTime,
+} from "#/utils/date";
 import { invariant } from "#/utils/invariant";
 
 const fieldCss = {
@@ -71,6 +77,7 @@ export const EventForm = ({
 	onComplete: () => void;
 }) => {
 	const form = useRef<HTMLFormElement>(null);
+	const navigate = useNavigate();
 
 	const handleSubmission = async (formData: FormData) => {
 		const name = formData.get("name");
@@ -86,12 +93,19 @@ export const EventForm = ({
 			"Form should have valid values after submission",
 		);
 
+		const convertedStartDate = convertAbsoluteStringToIsoString(startDate);
+		const convertedEndDate = convertAbsoluteStringToIsoString(endDate);
+
 		await addEvent({
 			description,
-			endDate,
+			endDate: convertedEndDate,
 			name,
-			startDate,
+			startDate: convertedStartDate,
 		});
+
+		const dateToNavigate = convertIsoStringToZonedDateTime(convertedStartDate);
+
+		navigate(`/${dateToNavigate.year}/${dateToNavigate.month}/${dateToNavigate.day}`);
 
 		onComplete();
 	};
@@ -155,8 +169,8 @@ export const EventForm = ({
 					<TextArea rows={3} style={inputCss} />
 					<FieldError />
 				</TextField>
-				<DateField<CalendarDateTime>
-					validate={(value: CalendarDateTime | null) => {
+				<DateField<ZonedDateTime>
+					validate={(value: ZonedDateTime | null) => {
 						if (!value) return "This value should be a valid date";
 
 						const formElement = form.current;
@@ -174,7 +188,9 @@ export const EventForm = ({
 					}}
 					granularity="minute"
 					name="startDate"
+					placeholderValue={getCurrentZonedDateTime()}
 					style={fieldCss}
+					hideTimeZone
 					isRequired
 				>
 					<Label>Start date</Label>
@@ -194,8 +210,8 @@ export const EventForm = ({
 					</DateInput>
 					<FieldError />
 				</DateField>
-				<DateField<CalendarDateTime>
-					validate={(value: CalendarDateTime | null) => {
+				<DateField<ZonedDateTime>
+					validate={(value: ZonedDateTime | null) => {
 						if (!value) return "This value should be a valid date";
 
 						const formElement = form.current;
@@ -213,7 +229,9 @@ export const EventForm = ({
 					}}
 					granularity="minute"
 					name="endDate"
+					placeholderValue={getCurrentZonedDateTime()}
 					style={fieldCss}
+					hideTimeZone
 					isRequired
 				>
 					<Label>End date</Label>
