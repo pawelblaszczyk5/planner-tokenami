@@ -1,12 +1,12 @@
 import { I18nProvider, RouterProvider } from "react-aria-components";
 import { Link, Outlet, ScrollRestoration, useNavigate } from "react-router-dom";
-import FluentEmojiCalendar from "virtual:icons/fluent-emoji/calendar";
 import TablerCalendarPlus from "virtual:icons/tabler/calendar-plus";
 
 import { EventForm } from "#/components/event-form";
 import { Button } from "#/components/ui/button";
 import { Dialog, DialogTrigger, Modal, ModalOverlay } from "#/components/ui/dialog";
 import { ToastRegion } from "#/components/ui/toast";
+import { Logo } from "#/routes/logo";
 
 export const Component = () => {
 	const navigate = useNavigate();
@@ -35,11 +35,7 @@ export const Component = () => {
 							"--justify-content": "space-between",
 						}}
 					>
-						<FluentEmojiCalendar
-							style={{
-								"--font-size": "var(--font-size_4xl)",
-							}}
-						/>
+						<Logo />
 						<DialogTrigger>
 							<Button>
 								Add new event
