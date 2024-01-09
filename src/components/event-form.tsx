@@ -132,7 +132,7 @@ export const EventForm = ({
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": 8,
-				"--w": "var(---, 100%)",
+				"--w": "var(--size_full)",
 			}}
 			action={handleSubmission}
 			autoComplete="off"

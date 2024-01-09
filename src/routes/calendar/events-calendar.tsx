@@ -166,7 +166,7 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": 4,
-				"--w": "var(---, 100%)",
+				"--w": "var(--size_full)",
 			}}
 			aria-label="Events"
 			defaultFocusedValue={date}
@@ -268,7 +268,7 @@ const List = ({ date }: { date: CalendarDate }) => {
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": 8,
-				"--w": "var(---, 100%)",
+				"--w": "var(--size_full)",
 			}}
 		>
 			<div

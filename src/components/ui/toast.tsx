@@ -40,7 +40,7 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 				"--display": "flex",
 				"--gap": 3,
 				"--p": 4,
-				"--w": "var(---,100%)",
+				"--w": "var(--size_full)",
 			}}
 			ref={ref}
 			{...toastProps}
@@ -56,7 +56,7 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 					"--display": "flex",
 					"--flex-dir": "column",
 					"--gap": 4,
-					"--w": "var(---,100%)",
+					"--w": "var(--size_full)",
 				}}
 			>
 				<h3
@@ -102,7 +102,7 @@ export const ToastRegion = () => {
 						"--max-w": "var(---, min(calc(100vw - 32px), 24rem))",
 						"--position": "absolute",
 						"--right": 4,
-						"--w": "var(---, 100%)",
+						"--w": "var(--size_full)",
 						"--z-index": "var(--z_100)",
 					}}
 					{...regionProps}
