@@ -21,8 +21,8 @@ dependencies:
     specifier: 3.0.0-beta.1
     version: 3.0.0-beta.1(react@18.3.0-canary-c5b937576-20231219)
   '@tokenami/css':
-    specifier: ^0.0.17
-    version: 0.0.17(@tokenami/dev@0.0.17)(typescript@5.3.3)
+    specifier: ^0.0.18
+    version: 0.0.18(@tokenami/dev@0.0.18)(typescript@5.3.3)
   dexie:
     specifier: ^3.2.4
     version: 3.2.4
@@ -65,11 +65,11 @@ devDependencies:
     specifier: ^8.1.0
     version: 8.1.0(@svgr/core@8.1.0)
   '@tokenami/dev':
-    specifier: ^0.0.17
-    version: 0.0.17(typescript@5.3.3)
+    specifier: ^0.0.18
+    version: 0.0.18(typescript@5.3.3)
   '@tokenami/ts-plugin':
-    specifier: ^0.0.17
-    version: 0.0.17(@tokenami/dev@0.0.17)
+    specifier: ^0.0.18
+    version: 0.0.18(@tokenami/dev@0.0.18)
   '@types/react':
     specifier: ^18.2.45
     version: 18.2.46
@@ -2627,30 +2627,30 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
 
-  /@tokenami/config@0.0.17:
-    resolution: {integrity: sha512-1or2CyUZPjhASW4vd7DzInCVmiGkSUUjxcCk1JzJRUBCTMi4Rou+L4kNuNtmzv/3+D8mXXlMqXS6TBV4ceWb7A==}
+  /@tokenami/config@0.0.18:
+    resolution: {integrity: sha512-0tBdjau2z8fsXfIg0//bROhbpJ/3Xm9WcD7ZkPEnl9XjCvSP266eFJZS9InKartXAJx8061owqXkYsIkVNmsXg==}
     dependencies:
       valibot: 0.25.0
 
-  /@tokenami/css@0.0.17(@tokenami/dev@0.0.17)(typescript@5.3.3):
-    resolution: {integrity: sha512-6O/SZN6cvfj2PFC/bin5wNYuWNnd6F5VsLEqBnyjJUo+HFcBQ8FkE73AB//ym8E/Vdy8NQjMfwByPAjS5XWzZw==}
+  /@tokenami/css@0.0.18(@tokenami/dev@0.0.18)(typescript@5.3.3):
+    resolution: {integrity: sha512-IvKrbIyBuyCrT7vpHZr0N53I5B2Ns00DEY8sZIWQgWk92bupw6VmdTgxGCFbnuuTeBgW+0iKBoMYg7jm+NMFoA==}
     peerDependencies:
-      '@tokenami/dev': 0.0.17
+      '@tokenami/dev': 0.0.18
       typescript: '>= 5'
     dependencies:
-      '@tokenami/config': 0.0.17
-      '@tokenami/dev': 0.0.17(typescript@5.3.3)
+      '@tokenami/config': 0.0.18
+      '@tokenami/dev': 0.0.18(typescript@5.3.3)
       typescript: 5.3.3
     dev: false
 
-  /@tokenami/dev@0.0.17(typescript@5.3.3):
-    resolution: {integrity: sha512-gbToHTKO/rO1/3EOJMlTZFgRBmR/X3NIWzRzAyh8+7zkmjzTlJV7DLEA89lakUFRZ/cmd/bm0uyyk+TUG7YHmw==}
+  /@tokenami/dev@0.0.18(typescript@5.3.3):
+    resolution: {integrity: sha512-lksPpKlr55V3s2UBES0Mug0UHe0zd7NG+0gzkxgwQosSgqP7VQC8Uk/Qb8SHWxfFJ03zL/6c6/SWtdXgfcjxyg==}
     hasBin: true
     peerDependencies:
       typescript: '>= 5'
     dependencies:
       '@stitches/stringify': 1.2.8
-      '@tokenami/config': 0.0.17
+      '@tokenami/config': 0.0.18
       browserslist: 4.22.2
       cac: 6.7.14
       chalk: 5.3.0
@@ -2664,13 +2664,13 @@ packages:
       sucrase: 3.35.0
       typescript: 5.3.3
 
-  /@tokenami/ts-plugin@0.0.17(@tokenami/dev@0.0.17):
-    resolution: {integrity: sha512-A9Qayfwgepo8x2nJ09hFEm4pUSp4jVAMGi9ZUH+kdOEJc9rUVe5NlPmMW4qB/sUdOLGJ1oVokmXGx4eySZzoFg==}
+  /@tokenami/ts-plugin@0.0.18(@tokenami/dev@0.0.18):
+    resolution: {integrity: sha512-agHOISJclKIr4icwVV8E6vnBjclSTrbV6d2aGCGkyu9pLtKyv1bCgJ1EL0XO+18CrvDhXpb8OxCFbB2WHBF2Og==}
     peerDependencies:
-      '@tokenami/dev': 0.0.17
+      '@tokenami/dev': 0.0.18
     dependencies:
-      '@tokenami/config': 0.0.17
-      '@tokenami/dev': 0.0.17(typescript@5.3.3)
+      '@tokenami/config': 0.0.18
+      '@tokenami/dev': 0.0.18(typescript@5.3.3)
     dev: true
 
   /@tufjs/canonical-json@2.0.0:
