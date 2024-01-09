@@ -1,7 +1,7 @@
 export const Component = () => (
 	<>
 		<title>Planner - Info</title>
-		<div style={{ "--display": "flex", "--flex-direction": "column", "--gap": 4 }}>
+		<div style={{ "--display": "flex", "--flex-dir": "column", "--gap": 4 }}>
 			<h1 style={{ "--font-size": "var(--font-size_3xl)", "--font-weight": "var(--weight_semibold)" }}>Info</h1>
 			<p>
 				This project is a small app that I&apos;ve used to play with Tokenami. I wanted to experiment with this

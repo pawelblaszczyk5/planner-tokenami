@@ -25,10 +25,10 @@ export const Component = () => {
 		<div
 			style={{
 				"--display": "flex",
-				"--flex-direction": "column",
+				"--flex-dir": "column",
 				"--gap": 8,
-				"--max-width": 360,
-				"--min-height": "var(---, 100dvh)",
+				"--max-w": 360,
+				"--min-h": "var(---, 100dvh)",
 				"--mx": "var(---, auto)",
 				"--p": 2,
 				"--py": 3,

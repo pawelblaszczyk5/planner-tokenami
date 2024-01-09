@@ -27,12 +27,12 @@ import { invariant } from "#/utils/invariant";
 
 const fieldCss = {
 	"--display": "flex",
-	"--flex-direction": "column",
+	"--flex-dir": "column",
 	"--gap": 1.5,
 } satisfies TokenamiProperties;
 
 const inputCss = {
-	"--background-color": "var(--color_sand-1)",
+	"--bg-color": "var(--color_sand-1)",
 	"--border-color": "var(--color_orange-7)",
 	"--border-radius": "var(--radii_base)",
 	"--border-style": "var(--line-style_solid)",
@@ -130,7 +130,7 @@ export const EventForm = ({
 		<Form
 			style={{
 				"--display": "flex",
-				"--flex-direction": "column",
+				"--flex-dir": "column",
 				"--gap": 8,
 				"--w": "var(---, 100%)",
 			}}
@@ -147,7 +147,7 @@ export const EventForm = ({
 			<div
 				style={{
 					"--display": "flex",
-					"--flex-direction": "column",
+					"--flex-dir": "column",
 					"--gap": 6,
 				}}
 			>
@@ -222,7 +222,7 @@ export const EventForm = ({
 							<DateSegment
 								style={{
 									"--border-radius": "var(--radii_base)",
-									"--rac-focus_background-color": "var(--color_blue-8)",
+									"--rac-focus_bg-color": "var(--color_blue-8)",
 									"--rac-placeholder_color": "var(--color_sand-11)",
 								}}
 								segment={segment}
@@ -266,7 +266,7 @@ export const EventForm = ({
 							<DateSegment
 								style={{
 									"--border-radius": "var(--radii_base)",
-									"--rac-focus_background-color": "var(--color_blue-8)",
+									"--rac-focus_bg-color": "var(--color_blue-8)",
 									"--rac-placeholder_color": "var(--color_sand-11)",
 								}}
 								segment={segment}

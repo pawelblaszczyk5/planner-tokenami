@@ -2,9 +2,15 @@ import { createConfig, defaultConfig } from "@tokenami/css";
 
 export default createConfig({
 	aliases: {
+		"bg-color": ["background-color"],
+		"flex-dir": ["flex-direction"],
 		h: ["height"],
 		m: ["mt", "mr", "mb", "ml", "mx", "my", "margin"],
+		"max-h": ["max-height"],
+		"max-w": ["max-width"],
 		mb: ["margin-bottom"],
+		"min-h": ["min-height"],
+		"min-w": ["min-width"],
 		ml: ["margin-left"],
 		mr: ["margin-right"],
 		mt: ["margin-top"],

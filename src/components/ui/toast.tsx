@@ -31,7 +31,7 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 		<div
 			style={{
 				"--align-items": "start",
-				"--background-color": "var(--color_sand-1)",
+				"--bg-color": "var(--color_sand-1)",
 				"--border-color": "var(--color_orange-7)",
 				"--border-radius": "var(--radii_md)",
 				"--border-style": "var(--line-style_solid)",
@@ -54,7 +54,7 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 			<div
 				style={{
 					"--display": "flex",
-					"--flex-direction": "column",
+					"--flex-dir": "column",
 					"--gap": 4,
 					"--w": "var(---,100%)",
 				}}
@@ -97,9 +97,9 @@ export const ToastRegion = () => {
 					style={{
 						"--bottom": 4,
 						"--display": "flex",
-						"--flex-direction": "column",
+						"--flex-dir": "column",
 						"--gap": 4,
-						"--max-width": "var(---, min(calc(100vw - 32px), 24rem))",
+						"--max-w": "var(---, min(calc(100vw - 32px), 24rem))",
 						"--position": "absolute",
 						"--right": 4,
 						"--w": "var(---, 100%)",

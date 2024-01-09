@@ -39,7 +39,7 @@ export const ModalOverlay = ({
 
 			return mergeCss(
 				{
-					"--background-color": "var(--color_black-a10)",
+					"--bg-color": "var(--color_black-a10)",
 					"--inset": 0,
 					"--position": "absolute",
 					"--z-index": "var(--z_10)",
@@ -56,9 +56,9 @@ export const Dialog = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacD
 	<RacDialog
 		style={mergeCss(
 			{
-				"--background-color": "var(--color_sand-2)",
+				"--bg-color": "var(--color_sand-2)",
 				"--border-radius": "var(--radii_md)",
-				"--max-width": 150,
+				"--max-w": 150,
 				"--p": 6,
 				"--w": "var(---, 100%)",
 			},

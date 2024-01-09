@@ -28,16 +28,16 @@ const button = css(
 	{
 		variant: {
 			base: {
-				"--background-color": "var(--color_orange-9)",
-				"--hover_background-color": "var(--color_orange-10)",
+				"--bg-color": "var(--color_orange-9)",
+				"--hover_bg-color": "var(--color_orange-10)",
 			},
 			muted: {
-				"--background-color": "var(--color_orange-3)",
-				"--hover_background-color": "var(--color_orange-4)",
+				"--bg-color": "var(--color_orange-3)",
+				"--hover_bg-color": "var(--color_orange-4)",
 			},
 			negative: {
-				"--background-color": "var(--color_red-9)",
-				"--hover_background-color": "var(--color_red-10)",
+				"--bg-color": "var(--color_red-9)",
+				"--hover_bg-color": "var(--color_red-10)",
 			},
 		},
 	},
