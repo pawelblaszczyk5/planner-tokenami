@@ -25,6 +25,7 @@ export default createConfig({
 		py: ["pt", "pb", "padding-top", "padding-bottom"],
 		w: ["width"],
 	},
+	exclude: ["./src/lib/benchmark.ts"],
 	grid: "0.25rem",
 	include: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
 	properties: {
