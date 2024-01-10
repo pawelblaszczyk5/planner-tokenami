@@ -67,6 +67,16 @@ As you can see, interactions timing are pretty similar, even slightly favouring 
 
 Microsoft Edge has this nice selector tab that lets you see how much time exact selectors took. Here I'm putting example screenshots from the "Interaction, 4x slowdown" test.
 
+#### TailwindCSS
+
+![TailwindCSS selectors statistics](/readme-assets/selectors-tailwind.png)
+
+#### Tokenami
+
+![Tokenami selectors statistics](/readme-assets/selectors-tokenami.png)
+
+As you can see there's a lot of selectors in Tokenami that ends with `:var` that aren't matched anyway. This's for the pattern that allow you to use "grid" and then use the base value multiplications for various selectors.
+
 ### Timings (merging classes)
 
 |                    | Tokenami | TailwindCSS |
@@ -83,16 +93,6 @@ As mentioned before, I've setup both libraries with utilities for merging styles
 | Small, 6x slowdown | 17.2s    | 2.35s       |
 
 As mentioned before, the TypeScript performance takes a hit while using Tokenami. It's not really noticeable during normal usage (except of Tokenami properties intellisense), because of smart magic with TS plugin. However, it's really prominent while running the `tsc` e.g. during CI. It's also important to note that TailwindCSS classes aren't typechecked, these are just string, while with Tokenami you're getting typechecking for literally everything.
-
-#### TailwindCSS
-
-![TailwindCSS selectors statistics](/readme-assets/selectors-tailwind.png)
-
-#### Tokenami
-
-![Tokenami selectors statistics](/readme-assets/selectors-tokenami.png)
-
-As you can see there's a lot of selectors in Tokenami that ends with `:var` that aren't matched anyway. This's for the pattern that allow you to use "grid" and then use the base value multiplications for various selectors.
 
 ## Summary about Tokenami
 
