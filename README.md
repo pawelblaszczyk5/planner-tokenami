@@ -17,7 +17,7 @@ Tokenami is super nice in terms of DX. Styles are co-located with elements and d
 
 Thanks to the fact these're plain objects I can do stuff that I can with objects e.g. destructure to remove few properties. Also it makes TypeScript story a lot better, I can make my components accept some style overrides (but not all) in a completely type-safe manner. Moreover, consistent merging doesn't need utilities like `tw-merge`, you can use the built-in `css` utility that handle e.g. aliases though.
 
-Extraction of styles also works a bit differently, the selectors are mostly extracted part so I can be pretty dynamic with them. In TailwindCSS I can't do something like `text-${color}-500` - I can do this in Tokenami. I can even save selectors to some variable and reuse them, because similarly to TailwindCSS they're extracted with a simple RegEx, no JS parsing occurs. Also arbitrary variants mechanism is super nice and well-thought.
+Extraction of styles also works a bit differently, the selectors are mostly the part that needs to be extracted so I can be pretty dynamic with values. In TailwindCSS I can't do something like `text-${color}-500` - I can do this in Tokenami. I need to only be cautious about not ding something like `--hover_${selector}`, which isn't supported by TailwindCSS too. I can even save selectors to some variable and reuse them, because similarly to TailwindCSS they're extracted with a simple regex, no JS parsing occurs. Also arbitrary variants mechanism is super nice and well-thought.
 
 It doesn't need a special bundler integration, you just use a CLI to watch your input files and output a CSS file with atomic rules at built-time. You can make it work with Vite, with Next.js, you name it.
 
