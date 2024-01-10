@@ -48,7 +48,7 @@ As you can see, even though Tokenami is slightly bigger it compresses better so 
 
 |            | Tokenami  | Tokenami gzip | TailwindCSS | TailwindCSS gzip |
 | ---------- | --------- | ------------- | ----------- | ---------------- |
-| JS(X) size | 540.33 kB | 169,85 kB     | 542,96      | 171,79           |
+| JS(X) size | 540.33 kB | 169.85 kB     | 542.96 kB   | 171.79 kB        |
 
 This app is an SPA so HTML size is basically included in this one as JSX. This is influenced by styling library in two ways - firstly, how terse are styles declarations, secondly - companion libraries. I can't imagine using TailwindCSS without CVA and tw-merge, Tokenami comes with a one built-in, so these are included here. Generally even if it looks like Tokenami is in the lead - it's important to note that that size is spread out differently. CVA + tw-merge for TailwindCSS is much bigger than Tokenami `css` utility. On the other hand, the styles declarations with Tokenami are bigger.
 
