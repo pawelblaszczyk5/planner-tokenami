@@ -84,7 +84,7 @@ Microsoft Edge has this nice selector tab that lets you see how much time exact 
 
 ![Tokenami selectors statistics](/readme-assets/selectors-tokenami.png)
 
-As you can see there's a lot of selectors in Tokenami that ends with `:var` that aren't matched anyway. This's for the arbitrary values equivalent from TailwindCSS and reducing number of these is on the author's radar.
+As you can see there's a lot of selectors in Tokenami that ends with `:var` that aren't matched anyway. This's for the pattern that allow you to use "grid" and then use the base value multiplications for various selectors.
 
 ## Summary about Tokenami
 
