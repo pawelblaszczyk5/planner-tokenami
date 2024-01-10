@@ -96,9 +96,17 @@ As you can see there's a lot of selectors in Tokenami that ends with `:var` that
 
 ## Summary about Tokenami
 
+### Pros:
+
 - Type-safe way of applying styles through inline attributes, with theming support that compiles to atomic CSS
 - No bundler integration, CLI usage
-- Super powerful styles composition
+- Super powerful styles composition and flexibility
+- Built-in utilities for styles merging and managing variants
 - Theming and configuration is 🔥, it strikes good balance between configurability and ease of use out-of-the box. The API is quite minimal but powerful
-- TypeScript integration is powerful, but performance (Intellisense, `tsc`) takes a small hit
 - Just ultra interesting project on how CSS variables can be used to the extreme
+- TypeScript integration is powerful...
+
+### Cons
+
+- ...but performance (Intellisense, `tsc`) takes a hit
+- Works best with `js(x)/ts(x)` files only, due to the custom intellisense and styles object notation
