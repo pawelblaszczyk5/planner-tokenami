@@ -63,6 +63,10 @@ This app is an SPA so HTML size is basically included in this one as JSX. This i
 
 As you can see, interactions timing are pretty similar, even slightly favouring Tokenami in my measurements. However, Initial Paint timings hit a bit. "Interaction" is basically changing date in calendar to other day, on a page with 25 events.
 
+### Selectors
+
+Microsoft Edge has this nice selector tab that lets you see how much time exact selectors took. Here I'm putting example screenshots from the "Interaction, 4x slowdown" test.
+
 ### Timings (merging classes)
 
 |                    | Tokenami | TailwindCSS |
@@ -72,9 +76,13 @@ As you can see, interactions timing are pretty similar, even slightly favouring 
 
 As mentioned before, I've setup both libraries with utilities for merging styles and managing variants. I'm aware the Tailwind one isn't as performant, because it uses regexes to parse classes for merging purposes. So I've decided to create example scenarios and test them. You can see specific cases in `src/lib/benchmark.ts`. As you can see, the difference is quite noticeable and can scale especially with many components on a given page. However, this mostly impacts initial paints or navigations, because both libraries utilize caching for already encountered combinations.
 
-### Selectors
+### Timings (tsc)
 
-Microsoft Edge has this nice selector tab that lets you see how much time exact selectors took. Here I'm putting example screenshots from the "Interaction, 4x slowdown" test.
+|                    | Tokenami | TailwindCSS |
+| ------------------ | -------- | ----------- |
+| Small, 6x slowdown | 17.2s    | 2.35s       |
+
+As mentioned before, the TypeScript performance takes a hit while using Tokenami. It's not really noticeable during normal usage (except of Tokenami properties intellisense), because of smart magic with TS plugin. However, it's really prominent while running the `tsc` e.g. during CI.
 
 #### TailwindCSS
 
