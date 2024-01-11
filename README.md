@@ -42,7 +42,7 @@ Okay, let's go to the part that's probably more spicey 😄 I'm not taking concl
 
 |                 | Tokenami | Tokenami gzip | TailwindCSS | TailwindCSS gzip |
 | --------------- | -------- | ------------- | ----------- | ---------------- |
-| Stylesheet size | 9.99 kB  | 2.49 kB       | 8.58 kB     | 2.73 kB          |
+| Stylesheet size | 8.06 kB  | 2.22 kB       | 8.58 kB     | 2.73 kB          |
 
 As you can see, even though Tokenami is slightly bigger it compresses better so I'd call it even. Moreover, as mentioned before - in theory Tokenami should be smaller with more property-value combinations and there're few additional improvements coming.
 
@@ -56,10 +56,10 @@ This app is an SPA so HTML size is basically included in this one as JSX. This i
 
 |                            | Tokenami | TailwindCSS |
 | -------------------------- | -------- | ----------- |
-| Interaction                | 12ms     | 16ms        |
-| Interaction, 4x slowdown   | 86ms     | 86ms        |
-| Initial Paint              | 59ms     | 32ms        |
-| Initial Paint, 4x slowdown | 221ms    | 90ms        |
+| Interaction                | 22ms     | 24ms        |
+| Interaction, 4x slowdown   | 72ms     | 79ms        |
+| Initial Paint              | 43ms     | 20ms        |
+| Initial Paint, 4x slowdown | 191ms    | 86ms        |
 
 As you can see, interactions timing are pretty similar, even slightly favouring Tokenami in my measurements. However, Initial Paint timings hit a bit. "Interaction" is basically changing date in calendar to other day, on a page with 25 events.
 
