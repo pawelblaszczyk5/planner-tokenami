@@ -70,7 +70,7 @@ meter {
 
 /* fix the feature of 'hidden' attribute.
    display:revert; revert to element instead of attribute */
-:where([hidden]) {
+:where([hidden]:not([hidden="until-found"])) {
 	display: none;
 }
 
