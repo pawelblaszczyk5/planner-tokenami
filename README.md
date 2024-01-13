@@ -1,8 +1,6 @@
 # Planner app styled with Tokenami
 
-This project is a playground app that I've built and styled with both [Tokenami](https://github.com/tokenami/tokenami) and [TailwindCSS](https://github.com/tailwindlabs/tailwindcss). The former one is using unconventional approach with substring styles selectors to allow direct styling with inline styles. In opposite to e.g. [CSSHooks](https://css-hooks.com) it implements theming system in its core. I highly recommend giving a read about all of these libraries, especially in terms of trade-offs and design decisions. However, substring selectors are (in)famously known for a worse performance than other, especially when compared to class selectors which are one of the most performant one.
-
-Hence, I wanted to measure it, how much the performance tanks fro musing the substring selectors. Moreover, I've just wanted to play a bit with Tokenami to get a grasp whether it's something for me. A lot of thanks to Tokenami author [jjenzz](https://twitter.com/jjenzz) that helped a lot during my journey with Tokenami and was ultra fast with fixing bugs or applying improvements!
+This project is a playground app that I've built and styled with both [Tokenami](https://github.com/tokenami/tokenami) and [TailwindCSS](https://github.com/tailwindlabs/tailwindcss).
 
 [![Planner screenshot](./readme-assets/app-screenshot.png)](https://planner-tokenami.vercel.app)
 
@@ -11,23 +9,239 @@ Hence, I wanted to measure it, how much the performance tanks fro musing the sub
 - [Tokenami version](https://planner-tokenami.vercel.app)
 - [TailwindCSS version](https://planner-tailwind.vercel.app)
 
-## Thoughts about Tokenami
+## What's Tokenami
 
-Tokenami is super nice in terms of DX. Styles are co-located with elements and don't need to be named, similarly to TailwindCSS - these are the characteristics that I'm looking for mostly. Moreover, those can be easily extracted to variables, because they're plain objects. It works better than with TailwindCSS, because of few reasons, including intellisense, merging possibilities, and composition.
+Tokenami is unconventional approach that allows direct styling with inline styles in a typesafe manner. In comparison to other similar approaches e.g. [CSSHooks](https://css-hooks.com) (which also allows direct styling with inline styles), Tokenami utilizes CSS variables and substring CSS selectors to deliver many powerful features, such as built-in theming, complex selectors and aliasing.
 
-Thanks to the fact these're plain objects I can do stuff that I can with objects e.g. destructure to remove few properties. Also it makes TypeScript story a lot better, I can make my components accept some style overrides (but not all) in a completely type-safe manner. Moreover, consistent merging doesn't need utilities like `tw-merge`, you can use the built-in `css` utility that handle e.g. aliases though.
+It also comes with built-in utility for merging and composing styles. Moreover, it provides a TS plugin for even better TypeScript integration. I highly recommend giving a read about all of these libraries, especially in terms of trade-offs and design decisions.
 
-Extraction of styles also works a bit differently, the selectors are mostly the part that needs to be extracted so I can be pretty dynamic with values. In TailwindCSS I can't do something like `text-${color}-500` - I can do this in Tokenami. I need to only be cautious about not ding something like `--hover_${selector}`, which isn't supported by TailwindCSS too. I can even save selectors to some variable and reuse them, because similarly to TailwindCSS they're extracted with a simple regex, no JS parsing occurs. Also arbitrary variants mechanism is super nice and well-thought.
+## Why I've built this
 
-It doesn't need a special bundler integration, you just use a CLI to watch your input files and output a CSS file with atomic rules at built-time. You can make it work with Vite, with Next.js, you name it.
+As mentioned before Tokenami is using unconventional approach with substring styles. However, substring selectors are (in)famously known for a worse performance than other, especially when compared to class selectors which are one of the most performant one.
 
-Theming and configuration is ultra powerful. You can create your own theme categories and assign them to CSS properties. You can also create aliases, nested selectors, whatever you like.
+Hence, I wanted to measure it, how much the performance tanks from using the substring selectors. Moreover, I've just wanted to play a bit with Tokenami to get a grasp whether it's something for me. A lot of thanks to Tokenami author [jjenzz](https://twitter.com/jjenzz) that helped a lot during my journey with Tokenami and was ultra fast with fixing bugs or applying improvements!
 
-Moreover, Tokenami has a slight advantage (which should grow overtime and with jjenzz future improvements that I'm aware of) in terms of stylesheet size. Tailwind generates classes for every property-value combination. Tokenami needs rules only for selectors.
+In a lot of points I'm focusing on a comparison to TailwindCSS. That's because that's my currently preferred styling approach which I wanted to somehow "benchmark" against the new kid on the block.
 
-Most of rough edges are quickly iterated on by the author. One of the biggest currently is the Intellisense performance, thanks to usage of custom TypeScript plugin there's a lot achievable but it comes with a little slowdown. Also there're some things that aren't possible currently because of this - e.g. nesting custom selectors `hover:focus:some-class` TailwindCSS equivalent. You need to create special selector for such cases.
+## What do I like about Tokenami?
 
-Overall, my experience was really pleasant with it. It's readable, it's nice to author, it has a lot of benefits due to just being plain objects, it's fun.
+I've used Tokenami basically since it was available for any usage and I have a few things that I especially enjoy with it. Part of the list is really subjective so feel free to disagree 😄 Let's go through them!
+
+### Authoring format
+
+Styles are co-located with elements and don't need to be named, similarly to TailwindCSS - these are the characteristics that I'm looking for mostly. However, in opposite to TailwindCSS those can be easily (e.g. no need to worry about intellisense) extracted to variables or composed because they're plain objects. Moreover, it's easier to read and find specific styles on a given component. I find object syntax easier to read then atomic class names - even if the latter one is much faster to author.
+
+Example of element styled by Tokenami from this project:
+
+```tsx
+<header
+	style={{
+		"--align-items": "center",
+		"--display": "flex",
+		"--justify-content": "space-between",
+		"--hover_background-color": "var(--color_red-900)",
+	}}
+>
+	...
+</header>
+```
+
+As you can see, standard properties are just prefixed with double `-` to make them CSS variables that Tokenami can use. Moreover, you can prefix them with selectors like `hover`.
+
+### Atomic stylesheet
+
+Again, similarly to TailwindCSS - Tokenami generates an atomic stylesheet. That means that your stylesheet consists of mostly single-property selectors which can be reused across the whole project. That approach allows the stylesheet size to have some hard limit and reduces the growth rate.
+
+Tbh, it's even more "atomic" then TailwindCSS - which generates CSS rules for each selector + value combination. Tokenami reduces it to just one rule for each selector. Values are handled by CSS variables.
+
+Small part of stylesheet generated by Tokenami to give you a sense on how it's working:
+
+```css
+[style*="--border-width\:"] {
+	border-width: var(--border-width);
+}
+[style*="--border-radius\:"] {
+	border-radius: var(--border-radius);
+}
+[style*="--box-shadow\:"] {
+	box-shadow: var(--box-shadow);
+}
+```
+
+It's also important to note that the author is working on a possibility of generating non-atomic sets of rules, which in specific scenarios could be beneficial. It also shows the flexibility that Tokenami offers.
+
+### Theming and configuration
+
+Tokenami comes with a well though theming approach. Yet again (😅), similarly to TailwindCSS, you have an option to restrict what values can be used with specific CSS properties. You can group a set of values under a theme key and than reference it in your properties configuration. You can match multiple theme keys to single property and even create your completely own theme keys, which is even more powerful then TailwindCSS on some levels.
+
+It also has a handy "grid" config, which allows you to specify some base value, let's say `0.25rem` and then use multiplies of this when used. E.g. `"--margin-bottom": 4` would result in `1rem` margin with the before mentioned base. There's also a specific API for arbitrary one-off styles that you don't wish to specify in your theme.
+
+It's important to note that Tokenami doesn't come with a theme built-in though. From what I talked to author, there's a possibility of plugin system in the future which would allow to share and ship those. Then, a base theme could be distributed as a plugin.
+
+You can also configure other stuff, but overall the config is pretty straight-forward and minimal. One thing that I want to highlight is aliases. Let's say that writing "--background-color" each time can get tiring. You can easily alias it to e.g. `--bg-color` and use it across your project. You can see the specifics on how I configured Tokenami in this project in `.tokenami/tokenami.config.ts`
+
+### Easy and seamless integration into your project
+
+In it's core it's just an CLI that watches your config and paths that you specified in it and generates a stylesheet. Run it in watch mode during the development and run it before build - you're basically good to go.
+
+The extraction is super flexible and simple, it just uses RegEx to extract all that look like Tokenami specific selector and generates rules for those. That's also pretty similar to TailwindCSS 😄 However, as previously mentioned Tokenami generates CSS rules based only on selectors, so we have a lot more flexibility than in Tailwind.
+
+For example, this pattern is invalid in TailwindCSS:
+
+```tsx
+const color = "red";
+
+const element = <div className={`text-${color}-900`} />;
+```
+
+It won't extract property, of course, you can make it work by safe-listing or it'll just work if referenced elsewhere. However, those are discouraged. On the other hand, the same pattern with Tokenami is fully valid:
+
+```tsx
+const color = "red";
+
+const element = <div style={{ "--color": `var(--color_${color}-900)` }} />;
+```
+
+It'll work just as is! You only need to be cautious of not creating selectors sting dynamically:
+
+```tsx
+const selector = "hover";
+
+// ⛔⛔⛔⛔ DON'T DO THIS
+const element = <div style={{ [`--${selector}_color`]: `var(--color_red-900)` }} />;
+```
+
+This one won't work properly, Tokenami can't know what selector you used. Summing up - you get a bit more flexible API but you still need to be a little bit knowledgeable on how the extraction works.
+
+### Simple, yet powerful API
+
+As you already could see in few of these examples, there's no specific functions for applying styles or anything. Just use inline styles with Tokenami flavour and you get all of its power and flexibility. Moreover, as previously mentioned - styles declarations are plain objects, it makes them really powerful and composable. Let's give a few examples.
+
+Firstly, you can always move styles out of inline `style` attribute and reuse them across different elements:
+
+```tsx
+const styles = {
+	"--color": "var(--color_red-900)",
+	"--background-color": "var(--color_red-100)",
+	"--padding": 4,
+};
+
+const element1 = <div style={styles} />;
+const element2 = <div style={styles} />;
+```
+
+Even better, you can extract part of styles or compose them together:
+
+```tsx
+const styles = {
+	"--color": "var(--color_red-900)",
+	"--background-color": "var(--color_red-100)",
+	"--padding": 4,
+};
+
+const commonFocusStyles = {
+	"--focus-visible_outline-style": "var(--line-style_solid)",
+	"--outline-color": "var(--color_blue-600)",
+	"--outline-offset": 0.75,
+	"--outline-width": 0.5,
+};
+
+const element1 = <div style={{ ...styles, ...commonFocusStyles }} />;
+
+const { "--padding": _, ...baseStylesWithoutPadding } = styles;
+
+const element2 = <div style={{ ...baseStylesWithoutPadding, ...commonFocusStyles }} />;
+```
+
+Above pattern works fine with not overlapping set of styles, however there're some cases where we want to get predictable merging. That's when basically only TokenamiCSS specific API comes in:
+
+```tsx
+import { css } from "@tokenami/css";
+
+const styles = css({
+	"--color": "var(--color_red-900)",
+	"--background-color": "var(--color_red-100)",
+	"--padding-left": 4,
+});
+
+const conflictingStyles = {
+	"--padding": 8,
+};
+
+const element = <div style={styles(null, conflictingStyles)} />;
+```
+
+That looks sweet! It even properly knows that `--padding` is shorthand that sets `--padding-left` and will overwrite it. You can be only wondering "Why the null in `styles` invocation? 🤔" That's because the `css` function also acts as a tool for managing variants! Let's look at following example from my codebase (slightly simplified):
+
+```tsx
+const button = css(
+	{
+		"--align-items": "center",
+		"--border-radius": "var(--radii_base)",
+		"--color": "var(--color_white)",
+		"--display": "flex",
+		"--font-weight": "var(--weight_semibold)",
+		"--gap": 1.5,
+		"--h": 9,
+		"--outline-color": "var(--color_blue-8)",
+		"--outline-offset": 0.75,
+		"--outline-width": 0.5,
+		"--px": 2.5,
+		"--py": 2,
+		"--focus-visible_outline-style": "var(--line-style_solid)",
+	},
+	{
+		variant: {
+			base: {
+				"--bg-color": "var(--color_orange-9)",
+				"--hover_bg-color": "var(--color_orange-10)",
+			},
+			muted: {
+				"--bg-color": "var(--color_orange-3)",
+				"--hover_bg-color": "var(--color_orange-4)",
+			},
+			negative: {
+				"--bg-color": "var(--color_red-9)",
+				"--hover_bg-color": "var(--color_red-10)",
+			},
+		},
+	},
+);
+
+const exampleButtonBase = <button style={button({ variant: "base" })} />;
+
+const additionalStylesThatTakesPriority = {
+	"--p": 4,
+};
+
+const exampleButtonMuted = <button style={button({ variant: "muted" }, additionalStylesThatTakesPriority)} />;
+```
+
+One small note - because of this, the `css` base function can sometimes be cumbersome if you're using it only for merging (need to pass null all the time). It's something that the author is looking into solving, I've built a small utility in the meantime, which got a seal of approval:
+
+```tsx
+const emptyCss = css({});
+
+const mergeCss = (...styles: Array<TokenamiProperties | false | undefined>) => emptyCss(null, ...styles);
+```
+
+As you can see, the API that Tokenami provides is pretty minimal. However, it allows to use the flexibility of JavaScript to create super powerful patterns and compose styles in a way that's unmatched by TailwindCSS.
+
+### TypeScript integration
+
+<!-- TODO: I've ended here -->
+
+It's also a bit easier in terms of e.g. intellisense or tooling than TailwindCSS. It's intellisense works by RegEx, so by default you won't get a fancy autocomplete outside of
+
+### Interesting usage of CSS
+
+It's just a straight up super interesting usage of flexibility that CSS offers. Even if you won't use it, it's a good showcase of what you can use while building frontend with other styling solutions.
+
+## What are the tradeoffs in my opinion?
+
+### Performance
+
+### Works best with JavaScript, TypeScript files
 
 ## Various measurements
 
@@ -59,13 +273,13 @@ This app is an SPA so HTML size is basically included in this one as JSX. This i
 | Interaction                | 22ms     | 24ms        |
 | Interaction, 4x slowdown   | 72ms     | 79ms        |
 | Initial Paint              | 43ms     | 20ms        |
-| Initial Paint, 4x slowdown | 191ms    | 86ms        |
+| Initial Paint, 4x slowdown | 170ms    | 92ms        |
 
 As you can see, interactions timing are pretty similar, even slightly favouring Tokenami in my measurements. However, Initial Paint timings hit a bit. "Interaction" is basically changing date in calendar to other day, on a page with 25 events.
 
 ### Selectors
 
-Microsoft Edge has this nice selector tab that lets you see how much time exact selectors took. Here I'm putting example screenshots from the "Interaction, 4x slowdown" test.
+Microsoft Edge has this nice selector tab that lets you see how much time exact selectors took. Here I'm putting example screenshots from the "Initial Paint, 4x slowdown" test.
 
 #### TailwindCSS
 
@@ -75,7 +289,7 @@ Microsoft Edge has this nice selector tab that lets you see how much time exact 
 
 ![Tokenami selectors statistics](/readme-assets/selectors-tokenami.png)
 
-As you can see there's a lot of selectors in Tokenami that ends with `:var` that aren't matched anyway. This's for the pattern that allow you to use "grid" and then use the base value multiplications for various selectors.
+I've sorted them by how fast are they and in case of TailwindCSS not all were fitting my screen but they were 0 time anyway. While it gives us a sense of what selectors are slow and what can we improve it's important to note - treat this metric with caution I find this selectors performance really vary run-to-run.
 
 ### Timings (merging classes)
 
@@ -93,20 +307,3 @@ As mentioned before, I've setup both libraries with utilities for merging styles
 | Small, 6x slowdown | 17.2s    | 2.35s       |
 
 As mentioned before, the TypeScript performance takes a hit while using Tokenami. It's not really noticeable during normal usage (except of Tokenami properties intellisense), because of smart magic with TS plugin. However, it's really prominent while running the `tsc` e.g. during CI. It's also important to note that TailwindCSS classes aren't typechecked, these are just string, while with Tokenami you're getting typechecking for literally everything.
-
-## Summary about Tokenami
-
-### Pros:
-
-- Type-safe way of applying styles through inline attributes, with theming support that compiles to atomic CSS
-- No bundler integration, CLI usage
-- Super powerful styles composition and flexibility
-- Built-in utilities for styles merging and managing variants
-- Theming and configuration is 🔥, it strikes good balance between configurability and ease of use out-of-the box. The API is quite minimal but powerful
-- Just ultra interesting project on how CSS variables can be used to the extreme
-- TypeScript integration is powerful...
-
-### Cons
-
-- ...but performance (Intellisense, `tsc`) takes a hit
-- Works best with `js(x)/ts(x)` files only, due to the custom intellisense and styles object notation
