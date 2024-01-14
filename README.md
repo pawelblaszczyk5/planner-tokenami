@@ -222,11 +222,27 @@ const mergeCss = (...styles: Array<TokenamiProperties | false | undefined>) => e
 
 As you can see, the API that Tokenami provides is pretty minimal. However, it allows to use the flexibility of JavaScript to create super powerful patterns and compose styles in a way that's unmatched by TailwindCSS.
 
-### TypeScript integration
+### TypeScript as a first-class citizen
 
-<!-- TODO: I've ended here -->
+Tokenami makes solid use of TypeScript possibilities, thanks to usage of object notation for styles authoring it's possible to typecheck those. You will see if property that you're trying to set doesn't exist. It goes even further though, because you get typesafety for theme values, selectors, and breakpoints. There's also a special way of expressing an arbitrary value in a typesafe manner `var(---, arbitrary value goes here)`. Moreover, it utilizes a TypeScript plugin to achieve even more stuff - e.g. you get hints on what hides under specific themes value during autocompletion.
 
-It's also a bit easier in terms of e.g. intellisense or tooling than TailwindCSS. It's intellisense works by RegEx, so by default you won't get a fancy autocomplete outside of
+There're also a few goodies created especially for squeezing even more from TypeScript in Tokenami projects. Firstly, you have a simple type `TokenamiProperties` that you can use anywhere to declare styles and get intellisense and type-checking. In previous point I mentioned an API for declaring variants, it also has a type helper for extracting those at type level `Variants`.
+
+And time for the stuff that excites me the most - you often want to create a component and expose most of the underlying element properties for external usage. Let's say you want to let user apply styles like margins or grid/flex related properties, but you don't want them to override your design. With Tailwind you have basically two options, create a special API that maps those to properties, or allow all classes - you can't really limit what classes someone passes in. Both approaches have some downsides. In Tokenami, you have a third, proffered way - `TokenamiPropertiesOmit` and `TokenamiPropertiesPick` type helpers. Look at below example:
+
+```tsx
+// This type will allow assigning everything except of a few selected ones
+type PropertiesWithoutBackground = TokenamiPropertiesOmit<"background" | "background-color" | "background-image">;
+
+// This type will allow assigning only a few selected ones
+type MarginAndFlexProperties = TokenamiPropertiesPick<
+	"flex" | "flex-basis" | "flex-grow" | "flex-shrink" | "margin" | "margin-left" | "margin-right" | "margin-top"
+>;
+```
+
+This API is similar to what [StyleX](https://stylexjs.com/docs/learn/static-types/) recently shown, but is modeled after TypeScript `Pick` and `Omit` helpers. Moreover, it takes into account stuff like aliases or responsive selectors.
+
+The intellisense is also a bit easier to work with than TailwindCSS in my opinion. The latter one utilizes RegEx to know where it should autocomplete specific class names. Tokenami one is powered by TypeScript, so you can expect it to work in similar fashion as all other autocompletion.
 
 ### Interesting usage of CSS
 
@@ -234,18 +250,42 @@ It's just a straight up super interesting usage of flexibility that CSS offers. 
 
 ## What are the tradeoffs in my opinion?
 
+Okay, but the sun isn't always shining 😄 There must be some tradeoffs for all the nice stuff that I mentioned before. I won't focus on stuff like "smaller ecosystem" or "maturity" because that's pretty obvious for a library that's less then a month from a public release. Let's go through the real tradeoffs:
+
 ### Performance
 
+When I mean "performance" it relates to a few of things. Firstly, as I mentioned before, substring style selectors aren't the most performant ones. Are they slow? Are they worse than X? That all depends on what you want to compare them against. My contender was TailwindCSS and Tokenami is slower, you can't argue that. I don't want to say "it's fast enough" or "it's much slower", that probably all depends on your needs. I've put a few metrics in later part of this so you can make your own thoughts. It's also important to note, that my contender is kinda good in this category. If you're using something like runtime CSS-in-JS solution, it could be possible that Tokenami is much faster. As I mentioned before - if that's your concern, look at below metrics and make your own thoughts, I won't decide for you 😄
+
+It's also important to note that if you're using stuff like `cva` and `tw-merge` extensively in runtime, the performance hit from those could mitigate some of the gains from using TailwindCSS. Built-in `css` in Tokenami is much faster, because it doesn't need to utilize RegExes for deduplication and merging.
+
+Second part of the "performance" is the TypeScript performance - mainly `tsc` and the intellisense. As I mentioned before, Tokenami makes it possible to typecheck basically everything - that must come with a performance hit. Doing some work is always slower than not doing it at all. It tries to offload as much as possible during development to the plugin but you still get some slowdowns. Moreover, TypeScript doesn't allow running plugins during `tsc`, so in CI you can't offload it.
+
 ### Works best with JavaScript, TypeScript files
+
+Currently Tokenami supports React and SolidJS, but it could easily grow in the future. Currently to use it to the fullest, the prerequisites are - object notation for inline style attribute and usage of TypeScript/JavaScript files where you author styles. In theory, both of them aren't obligatory, you can just write inline styles like I did in `index.html` file:
+
+```html
+<body
+	style="--background-color: var(--color_sand-1); --color: var(--color_sand-12); --font-family: var(--font_sans)"
+></body>
+```
+
+But you are missing both the typesafety and intellisense with this. Moreover, the usage of TypeScript plugin can be a limitation when using it with custom languages like `svelte` or `vue`. On the other hand, most of frameworks that utilize JSX seems to be easily integrable, e.g. addition of Qwik seems pretty straightforward.
+
+## Summary
+
+Before going into the measurements that I mentioned before - a quick summary. Tokenami is super powerful styling solution that integrates nicely with TypeScript, it comes with built-in theming and utilities for merging styles and managing variants. It utilizes CSS variables to make inline styles capable of more stuff. The integration with project is pretty basic, you only need to run a CLI. The DX you get is pretty lit. There're few tradeoffs, mostly related to performance but that all depends on your specific use-case and your current solution.
 
 ## Various measurements
 
 Okay, let's go to the part that's probably more spicey 😄 I'm not taking conclusions, anyone can decide for themselves. Few notes before presenting rough numbers:
 
+- I'm comparing it with TailwindCSS, because that's my current go-to styling solution
 - I'm using different CSS resets with both libraries. TailwindCSS comes with a one builtin. Both seems to be similar in terms of selectors performance but the TailwindCSS is slightly bigger.
-- The measurements aren't super ultra exact and precise, I didn't want to automate it and make them, because these are mostly for me. So it involves measuring user interactions timings performed by human. This thing shouldn't really matter because even if I moved my mouse faster or something I always measured only a single change on the screen, e.g. changing date. Also I didn't make any warmup runs or took many attempts and took an average. I've only checked whether these vary a lot and it seemed to be pretty consistent.
-- There's small variance between both calendars content, I've used `faker.js` to generate mock events so stuff like event spread and longer/shorter names could impact some stuff in theory. You can take a look in `src/lib/mock-data.ts` to check how I generated it.
-- I'm using an experimental setting with TailwindCSS `optimizeUniversalDefaults`. This one makes the resulting stylesheet smaller and remove few less performant selectors. I have this always on when I'm using TailwindCSS and these measurements are for me so I included it here.
+- The measurements aren't lab-grade. I didn't care about ultra precision and automation, because I'm building it for myself mostly. It involves measuring user interactions performed by human. The variance is mitigated by measuring single interaction times, so these shouldn't matter too much (it measures stuff **after** I clicked something). Also benchmarking isn't my specialization, take it with a grain of salt.
+- There's small variance between both calendars content, I've used `faker.js` to generate mock events so stuff like event spread and longer/shorter names could impact some stuff in theory. You can take a look in `src/lib/mock-data.ts` to check how I generated it. Generating different data sets didn't seem to impact it though.
+- I'm using an experimental setting with TailwindCSS `optimizeUniversalDefaults`. This one makes the resulting stylesheet smaller and remove few less performant selectors. I have this always on when I'm using TailwindCSS and as I mentioned before - these measurements are mostly for me so I've included it here also.
+- My machine is MacBook Pro 14" M1 with 16GB RAM, all measurements were taken with Microsoft Edge (chromium under the hood).
 
 ### Size
 
@@ -253,15 +293,15 @@ Okay, let's go to the part that's probably more spicey 😄 I'm not taking concl
 | --------------- | -------- | ------------- | ----------- | ---------------- |
 | Stylesheet size | 8.06 kB  | 2.22 kB       | 8.58 kB     | 2.73 kB          |
 
-As you can see, even though Tokenami is slightly bigger it compresses better so I'd call it even. Moreover, as mentioned before - in theory Tokenami should be smaller with more property-value combinations and there're few additional improvements coming.
+As you can see, Tokenami has smaller stylesheet size. The gap will probably grow with the size of the app (as mentioned before, Tokenami generates rules for every property, while TailwindCSS for every property + value combination). However, the difference shouldn't skyrocket or anything - both solutions use atomic rules.
 
 |            | Tokenami  | Tokenami gzip | TailwindCSS | TailwindCSS gzip |
 | ---------- | --------- | ------------- | ----------- | ---------------- |
 | JS(X) size | 540.33 kB | 169.85 kB     | 542.96 kB   | 171.79 kB        |
 
-This app is an SPA so HTML size is basically included in this one as JSX. This is influenced by styling library in two ways - firstly, how terse are styles declarations, secondly - companion libraries. I can't imagine using TailwindCSS without CVA and tw-merge, Tokenami comes with a one built-in, so these are included here. Generally even if it looks like Tokenami is in the lead - it's important to note that that size is spread out differently. CVA + tw-merge for TailwindCSS is much bigger than Tokenami `css` utility. On the other hand, the styles declarations with Tokenami are bigger.
+This app is an SPA so HTML size is basically included in this one as JSX. This is influenced by styling solution in two ways - firstly, how terse are styles declarations, secondly - companion libraries. I'm usually using TailwindCSS in conjunction with CVA and tw-merge, Tokenami comes with a one built-in, so these are included here. Generally even if it looks like Tokenami is in the lead - it's important to note that that size is spread out differently. CVA + tw-merge for TailwindCSS is much bigger than Tokenami `css` utility. On the other hand, the styles declarations with Tokenami are bigger.
 
-### Timings (paint + rendering)
+### Timings **(paint + rendering only)**
 
 |                            | Tokenami | TailwindCSS |
 | -------------------------- | -------- | ----------- |
@@ -270,11 +310,11 @@ This app is an SPA so HTML size is basically included in this one as JSX. This i
 | Initial Paint              | 43ms     | 20ms        |
 | Initial Paint, 4x slowdown | 170ms    | 92ms        |
 
-As you can see, interactions timing are pretty similar, even slightly favouring Tokenami in my measurements. However, Initial Paint timings hit a bit. "Interaction" is basically changing date in calendar to other day, on a page with 25 events.
+As you can see, interactions timing are pretty similar, even slightly favouring Tokenami in my measurements. However, Initial Paint timings slumps a bit. "Interaction" is changing date on the calendar inside of the app and measuring how long does it take to update, it doesn't include the hovering part to mitigate human impact.
 
 ### Selectors
 
-Microsoft Edge has this nice selector tab that lets you see how much time exact selectors took. Here I'm putting example screenshots from the "Initial Paint, 4x slowdown" test.
+Microsoft Edge has this nice selector tab that lets you see how much time exact selectors took. Here I'm putting example screenshots from the "Initial Paint, 4x slowdown" test. Treat this metric with caution I find this selectors performance really vary run-to-run. I've included it more as an interesting fact and please treat it more like a general idea of which selectors are slow and what can be improved.
 
 #### TailwindCSS
 
@@ -284,7 +324,7 @@ Microsoft Edge has this nice selector tab that lets you see how much time exact 
 
 ![Tokenami selectors statistics](/readme-assets/selectors-tokenami.png)
 
-I've sorted them by how fast are they and in case of TailwindCSS not all were fitting my screen but they were 0 time anyway. While it gives us a sense of what selectors are slow and what can we improve it's important to note - treat this metric with caution I find this selectors performance really vary run-to-run.
+I've sorted them by how fast are they and in case of TailwindCSS not all were fitting my screen but they were zero time anyway so I didn't care 😄
 
 ### Timings (merging classes)
 
@@ -293,12 +333,16 @@ I've sorted them by how fast are they and in case of TailwindCSS not all were fi
 | Small, 6x slowdown | 0.7ms    | 8ms         |
 | Big, 6x slowdown   | 3ms      | 22ms        |
 
-As mentioned before, I've setup both libraries with utilities for merging styles and managing variants. I'm aware the Tailwind one isn't as performant, because it uses regexes to parse classes for merging purposes. So I've decided to create example scenarios and test them. You can see specific cases in `src/lib/benchmark.ts`. As you can see, the difference is quite noticeable and can scale especially with many components on a given page. However, this mostly impacts initial paints or navigations, because both libraries utilize caching for already encountered combinations.
+As mentioned before, I've setup both libraries with utilities for merging styles and managing variants. I'm aware the Tailwind one isn't as performant, because it uses RegExes for merging and deduplication. I've decided to create example scenarios and test them. You can see specific cases in `src/lib/benchmark.ts` in both projects.
+
+As you can see, the difference is quite noticeable and can scale especially with many components on a given page. However, this mostly impacts initial paints or app navigations, because both libraries utilize caching for already encountered combinations.
 
 ### Timings (tsc)
 
-|                    | Tokenami | TailwindCSS |
-| ------------------ | -------- | ----------- |
-| Small, 6x slowdown | 17.2s    | 2.35s       |
+|                          | Tokenami | TailwindCSS |
+| ------------------------ | -------- | ----------- |
+| Running `pnpm typecheck` | 17.2s    | 2.35s       |
 
 As mentioned before, the TypeScript performance takes a hit while using Tokenami. It's not really noticeable during normal usage (except of Tokenami properties intellisense), because of smart magic with TS plugin. However, it's really prominent while running the `tsc` e.g. during CI. It's also important to note that TailwindCSS classes aren't typechecked, these are just string, while with Tokenami you're getting typechecking for literally everything.
+
+If you're here, thanks for taking a look and reading through my thoughts 😊
