@@ -240,7 +240,7 @@ type MarginAndFlexProperties = TokenamiPropertiesPick<
 >;
 ```
 
-This API is similar to what [StyleX](https://stylexjs.com/docs/learn/static-types/) recently shown, but is modeled after TypeScript `Pick` and `Omit` helpers. Moreover, it takes into account stuff like aliases or responsive selectors.
+It also takes into account stuff like aliases or responsive selectors. This API is similar to what [StyleX](https://stylexjs.com/docs/learn/static-types/) recently shown, but is modeled after TypeScript `Pick` and `Omit` helpers.
 
 The intellisense is also a bit easier to work with than TailwindCSS in my opinion. The latter one utilizes RegEx to know where it should autocomplete specific class names. Tokenami one is powered by TypeScript, so you can expect it to work in similar fashion as all other autocompletion.
 
