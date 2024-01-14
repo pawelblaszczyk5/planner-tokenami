@@ -100,7 +100,7 @@ export const ToastRegion = () => {
 						"--flex-dir": "column",
 						"--gap": 4,
 						"--max-w": "var(---, min(calc(100vw - 32px), 24rem))",
-						"--position": "absolute",
+						"--position": "fixed",
 						"--right": 4,
 						"--w": "var(--size_full)",
 						"--z-index": "var(--z_100)",
