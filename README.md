@@ -82,7 +82,7 @@ You can also configure other stuff, but overall the config is pretty straight-fo
 
 ### Easy and seamless integration into your project
 
-In it's core it's just an CLI that watches your config and paths that you specified in it and generates a stylesheet. Run it in watch mode during the development and run it before build - you're basically good to go. You can make it work within React Vite project, Next.js, Remix, CRA (I feel sorry) or SolidJS (more on that later).
+In it's core it's just an CLI that watches your config and paths that you specified in it and generates a stylesheet. Run it in watch mode during the development and run it before build - you're basically good to go. There's no need for some specific bundler integrations or babel plugins. You can make it work within React Vite project, Next.js, Remix, CRA (I feel sorry) or SolidJS (more on that later).
 
 The extraction is super flexible and simple, it just uses RegEx to extract all that look like Tokenami specific selector and generates rules for those. That's also pretty similar to TailwindCSS 😄 However, as previously mentioned Tokenami generates CSS rules based only on selectors, so we have a lot more flexibility than in Tailwind.
 
