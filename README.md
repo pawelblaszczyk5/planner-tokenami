@@ -19,7 +19,7 @@ It also comes with built-in utility for merging and composing styles. Moreover, 
 
 As mentioned before Tokenami is using unconventional approach with substring styles. However, substring selectors are (in)famously known for a worse performance than other, especially when compared to class selectors which are one of the most performant one.
 
-Hence, I wanted to measure it, how much the performance tanks from using the substring selectors. Moreover, I've just wanted to play a bit with Tokenami to get a grasp whether it's something for me. A lot of thanks to Tokenami author [jjenzz](https://twitter.com/jjenzz) that helped a lot during my journey with Tokenami and was ultra fast with fixing bugs or applying improvements!
+Hence, I wanted to measure it, how much the performance tanks from using the substring selectors. Moreover, I've just wanted to play a bit with Tokenami to get a grasp whether it's something for me. A lot of thanks to Tokenami author [jjenzz](https://twitter.com/jjenzz) that helped a lot during my journey with Tokenami and was ultra fast with fixing bugs or brainstorming my improvement ideas!
 
 In a lot of points I'm focusing on a comparison to TailwindCSS. That's because that's my currently preferred styling approach which I wanted to somehow "benchmark" against the new kid on the block.
 
