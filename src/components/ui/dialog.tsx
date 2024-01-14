@@ -14,7 +14,7 @@ export const Modal = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacMo
 					"--display": "grid",
 					"--left": "var(---, 50%)",
 					"--place-items": "center",
-					"--position": "absolute",
+					"--position": "fixed",
 					"--px": 4,
 					"--top": 16,
 					"--transform": "translateX(-50%)",
@@ -41,7 +41,7 @@ export const ModalOverlay = ({
 				{
 					"--bg-color": "var(--color_black-a10)",
 					"--inset": 0,
-					"--position": "absolute",
+					"--position": "fixed",
 					"--z-index": "var(--z_10)",
 				},
 				overrides,
@@ -60,7 +60,7 @@ export const Dialog = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacD
 				"--border-radius": "var(--radii_md)",
 				"--max-w": 150,
 				"--p": 6,
-				"--w": "var(--size_full)"
+				"--w": "var(--size_full)",
 			},
 			style,
 		)}
