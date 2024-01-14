@@ -4,7 +4,7 @@ This project is a playground app that I've built and styled with both [Tokenami]
 
 [![Planner screenshot](./readme-assets/app-screenshot.png)](https://planner-tokenami.vercel.app)
 
-## Links
+## Deployed versions
 
 - [Tokenami version](https://planner-tokenami.vercel.app)
 - [TailwindCSS version](https://planner-tailwind.vercel.app)
