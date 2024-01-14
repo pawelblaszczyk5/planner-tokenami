@@ -30,6 +30,7 @@ export default createConfig({
 	include: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
 	properties: {
 		...defaultConfig.properties,
+		"border-width": ["grid"],
 		"outline-offset": ["grid"],
 		"outline-style": ["line-style"],
 		"outline-width": ["grid"],
