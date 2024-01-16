@@ -84,34 +84,7 @@ You can also configure other stuff, but overall the config is pretty straight-fo
 
 In it's core it's just an CLI that watches your config and paths that you specified in it and generates a stylesheet. Run it in watch mode during the development and run it before build - you're basically good to go. There's no need for some specific bundler integrations or babel plugins. You can make it work within React Vite project, Next.js, Remix, CRA (I feel sorry) or SolidJS (more on that later).
 
-The extraction is super flexible and simple, it just uses RegEx to extract all that look like Tokenami specific selector and generates rules for those. That's also pretty similar to TailwindCSS 😄 However, as previously mentioned Tokenami generates CSS rules based only on selectors, so we have a lot more flexibility than in Tailwind.
-
-For example, this pattern is invalid in TailwindCSS:
-
-```tsx
-const color = "red";
-
-const element = <div className={`text-${color}-900`} />;
-```
-
-It won't extract property, of course, you can make it work by safe-listing or it'll just work if referenced elsewhere. However, those are discouraged. On the other hand, the same pattern with Tokenami is fully valid:
-
-```tsx
-const color = "red";
-
-const element = <div style={{ "--color": `var(--color_${color}-900)` }} />;
-```
-
-It'll work just as is! You only need to be cautious of not creating selectors sting dynamically:
-
-```tsx
-const selector = "hover";
-
-// ⛔⛔⛔⛔ DON'T DO THIS
-const element = <div style={{ [`--${selector}_color`]: `var(--color_red-900)` }} />;
-```
-
-This one won't work properly, Tokenami can't know what selector you used. Summing up - you get a bit more flexible API but you still need to be a little bit knowledgeable on how the extraction works.
+The extraction is super flexible and simple, it just uses RegEx to extract all that look like Tokenami specific selector and generates rules for those. That's also pretty similar to TailwindCSS 😄 Despite generating rules only on properties you still can't create dynamically both selectors and values (if they're coming from theme), because Tokenami doesn't generate CSS rules for unused theme tokens.
 
 ### Simple, yet powerful API
 
