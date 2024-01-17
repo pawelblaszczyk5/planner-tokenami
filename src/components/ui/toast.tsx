@@ -35,11 +35,11 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 				"--border-color": "var(--color_orange-7)",
 				"--border-radius": "var(--radii_md)",
 				"--border-style": "var(--line-style_solid)",
-				"--border-width": 0.5,
+				"--border-width": "var(--scale_0-5)",
 				"--box-shadow": "var(--shadow_base)",
 				"--display": "flex",
-				"--gap": 3,
-				"--p": 4,
+				"--gap": "var(--scale_3)",
+				"--p": "var(--scale_4)",
 				"--w": "var(--size_full)",
 			}}
 			ref={ref}
@@ -55,7 +55,7 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 				style={{
 					"--display": "flex",
 					"--flex-dir": "column",
-					"--gap": 4,
+					"--gap": "var(--scale_4)",
 					"--w": "var(--size_full)",
 				}}
 			>
@@ -72,7 +72,7 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 					style={{
 						"--align-items": "center",
 						"--display": "flex",
-						"--gap": 4,
+						"--gap": "var(--scale_4)",
 						"--justify-content": "flex-end",
 					}}
 				>
@@ -95,13 +95,13 @@ export const ToastRegion = () => {
 		? createPortal(
 				<div
 					style={{
-						"--bottom": 4,
+						"--bottom": "var(--scale_4)",
 						"--display": "flex",
 						"--flex-dir": "column",
-						"--gap": 4,
+						"--gap": "var(--scale_4)",
 						"--max-w": "var(---, min(calc(100vw - 32px), 24rem))",
 						"--position": "fixed",
-						"--right": 4,
+						"--right": "var(--scale_4)",
 						"--w": "var(--size_full)",
 						"--z-index": "var(--z_100)",
 					}}

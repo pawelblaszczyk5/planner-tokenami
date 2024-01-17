@@ -15,11 +15,11 @@ export const Modal = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacMo
 					"--left": "var(---, 50%)",
 					"--place-items": "center",
 					"--position": "fixed",
-					"--px": 4,
-					"--top": 16,
+					"--px": "var(--scale_4)",
+					"--top": "var(--scale_16)",
 					"--transform": "translateX(-50%)",
 					"--w": "var(--size_full)",
-					"--xs_px": 8,
+					"--xs_px": "var(--scale_8)",
 				},
 				overrides,
 			);
@@ -40,7 +40,7 @@ export const ModalOverlay = ({
 			return mergeCss(
 				{
 					"--bg-color": "var(--color_black-a10)",
-					"--inset": 0,
+					"--inset": "var(--scale_0)",
 					"--position": "fixed",
 					"--z-index": "var(--z_10)",
 				},
@@ -58,8 +58,8 @@ export const Dialog = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacD
 			{
 				"--bg-color": "var(--color_sand-2)",
 				"--border-radius": "var(--radii_md)",
-				"--max-w": 150,
-				"--p": 6,
+				"--max-w": "var(---, 37.5rem)",
+				"--p": "var(--scale_6)",
 				"--w": "var(--size_full)",
 			},
 			style,

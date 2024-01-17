@@ -33,7 +33,7 @@ import {
 } from "#/utils/date";
 
 const HeaderRow = () => (
-	<CalendarGridHeader style={{ "--min-h": 8 }}>
+	<CalendarGridHeader style={{ "--min-h": "var(--scale_8)" }}>
 		{day => (
 			<CalendarHeaderCell
 				style={{
@@ -48,12 +48,12 @@ const HeaderRow = () => (
 						"--font-size": "var(--font-size_xs)",
 						"--font-weight": "var(--weight_semibold)",
 						"--justify-content": "flex-end",
-						"--m": 0.75,
-						"--min-h": 8,
-						"--p": 2,
+						"--m": "var(---, 3px)",
+						"--min-h": "var(--scale_8)",
+						"--p": "var(--scale_2)",
 						"--xs_font-size": "var(--font-size_base)",
-						"--xs_m": 1.5,
-						"--xs_p": 2.5,
+						"--xs_m": "var(--scale_1-5)",
+						"--xs_p": "var(--scale_2-5)",
 					}}
 				>
 					{day}
@@ -72,12 +72,12 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 				"--border-radius": "var(--radii_md)",
 				"--display": "flex",
 				"--flex-dir": "column",
-				"--m": 0.75,
-				"--min-h": 16,
+				"--m": "var(---, 3px)",
+				"--min-h": "var(--scale_16)",
 				"--outline-color": "var(--color_blue-8)",
-				"--outline-offset": 0.25,
-				"--outline-width": 0.5,
-				"--p": 2,
+				"--outline-offset": "var(--scale_px)",
+				"--outline-width": "var(--scale_0-5)",
+				"--p": "var(--scale_2)",
 				"--rac-focus-visible_outline-style": "var(--line-style_solid)",
 				"--rac-hover_bg-color": "var(--color_sand-4)",
 				"--rac-outside-month_color": "var(--color_sand-10)",
@@ -85,9 +85,9 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 				"--transition-duration": "var(--transition-duration_150)",
 				"--transition-property": "background-color",
 				"--transition-timing-function": "var(--transition-timing-function_ease-in-out)",
-				"--xs_m": 1.5,
-				"--xs_p": 2.5,
-				"--xs_rac-focus-visible_outline-offset": 0.75,
+				"--xs_m": "var(--scale_1-5)",
+				"--xs_p": "var(--scale_2-5)",
+				"--xs_rac-focus-visible_outline-offset": "var(--scale_0-5)",
 				...(date.toDate("utc").getDay() % 6 === 0 && {
 					"--bg-color": "var(--color_sand-2)",
 				}),
@@ -119,9 +119,9 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 									style={{
 										"--bg-color": "var(--color_orange-9)",
 										"--border-radius": "var(--radii_full)",
-										"--h": 2,
-										"--mr": -0.75,
-										"--w": 2,
+										"--h": "var(--scale_2)",
+										"--mr": "var(---, -3px)",
+										"--w": "var(--scale_2)",
 									}}
 									key={index}
 								/>
@@ -165,7 +165,7 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 			style={{
 				"--display": "flex",
 				"--flex-dir": "column",
-				"--gap": 4,
+				"--gap": "var(--scale_4)",
 				"--w": "var(--size_full)",
 			}}
 			aria-label="Events"
@@ -207,13 +207,13 @@ const Event = ({ event }: { event: EventEntry }) => {
 	};
 
 	return (
-		<li style={{ "--display": "flex", "--flex-dir": "column", "--gap": 4 }}>
+		<li style={{ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" }}>
 			<div
 				style={{
 					"--align-items": "center",
 					"--display": "flex",
 					"--flex-wrap": "wrap",
-					"--gap": 3,
+					"--gap": "var(--scale_3)",
 					"--justify-content": "space-between",
 				}}
 			>
@@ -228,7 +228,7 @@ const Event = ({ event }: { event: EventEntry }) => {
 				style={{
 					"--align-items": "center",
 					"--display": "flex",
-					"--gap": 3,
+					"--gap": "var(--scale_3)",
 					"--justify-content": "flex-end",
 				}}
 			>
@@ -267,7 +267,7 @@ const List = ({ date }: { date: CalendarDate }) => {
 			style={{
 				"--display": "flex",
 				"--flex-dir": "column",
-				"--gap": 8,
+				"--gap": "var(--scale_8)",
 				"--w": "var(--size_full)",
 			}}
 		>
@@ -275,7 +275,7 @@ const List = ({ date }: { date: CalendarDate }) => {
 				style={{
 					"--align-items": "center",
 					"--display": "flex",
-					"--gap": 3,
+					"--gap": "var(--scale_3)",
 					"--justify-content": "space-between",
 				}}
 			>
@@ -294,7 +294,7 @@ const List = ({ date }: { date: CalendarDate }) => {
 				</Button>
 			</div>
 			{eventsForDate.length > 0 ? (
-				<ul style={{ "--display": "flex", "--flex-dir": "column", "--gap": 4 }}>
+				<ul style={{ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" }}>
 					{eventsForDate.map(event => (
 						<Event event={event} key={event.id} />
 					))}
@@ -313,7 +313,7 @@ const List = ({ date }: { date: CalendarDate }) => {
 					>
 						Events for near future
 					</h2>
-					<ul style={{ "--display": "flex", "--flex-dir": "column", "--gap": 4 }}>
+					<ul style={{ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" }}>
 						{eventsFromFuture.map(event => (
 							<Event event={event} key={event.id} />
 						))}
@@ -359,7 +359,7 @@ export const EventsCalendar = () => {
 			style={{
 				"--display": "flex",
 				"--flex-dir": "column",
-				"--gap": 8,
+				"--gap": "var(--scale_8)",
 			}}
 		>
 			<Calendar date={date} onDateChange={navigateToDate} />
