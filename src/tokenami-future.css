@@ -208,7 +208,7 @@
 	border-width: var(--border-width, unset);
 	border-radius: var(--border-radius, unset);
 	box-shadow: var(--box-shadow, unset);
-	color: var(--i-rac-placeholder_color, var(--rac-outside-month_color, var(--color, unset)));
+	color: var(--i-rac-placeholder_color, var(--i-rac-outside-month_color, var(--color, unset)));
 	display: var(--display, revert);
 	flex-direction: var(--flex-direction, unset);
 	flex-wrap: var(--flex-wrap, unset);
