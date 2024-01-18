@@ -29,15 +29,15 @@ const button = css(
 		variant: {
 			base: {
 				"--bg-color": "var(--color_orange-9)",
-				"--hover_bg-color": "var(--color_orange-10)",
+				"--rac-hover_bg-color": "var(--color_orange-10)",
 			},
 			muted: {
 				"--bg-color": "var(--color_orange-3)",
-				"--hover_bg-color": "var(--color_orange-4)",
+				"--rac-hover_bg-color": "var(--color_orange-4)",
 			},
 			negative: {
 				"--bg-color": "var(--color_red-9)",
-				"--hover_bg-color": "var(--color_red-10)",
+				"--rac-hover_bg-color": "var(--color_red-10)",
 			},
 		},
 	},
