@@ -1,7 +1,7 @@
 export const Component = () => (
 	<>
 		<title>Planner - Info</title>
-		<div style={{ "--display": "flex", "--flex-dir": "column", "--gap": 4 }}>
+		<div style={{ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" }}>
 			<h1 style={{ "--font-size": "var(--font-size_3xl)", "--font-weight": "var(--weight_semibold)" }}>Info</h1>
 			<p>
 				This project is a small app that I&apos;ve used to play with Tokenami. I wanted to experiment with this
@@ -16,8 +16,8 @@ export const Component = () => (
 						"--border-radius": "var(--radii_sm)",
 						"--focus-visible_outline-style": "var(--line-style_solid)",
 						"--outline-color": "var(--color_blue-8)",
-						"--outline-offset": 0.75,
-						"--outline-width": 0.5,
+						"--outline-offset": "var(--scale_0-5)",
+						"--outline-width": "var(--scale_0-5)",
 						"--text-decoration": "underline",
 					}}
 					href="http://github.com/pawelblaszczyk5/planner-tokenami"

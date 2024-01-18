@@ -28,7 +28,7 @@ import { invariant } from "#/utils/invariant";
 const fieldCss = {
 	"--display": "flex",
 	"--flex-dir": "column",
-	"--gap": 1.5,
+	"--gap": "var(--scale_1-5)",
 } satisfies TokenamiProperties;
 
 const inputCss = {
@@ -36,13 +36,13 @@ const inputCss = {
 	"--border-color": "var(--color_orange-7)",
 	"--border-radius": "var(--radii_base)",
 	"--border-style": "var(--line-style_solid)",
-	"--border-width": 0.25,
+	"--border-width": "var(--scale_px)",
 	"--font-size": "var(--font-size_sm)",
 	"--outline-color": "var(--color_blue-8)",
-	"--outline-offset": 0.75,
-	"--outline-width": 0.5,
-	"--px": 2.5,
-	"--py": 2,
+	"--outline-offset": "var(--scale_0-5)",
+	"--outline-width": "var(--scale_0-5)",
+	"--px": "var(--scale_2-5)",
+	"--py": "var(--scale_2)",
 	"--rac-focus_outline-style": "var(--line-style_solid)",
 	"--rac-invalid_border-color": "var(--color_red-7)",
 } satisfies TokenamiProperties;
@@ -131,7 +131,7 @@ export const EventForm = ({
 			style={{
 				"--display": "flex",
 				"--flex-dir": "column",
-				"--gap": 8,
+				"--gap": "var(--scale_8)",
 				"--w": "var(--size_full)",
 			}}
 			action={handleSubmission}
@@ -148,7 +148,7 @@ export const EventForm = ({
 				style={{
 					"--display": "flex",
 					"--flex-dir": "column",
-					"--gap": 6,
+					"--gap": "var(--scale_6)",
 				}}
 			>
 				<TextField
@@ -276,7 +276,14 @@ export const EventForm = ({
 					<FieldError />
 				</DateField>
 			</div>
-			<div style={{ "--align-items": "center", "--display": "flex", "--gap": 6, "--justify-content": "flex-end" }}>
+			<div
+				style={{
+					"--align-items": "center",
+					"--display": "flex",
+					"--gap": "var(--scale_6)",
+					"--justify-content": "flex-end",
+				}}
+			>
 				<Button onPress={onCancel} variant="muted">
 					Cancel
 				</Button>

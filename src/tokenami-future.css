@@ -1,0 +1,317 @@
+:root {
+	--grid: 0.25rem;
+	--color_sand-1: #111110;
+	--color_sand-12: #eeeeec;
+	--font_sans: Inter Variable, -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue,
+		helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+	--scale_1-5: 0.375rem;
+	--color_orange-7: #7e451d;
+	--radii_base: 4px;
+	--line-style_solid: solid;
+	--scale_px: 0.0625rem;
+	--font-size_sm: 0.875rem;
+	--color_blue-8: #2870bd;
+	--scale_0-5: 0.125rem;
+	--scale_2-5: 0.625rem;
+	--scale_2: 0.5rem;
+	--color_red-7: #8c333a;
+	--weight_medium: 500;
+	--color_red-11: #ff9592;
+	--scale_8: 2rem;
+	--size_full: 100%;
+	--font-size_2xl: 1.5rem;
+	--weight_semibold: 600;
+	--scale_6: 1.5rem;
+	--color_sand-11: #b5b3ad;
+	--font-size_4xl: 2.25rem;
+	--radii_sm: 2px;
+	--scale_3: 0.75rem;
+	--scale_4: 1rem;
+	--color_white: #fff;
+	--scale_9: 2.25rem;
+	--transition-duration_150: 0.15s;
+	--transition-timing-function_ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--color_orange-9: #f76b15;
+	--color_orange-10: #ff801f;
+	--color_orange-3: #331e0b;
+	--color_orange-4: #462100;
+	--color_red-9: #e5484d;
+	--color_red-10: #ec5d5e;
+	--scale_16: 4rem;
+	--color_black-a10: #000c;
+	--scale_0: 0px;
+	--z_10: 10;
+	--color_sand-2: #191918;
+	--radii_md: 6px;
+	--shadow_base: 0 4px 6px -1px var(--color_white-a1), 0 2px 4px -2px var(--color_white-a1);
+	--color_orange-12: #ffe0c2;
+	--font-size_lg: 1.125rem;
+	--z_100: 100;
+	--font-size_xs: 0.75rem;
+	--font-size_base: 1rem;
+	--color_sand-4: #2a2a28;
+	--color_sand-10: #7c7b74;
+	--color_orange-5: #562800;
+	--radii_full: 9999px;
+	--font-size_xl: 1.25rem;
+	--font-size_3xl: 1.875rem;
+}
+
+[style] {
+	--bg-color: initial;
+	--background-color: var(--bg-color, initial);
+	--border-style: initial;
+	--border-color: initial;
+	--border-width: initial;
+	--border-radius: initial;
+	--box-shadow: initial;
+	--color: initial;
+	--display: initial;
+	--flex-dir: initial;
+	--flex-direction: var(--flex-dir);
+	--flex-wrap: initial;
+	--font-family: initial;
+	--font-size: initial;
+	--font-weight: initial;
+	--gap: initial;
+	--h: initial;
+	--h: initial;
+	--height: var(--h, initial);
+	--inset: initial;
+	--top: initial;
+	--right: initial;
+	--bottom: initial;
+	--left: initial;
+	--m: initial;
+	--margin: var(--m);
+	--mt: initial;
+	--my: initial;
+	--margin-top: var(--mt, var(--my));
+	--mb: initial;
+	--margin-bottom: var(--mb, var(--my));
+	--mr: initial;
+	--mx: initial;
+	--margin-right: var(--mr, var(--mx));
+	--ml: initial;
+	--margin-left: var(--ml, var(--mx));
+	--max-w: initial;
+	--max-width: var(--max-w);
+	--min-h: initial;
+	--min-height: var(--min-h);
+	--outline-color: initial;
+	--outline-offset: initial;
+	--outline-style: initial;
+	--outline-width: initial;
+	--p: initial;
+	--padding: var(--p, initial);
+	--pt: initial;
+	--py: initial;
+	--padding-top: var(--pt, var(--py));
+	--pb: initial;
+	--padding-bottom: var(--pb, var(--py));
+	--pr: initial;
+	--px: initial;
+	--padding-right: var(--pr, var(--px));
+	--pl: initial;
+	--padding-left: var(--pl, var(--px));
+	--justify-content: initial;
+	--place-items: initial;
+	--align-items: initial;
+	--position: initial;
+	--table-layout: initial;
+	--text-align: initial;
+	--text-decoration: initial;
+	--transform: initial;
+	--transition-duration: initial;
+	--transition-property: initial;
+	--transition-timing-function: initial;
+	--white-space: initial;
+	--w: initial;
+	--width: var(--w, initial);
+	--z-index: initial;
+
+	--focus-visible: initial;
+	--focus-visible_outline-style: initial;
+
+	--rac-focus: initial;
+	--rac-focus_background-color: initial;
+	--rac-focus_outline-style: initial;
+
+	--rac-focus-visible: initial;
+	--rac-focus-visible_outline-style: initial;
+
+	--rac-hover: initial;
+	--rac-hover_bg-color: initial;
+	--rac-hover_background-color: var(--rac-hover_bg-color);
+
+	--rac-selected: initial;
+	--rac-selected_bg-color: initial;
+	--rac-selected_background-color: var(--rac-selected_bg-color);
+
+	--rac-invalid: initial;
+	--rac-invalid_border-color: initial;
+
+	--rac-placeholder: initial;
+	--rac-placeholder_color: initial;
+
+	--rac-outside-month: initial;
+	--rac-outside-month_color: initial;
+
+	--xs: initial;
+	--xs_font-size: initial;
+	--xs_m: initial;
+	--xs_margin: var(--xs_m);
+	--xs_ml: initial;
+	--xs_mr: initial;
+	--xs_mb: initial;
+	--xs_mt: initial;
+	--xs_my: initial;
+	--xs_mx: initial;
+	--xs_margin-left: var(--xs_ml, var(--xs_mx));
+	--xs_margin-right: var(--xs_mr, var(--xs_mx));
+	--xs_margin-top: var(--xs_mt, var(--xs_my));
+	--xs_margin-bottom: var(--xs_mb, var(--xs_my));
+	--xs_p: initial;
+	--xs_padding: var(--xs_p);
+	--xs_pl: initial;
+	--xs_pr: initial;
+	--xs_pb: initial;
+	--xs_pt: initial;
+	--xs_py: initial;
+	--xs_px: initial;
+	--xs_padding-left: var(--xs_pl, var(--xs_px));
+	--xs_padding-right: var(--xs_pr, var(--xs_px));
+	--xs_padding-top: var(--xs_pt, var(--xs_py));
+	--xs_padding-bottom: var(--xs_pb, var(--xs_py));
+
+	--xs_rac-focus-visible_outline-offset: initial;
+}
+
+[style] {
+	--i-rac-focus_background-color: var(--rac-focus) var(--rac-focus_background-color);
+	--i-rac-hover_background-color: var(--rac-hover) var(--rac-hover_background-color);
+	--i-rac-selected_background-color: var(--rac-selected) var(--rac-selected_background-color);
+
+	--i-rac-invalid_border-color: var(--rac-invalid) var(--rac-invalid_border-color);
+
+	--i-rac-placeholder_color: var(--rac-placeholder) var(--rac-placeholder_color);
+	--i-rac-outside-month_color: var(--rac-outside-month) var(--rac-outside-month_color);
+
+	--i-xs_font-size: var(--xs) var(--xs_font-size);
+
+	--i-xs_margin: var(--xs) var(--xs_margin);
+	--i-xs_margin-left: var(--xs) var(--xs_margin-left, var(--xs_margin));
+	--i-xs_margin-right: var(--xs) var(--xs_margin-right, var(--xs_margin));
+	--i-xs_margin-top: var(--xs) var(--xs_margin-top, var(--xs_margin));
+	--i-xs_margin-bottom: var(--xs) var(--xs_margin-bottom, var(--xs_margin));
+	--i-xs_padding: var(--xs) var(--xs_padding);
+	--i-xs_padding-left: var(--xs) var(--xs_padding-left, var(--xs_padding));
+	--i-xs_padding-right: var(--xs) var(--xs_padding-right, var(--xs_padding));
+	--i-xs_padding-top: var(--xs) var(--xs_padding-top, var(--xs_padding));
+	--i-xs_padding-bottom: var(--xs) var(--xs_padding-bottom, var(--xs_padding));
+
+	--i-xs_rac-focus-visible_outline-offset: var(--xs_rac-focus-visible) var(--xs_rac-focus-visible_outline-offset);
+
+	--i-focus-visible_outline-style: var(--focus-visible) var(--focus-visible_outline-style);
+	--i-rac-focus_outline-style: var(--rac-focus) var(--rac-focus_outline-style);
+	--i-rac-focus-visible_outline-style: var(--rac-focus) var(--rac-focus-visible_outline-style);
+
+	background-color: var(
+		--i-rac-selected_background-color,
+		var(--i-rac-hover_background-color, var(--rac-focus_background-color, var(--background-color, unset)))
+	);
+	border-style: var(--border-style, unset);
+	border-color: var(--i-rac-invalid_border-color, var(--border-color, unset));
+	border-width: var(--border-width, unset);
+	border-radius: var(--border-radius, unset);
+	box-shadow: var(--box-shadow, unset);
+	color: var(--i-rac-placeholder_color, var(--i-rac-outside-month_color, var(--color, unset)));
+	display: var(--display, revert);
+	flex-direction: var(--flex-direction, unset);
+	flex-wrap: var(--flex-wrap, unset);
+	font-family: var(--font-family, unset);
+	font-size: var(--i-xs_font-size, var(--font-size, unset));
+	font-weight: var(--font-weight, unset);
+	gap: var(--gap, unset);
+	height: var(--height, unset);
+	inset: var(--inset, unset);
+	top: var(--top, var(--inset, unset));
+	right: var(--right, var(--inset, unset));
+	bottom: var(--bottom, var(--inset, unset));
+	left: var(--left, unset);
+	margin: var(--i-xs_margin, var(--margin, unset));
+	margin-top: var(--i-xs_margin-top, var(--margin-top, var(--margin, unset)));
+	margin-bottom: var(--i-xs_margin-bottom, var(--margin-bottom, var(--margin, unset)));
+	margin-right: var(--i-xs_margin-right, var(--margin-right, var(--margin, unset)));
+	margin-left: var(--i-xs_margin-left, var(--margin-left, var(--margin, unset)));
+	max-width: var(--max-width, unset);
+	min-height: var(--min-height, unset);
+	outline-color: var(--outline-color, unset);
+	outline-offset: var(--i-xs_rac-focus-visible_outline-offset, var(--outline-offset, unset));
+	outline-style: var(
+		--i-focus-visible_outline-style,
+		var(--i-rac-focus_outline-style, var(--i-rac-focus-visible_outline-style, var(--outline-style, unset)))
+	);
+	outline-width: var(--outline-width, unset);
+	padding: var(--i_xs_padding, var(--padding, unset));
+	padding-top: var(--i-xs_padding-top, var(--padding-top, var(--padding, unset)));
+	padding-bottom: var(--i-xs_padding-bottom, var(--padding-bottom, var(--padding, unset)));
+	padding-right: var(--i-xs_padding-right, var(--padding-right, var(--padding, unset)));
+	padding-left: var(--i-xs_padding-left, var(--padding-left, var(--padding, unset)));
+	justify-content: var(--justify-content, unset);
+	place-items: var(--place-items, unset);
+	align-items: var(--align-items, unset);
+	position: var(--position, unset);
+	table-layout: var(--table-layout, unset);
+	text-align: var(--text-align, unset);
+	text-decoration: var(--text-decoration, unset);
+	transform: var(--transform, unset);
+	transition-duration: var(--transition-duration, unset);
+	transition-property: var(--transition-property, unset);
+	transition-timing-function: var(--transition-timing-function, unset);
+	white-space: var(--white-space, unset);
+	width: var(--width, unset);
+	z-index: var(--z-index, unset);
+}
+
+[style]:focus-visible {
+	--focus: ;
+}
+
+[style][data-focused] {
+	--rac-focus: ;
+}
+
+[style][data-focus-visible] {
+	--rac-focus-visible: ;
+}
+
+[style][data-hovered] {
+	--rac-hover: ;
+}
+
+[style][data-selected] {
+	--rac-selected: ;
+}
+
+[style][data-invalid] {
+	--rac-invalid: ;
+}
+
+[style][data-placeholder] {
+	--rac-placeholder: ;
+}
+
+[style][data-outside-month] {
+	--rac-outside-month: ;
+}
+
+@media (width>=480px) {
+	[style] {
+		--xs: ;
+	}
+
+	[style][data-focus-visible] {
+		--xs_rac-focus-visible: ;
+	}
+}
