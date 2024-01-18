@@ -36,7 +36,17 @@ export const Logo = () => {
 	};
 
 	return (
-		<Button aria-label="Generate mock data" onPress={handlePress}>
+		<Button
+			style={{
+				"--border-radius": "var(--radii_base)",
+				"--outline-color": "var(--color_blue-8)",
+				"--outline-offset": "var(--scale_0-5)",
+				"--outline-width": "var(--scale_0-5)",
+				"--rac-focus-visible_outline-style": "var(--line-style_solid)",
+			}}
+			aria-label="Generate mock data"
+			onPress={handlePress}
+		>
 			<FluentEmojiCalendar
 				style={{
 					"--font-size": "var(--font-size_4xl)",
