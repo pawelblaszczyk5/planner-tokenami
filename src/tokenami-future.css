@@ -140,11 +140,9 @@
 	--rac-focus-visible: initial;
 	--rac-focus-visible_outline-style: initial;
 
-	--hover: initial;
-	--hover_background-color: initial;
-
 	--rac-hover: initial;
-	--rac-hover_background-color: initial;
+	--rac-hover_bg-color: initial;
+	--rac-hover_background-color: var(--rac-hover_bg-color);
 
 	--rac-selected: initial;
 	--rac-selected_bg-color: initial;
@@ -191,7 +189,6 @@
 
 [style] {
 	--i-rac-focus_background-color: var(--rac-focus) var(--rac-focus_background-color);
-	--i-hover_background-color: var(--hover) var(--hover_background-color);
 	--i-rac-hover_background-color: var(--rac-hover) var(--rac-hover_background-color);
 	--i-rac-selected_background-color: var(--rac-selected) var(--rac-selected_background-color);
 
@@ -221,10 +218,7 @@
 
 	background-color: var(
 		--i-rac-selected_background-color,
-		var(
-			--i-rac-hover_background-color,
-			var(--i-hover_background-color, var(--rac-focus_background-color, var(--background-color, unset)))
-		)
+		var(--i-rac-hover_background-color, var(--rac-focus_background-color, var(--background-color, unset)))
 	);
 	border-style: var(--border-style, unset);
 	border-color: var(--i-rac-invalid_border-color, var(--border-color, unset));
@@ -292,8 +286,8 @@
 	--rac-focus-visible: ;
 }
 
-[style]:hover {
-	--hover: ;
+[style][data-hovered] {
+	--rac-hover: ;
 }
 
 [style][data-selected] {
