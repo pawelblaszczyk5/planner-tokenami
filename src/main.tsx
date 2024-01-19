@@ -14,6 +14,6 @@ invariant(rootElement);
 
 createRoot(rootElement).render(
 	<StrictMode>
-		<RouterProvider router={router} />
+		<RouterProvider future={{ v7_startTransition: true }} router={router} />
 	</StrictMode>,
 );
