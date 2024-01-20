@@ -214,7 +214,7 @@
 
 	--i-focus-visible_outline-style: var(--focus-visible) var(--focus-visible_outline-style);
 	--i-rac-focus_outline-style: var(--rac-focus) var(--rac-focus_outline-style);
-	--i-rac-focus-visible_outline-style: var(--rac-focus) var(--rac-focus-visible_outline-style);
+	--i-rac-focus-visible_outline-style: var(--rac-focus-visible) var(--rac-focus-visible_outline-style);
 
 	background-color: var(
 		--i-rac-selected_background-color,
