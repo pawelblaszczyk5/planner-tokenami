@@ -1,96 +1,98 @@
-/* Preflight from there https://elad2412.github.io/the-new-css-reset/ */
+@layer reset {
+	/* Preflight from there https://elad2412.github.io/the-new-css-reset/ */
 
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-	all: unset;
-	display: revert;
-}
+	*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+		all: unset;
+		display: revert;
+	}
 
-/* Preferred box-sizing value */
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+	/* Preferred box-sizing value */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
 
-/* Reapply the pointer cursor for anchor tags */
-a,
-button {
-	cursor: revert;
-}
+	/* Reapply the pointer cursor for anchor tags */
+	a,
+	button {
+		cursor: revert;
+	}
 
-/* Remove list styles (bullets/numbers) */
-ol,
-ul,
-menu {
-	list-style: none;
-}
+	/* Remove list styles (bullets/numbers) */
+	ol,
+	ul,
+	menu {
+		list-style: none;
+	}
 
-/* For images to not be able to exceed their container */
-img {
-	max-inline-size: 100%;
-	max-block-size: 100%;
-}
+	/* For images to not be able to exceed their container */
+	img {
+		max-inline-size: 100%;
+		max-block-size: 100%;
+	}
 
-/* removes spacing between cells in tables */
-table {
-	border-collapse: collapse;
-}
+	/* removes spacing between cells in tables */
+	table {
+		border-collapse: collapse;
+	}
 
-/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-input,
-textarea {
-	-webkit-user-select: auto;
-}
+	/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+	input,
+	textarea {
+		-webkit-user-select: auto;
+	}
 
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-	white-space: revert;
-}
+	/* revert the 'white-space' property for textarea elements on Safari */
+	textarea {
+		white-space: revert;
+	}
 
-/* minimum style to allow to style meter element */
-meter {
-	-webkit-appearance: revert;
-	appearance: revert;
-}
+	/* minimum style to allow to style meter element */
+	meter {
+		-webkit-appearance: revert;
+		appearance: revert;
+	}
 
-/* preformatted text - use only for this feature */
-:where(pre) {
-	all: revert;
-}
+	/* preformatted text - use only for this feature */
+	:where(pre) {
+		all: revert;
+	}
 
-/* reset default text opacity of input placeholder */
-::placeholder {
-	color: unset;
-}
+	/* reset default text opacity of input placeholder */
+	::placeholder {
+		color: unset;
+	}
 
-/* remove default dot (•) sign */
-::marker {
-	content: initial;
-}
+	/* remove default dot (•) sign */
+	::marker {
+		content: initial;
+	}
 
-/* fix the feature of 'hidden' attribute.
+	/* fix the feature of 'hidden' attribute.
    display:revert; revert to element instead of attribute */
-:where([hidden]:not([hidden="until-found"])) {
-	display: none;
-}
+	:where([hidden]:not([hidden="until-found"])) {
+		display: none;
+	}
 
-/* revert for bug in Chromium browsers
+	/* revert for bug in Chromium browsers
    - fix for the content editable attribute will work properly.
    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
-:where([contenteditable]:not([contenteditable="false"])) {
-	-moz-user-modify: read-write;
-	-webkit-user-modify: read-write;
-	overflow-wrap: break-word;
-	-webkit-line-break: after-white-space;
-	-webkit-user-select: auto;
-}
+	:where([contenteditable]:not([contenteditable="false"])) {
+		-moz-user-modify: read-write;
+		-webkit-user-modify: read-write;
+		overflow-wrap: break-word;
+		-webkit-line-break: after-white-space;
+		-webkit-user-select: auto;
+	}
 
-/* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable="true"]) {
-	-webkit-user-drag: element;
-}
+	/* apply back the draggable feature - exist only in Chromium and Safari */
+	:where([draggable="true"]) {
+		-webkit-user-drag: element;
+	}
 
-/* Revert Modal native behavior */
-:where(dialog:modal) {
-	all: revert;
+	/* Revert Modal native behavior */
+	:where(dialog:modal) {
+		all: revert;
+	}
 }
