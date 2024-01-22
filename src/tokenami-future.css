@@ -1,6 +1,6 @@
-@layer reset, tokenami;
-
 @layer tokenami {
+	@layer shorthands, longhands, selectors-shorthands, selectors-longhands;
+
 	:root {
 		--grid: 0.25rem;
 		--color_sand-1: #111110;
@@ -204,78 +204,21 @@
 		--i-xs_font-size: var(--xs) var(--xs_font-size);
 
 		--i-xs_margin: var(--xs) var(--xs_margin);
-		--i-xs_margin-left: var(--xs) var(--xs_margin-left, var(--xs_margin));
-		--i-xs_margin-right: var(--xs) var(--xs_margin-right, var(--xs_margin));
-		--i-xs_margin-top: var(--xs) var(--xs_margin-top, var(--xs_margin));
-		--i-xs_margin-bottom: var(--xs) var(--xs_margin-bottom, var(--xs_margin));
+		--i-xs_margin-left: var(--xs) var(--xs_margin-left);
+		--i-xs_margin-right: var(--xs) var(--xs_margin-right);
+		--i-xs_margin-top: var(--xs) var(--xs_margin-top);
+		--i-xs_margin-bottom: var(--xs) var(--xs_margin-bottom);
 		--i-xs_padding: var(--xs) var(--xs_padding);
-		--i-xs_padding-left: var(--xs) var(--xs_padding-left, var(--xs_padding));
-		--i-xs_padding-right: var(--xs) var(--xs_padding-right, var(--xs_padding));
-		--i-xs_padding-top: var(--xs) var(--xs_padding-top, var(--xs_padding));
-		--i-xs_padding-bottom: var(--xs) var(--xs_padding-bottom, var(--xs_padding));
+		--i-xs_padding-left: var(--xs) var(--xs_padding-left);
+		--i-xs_padding-right: var(--xs) var(--xs_padding-right);
+		--i-xs_padding-top: var(--xs) var(--xs_padding-top);
+		--i-xs_padding-bottom: var(--xs) var(--xs_padding-bottom);
 
 		--i-xs_rac-focus-visible_outline-offset: var(--xs_rac-focus-visible) var(--xs_rac-focus-visible_outline-offset);
 
 		--i-focus-visible_outline-style: var(--focus-visible) var(--focus-visible_outline-style);
 		--i-rac-focus_outline-style: var(--rac-focus) var(--rac-focus_outline-style);
 		--i-rac-focus-visible_outline-style: var(--rac-focus-visible) var(--rac-focus-visible_outline-style);
-
-		background-color: var(
-			--i-rac-selected_background-color,
-			var(--i-rac-hover_background-color, var(--rac-focus_background-color, var(--background-color, revert-layer)))
-		);
-		border-style: var(--border-style, revert-layer);
-		border-color: var(--i-rac-invalid_border-color, var(--border-color, revert-layer));
-		border-width: var(--border-width, revert-layer);
-		border-radius: var(--border-radius, revert-layer);
-		box-shadow: var(--box-shadow, revert-layer);
-		color: var(--i-rac-placeholder_color, var(--i-rac-outside-month_color, var(--color, revert-layer)));
-		display: var(--display, revert);
-		flex-direction: var(--flex-direction, revert-layer);
-		flex-wrap: var(--flex-wrap, revert-layer);
-		font-family: var(--font-family, revert-layer);
-		font-size: var(--i-xs_font-size, var(--font-size, revert-layer));
-		font-weight: var(--font-weight, revert-layer);
-		gap: var(--gap, revert-layer);
-		height: var(--height, revert-layer);
-		inset: var(--inset, revert-layer);
-		top: var(--top, var(--inset, revert-layer));
-		right: var(--right, var(--inset, revert-layer));
-		bottom: var(--bottom, var(--inset, revert-layer));
-		left: var(--left, var(--inset, revert-layer));
-		margin: var(--i-xs_margin, var(--margin, revert-layer));
-		margin-top: var(--i-xs_margin-top, var(--margin-top, var(--margin, revert-layer)));
-		margin-bottom: var(--i-xs_margin-bottom, var(--margin-bottom, var(--margin, revert-layer)));
-		margin-right: var(--i-xs_margin-right, var(--margin-right, var(--margin, revert-layer)));
-		margin-left: var(--i-xs_margin-left, var(--margin-left, var(--margin, revert-layer)));
-		max-width: var(--max-width, revert-layer);
-		min-height: var(--min-height, revert-layer);
-		outline-color: var(--outline-color, revert-layer);
-		outline-offset: var(--i-xs_rac-focus-visible_outline-offset, var(--outline-offset, revert-layer));
-		outline-style: var(
-			--i-focus-visible_outline-style,
-			var(--i-rac-focus_outline-style, var(--i-rac-focus-visible_outline-style, var(--outline-style, revert-layer)))
-		);
-		outline-width: var(--outline-width, revert-layer);
-		padding: var(--i_xs_padding, var(--padding, revert-layer));
-		padding-top: var(--i-xs_padding-top, var(--padding-top, var(--padding, revert-layer)));
-		padding-bottom: var(--i-xs_padding-bottom, var(--padding-bottom, var(--padding, revert-layer)));
-		padding-right: var(--i-xs_padding-right, var(--padding-right, var(--padding, revert-layer)));
-		padding-left: var(--i-xs_padding-left, var(--padding-left, var(--padding, revert-layer)));
-		justify-content: var(--justify-content, revert-layer);
-		place-items: var(--place-items, revert-layer);
-		align-items: var(--align-items, revert-layer);
-		position: var(--position, revert-layer);
-		table-layout: var(--table-layout, revert-layer);
-		text-align: var(--text-align, revert-layer);
-		text-decoration: var(--text-decoration, revert-layer);
-		transform: var(--transform, revert-layer);
-		transition-duration: var(--transition-duration, revert-layer);
-		transition-property: var(--transition-property, revert-layer);
-		transition-timing-function: var(--transition-timing-function, revert-layer);
-		white-space: var(--white-space, revert-layer);
-		width: var(--width, revert-layer);
-		z-index: var(--z-index, revert-layer);
 	}
 
 	[style]:focus-visible {
@@ -317,6 +260,99 @@
 
 		[style][data-focus-visible] {
 			--xs_rac-focus-visible: ;
+		}
+	}
+
+	@layer longhands {
+		[style] {
+			background-color: var(--background-color, revert-layer);
+			border-style: var(--border-style, revert-layer);
+			border-color: var(--border-color, revert-layer);
+			border-width: var(--border-width, revert-layer);
+			border-radius: var(--border-radius, revert-layer);
+			box-shadow: var(--box-shadow, revert-layer);
+			color: var(--color, revert-layer);
+			display: var(--display, revert);
+			flex-direction: var(--flex-direction, revert-layer);
+			flex-wrap: var(--flex-wrap, revert-layer);
+			font-family: var(--font-family, revert-layer);
+			font-size: var(--font-size, revert-layer);
+			font-weight: var(--font-weight, revert-layer);
+			gap: var(--gap, revert-layer);
+			height: var(--height, revert-layer);
+			top: var(--top, revert-layer);
+			right: var(--right, revert-layer);
+			bottom: var(--bottom, revert-layer);
+			left: var(--left, revert-layer);
+			margin-top: var(--margin-top, revert-layer);
+			margin-bottom: var(--margin-bottom, revert-layer);
+			margin-right: var(--margin-right, revert-layer);
+			margin-left: var(--margin-left, revert-layer);
+			max-width: var(--max-width, revert-layer);
+			min-height: var(--min-height, revert-layer);
+			outline-color: var(--outline-color, revert-layer);
+			outline-offset: var(--outline-offset, revert-layer);
+			outline-style: var(--outline-style, revert-layer);
+			outline-width: var(--outline-width, revert-layer);
+			padding-top: var(--padding-top, revert-layer);
+			padding-bottom: var(--padding-bottom, revert-layer);
+			padding-right: var(--padding-right, revert-layer);
+			padding-left: var(--padding-left, revert-layer);
+			justify-content: var(--justify-content, revert-layer);
+			place-items: var(--place-items, revert-layer);
+			align-items: var(--align-items, revert-layer);
+			position: var(--position, revert-layer);
+			table-layout: var(--table-layout, revert-layer);
+			text-align: var(--text-align, revert-layer);
+			text-decoration: var(--text-decoration, revert-layer);
+			transform: var(--transform, revert-layer);
+			transition-duration: var(--transition-duration, revert-layer);
+			transition-property: var(--transition-property, revert-layer);
+			transition-timing-function: var(--transition-timing-function, revert-layer);
+			white-space: var(--white-space, revert-layer);
+			width: var(--width, revert-layer);
+			z-index: var(--z-index, revert-layer);
+		}
+	}
+
+	@layer shorthands {
+		[style] {
+			inset: var(--inset, revert-layer);
+			gap: var(--gap, revert-layer);
+			margin: var(--margin, revert-layer);
+			padding: var(--padding, revert-layer);
+		}
+	}
+
+	@layer selectors-longhands {
+		[style] {
+			background-color: var(
+				--i-rac-selected_background-color,
+				var(--i-rac-hover_background-color, var(--rac-focus_background-color, revert-layer))
+			);
+			border-color: var(--i-rac-invalid_border-color, revert-layer);
+			color: var(--i-rac-placeholder_color, var(--i-rac-outside-month_color, revert-layer));
+			font-size: var(--i-xs_font-size, revert-layer);
+			margin-top: var(--i-xs_margin-top, revert-layer);
+			margin-bottom: var(--i-xs_margin-bottom, revert-layer);
+			margin-right: var(--i-xs_margin-right, revert-layer);
+			margin-left: var(--i-xs_margin-left, revert-layer);
+			outline-offset: var(--i-xs_rac-focus-visible_outline-offset, revert-layer);
+			outline-style: var(
+				--i-focus-visible_outline-style,
+				var(--i-rac-focus_outline-style, var(--i-rac-focus-visible_outline-style, revert-layer))
+			);
+			padding-top: var(--i-xs_padding-top, revert-layer);
+			padding-bottom: var(--i-xs_padding-bottom, revert-layer);
+			padding-right: var(--i-xs_padding-right, revert-layer);
+			padding-left: var(--i-xs_padding-left, revert-layer);
+		}
+	}
+
+	@layer selectors-shorthands {
+		[style] {
+			margin: var(--i-xs_margin, revert-layer);
+			padding: var(--i-xs_padding, revert-layer);
 		}
 	}
 }
