@@ -253,7 +253,7 @@
 		var(--i-rac-focus_outline-style, var(--i-rac-focus-visible_outline-style, var(--outline-style, unset)))
 	);
 	outline-width: var(--outline-width, unset);
-	padding: var(--i_xs_padding, var(--padding, unset));
+	padding: var(--i-xs_padding, var(--padding, unset));
 	padding-top: var(--i-xs_padding-top, var(--padding-top, var(--padding, unset)));
 	padding-bottom: var(--i-xs_padding-bottom, var(--padding-bottom, var(--padding, unset)));
 	padding-right: var(--i-xs_padding-right, var(--padding-right, var(--padding, unset)));
