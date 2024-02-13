@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import TablerInfoCircleFilled from "virtual:icons/tabler/info-circle-filled";
 
 import { Button } from "#/components/ui/button";
+import { css } from "#/utils/css";
 
 type ToastOptions = {
 	name: string;
@@ -29,7 +30,7 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 
 	return (
 		<div
-			style={{
+			style={css({
 				"--align-items": "start",
 				"--bg-color": "var(--color_sand-1)",
 				"--border-color": "var(--color_orange-7)",
@@ -41,40 +42,40 @@ const Toast = ({ state, ...props }: AriaToastProps<ToastOptions> & { state: Toas
 				"--gap": "var(--scale_3)",
 				"--p": "var(--scale_4)",
 				"--w": "var(--size_full)",
-			}}
+			})}
 			ref={ref}
 			{...toastProps}
 		>
 			<TablerInfoCircleFilled
-				style={{
+				style={css({
 					"--color": "var(--color_orange-12)",
 					"--font-size": "var(--font-size_2xl)",
-				}}
+				})}
 			/>
 			<div
-				style={{
+				style={css({
 					"--display": "flex",
 					"--flex-dir": "column",
 					"--gap": "var(--scale_4)",
 					"--w": "var(--size_full)",
-				}}
+				})}
 			>
 				<h3
-					style={{
+					style={css({
 						"--font-size": "var(--font-size_lg)",
 						"--font-weight": "var(--weight_medium)",
-					}}
+					})}
 					{...titleProps}
 				>
 					Successfully deleted event &quot;{props.toast.content.name}&quot;
 				</h3>
 				<div
-					style={{
+					style={css({
 						"--align-items": "center",
 						"--display": "flex",
 						"--gap": "var(--scale_4)",
 						"--justify-content": "flex-end",
-					}}
+					})}
 				>
 					<Button onPress={handleUndoPress}>Undo</Button>
 					<Button variant="muted" {...closeButtonProps}>
@@ -94,7 +95,7 @@ export const ToastRegion = () => {
 	return state.visibleToasts.length > 0
 		? createPortal(
 				<div
-					style={{
+					style={css({
 						"--bottom": "var(--scale_4)",
 						"--display": "flex",
 						"--flex-dir": "column",
@@ -104,7 +105,7 @@ export const ToastRegion = () => {
 						"--right": "var(--scale_4)",
 						"--w": "var(--size_full)",
 						"--z-index": "var(--z_100)",
-					}}
+					})}
 					{...regionProps}
 				>
 					{state.visibleToasts.map(toast => (

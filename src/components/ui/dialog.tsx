@@ -2,14 +2,14 @@ import type { ComponentPropsWithoutRef } from "react";
 
 import { Dialog as RacDialog, Modal as RacModal, ModalOverlay as RacModalOverlay } from "react-aria-components";
 
-import { mergeCss } from "#/utils/css";
+import { css } from "#/utils/css";
 
 export const Modal = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacModal>) => (
 	<RacModal
 		style={values => {
 			const overrides = typeof style === "function" ? style(values) : style;
 
-			return mergeCss(
+			return css(
 				{
 					"--display": "grid",
 					"--left": "var(---, 50%)",
@@ -37,7 +37,7 @@ export const ModalOverlay = ({
 		style={values => {
 			const overrides = typeof style === "function" ? style(values) : style;
 
-			return mergeCss(
+			return css(
 				{
 					"--bg-color": "var(--color_black-a10)",
 					"--inset": "var(--scale_0)",
@@ -54,7 +54,7 @@ export const ModalOverlay = ({
 
 export const Dialog = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacDialog>) => (
 	<RacDialog
-		style={mergeCss(
+		style={css(
 			{
 				"--bg-color": "var(--color_sand-2)",
 				"--border-radius": "var(--radii_md)",

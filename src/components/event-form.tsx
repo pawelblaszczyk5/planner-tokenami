@@ -1,5 +1,4 @@
 import type { ZonedDateTime } from "@internationalized/date";
-import type { TokenamiProperties } from "@tokenami/dev";
 import type { ReactNode } from "react";
 
 import { useMemo, useRef } from "react";
@@ -21,17 +20,17 @@ import type { EventEntry } from "#/lib/data";
 
 import { Button } from "#/components/ui/button";
 import { addEvent, editEvent } from "#/lib/data";
-import { mergeCss } from "#/utils/css";
+import { css } from "#/utils/css";
 import { convertDateFromForm, convertIsoStringToZonedDateTime, getCurrentZonedDateTime } from "#/utils/date";
 import { invariant } from "#/utils/invariant";
 
-const fieldCss = {
+const fieldCss = css({
 	"--display": "flex",
 	"--flex-dir": "column",
 	"--gap": "var(--scale_1-5)",
-} satisfies TokenamiProperties;
+});
 
-const inputCss = {
+const inputCss = css({
 	"--bg-color": "var(--color_sand-1)",
 	"--border-color": "var(--color_orange-7)",
 	"--border-radius": "var(--radii_base)",
@@ -45,14 +44,14 @@ const inputCss = {
 	"--py": "var(--scale_2)",
 	"--rac-focus_outline-style": "var(--line-style_solid)",
 	"--rac-invalid_border-color": "var(--color_red-7)",
-} satisfies TokenamiProperties;
+});
 
 const Label = ({ children }: { children: ReactNode }) => (
 	<RacLabel
-		style={{
+		style={css({
 			"--font-size": "var(--font-size_sm)",
 			"--font-weight": "var(--weight_medium)",
-		}}
+		})}
 	>
 		{children}
 	</RacLabel>
@@ -60,10 +59,10 @@ const Label = ({ children }: { children: ReactNode }) => (
 
 const FieldError = () => (
 	<RacFieldError
-		style={{
+		style={css({
 			"--color": "var(--color_red-11)",
 			"--font-size": "var(--font-size_sm)",
-		}}
+		})}
 	/>
 );
 
@@ -128,28 +127,28 @@ export const EventForm = ({
 
 	return (
 		<Form
-			style={{
+			style={css({
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": "var(--scale_8)",
 				"--w": "var(--size_full)",
-			}}
+			})}
 			action={handleSubmission}
 			autoComplete="off"
 			ref={form}
 		>
 			<Heading
 				slot="title"
-				style={{ "--font-size": "var(--font-size_2xl)", "--font-weight": "var(--weight_semibold)" }}
+				style={css({ "--font-size": "var(--font-size_2xl)", "--font-weight": "var(--weight_semibold)" })}
 			>
 				{event ? "Edit event" : "Add new event"}
 			</Heading>
 			<div
-				style={{
+				style={css({
 					"--display": "flex",
 					"--flex-dir": "column",
 					"--gap": "var(--scale_6)",
-				}}
+				})}
 			>
 				<TextField
 					validate={value => {
@@ -214,17 +213,17 @@ export const EventForm = ({
 				>
 					<Label>Start date</Label>
 					<DateInput
-						style={mergeCss(inputCss, {
+						style={css(inputCss, {
 							"--display": "flex",
 						})}
 					>
 						{segment => (
 							<DateSegment
-								style={{
+								style={css({
 									"--border-radius": "var(--radii_base)",
 									"--rac-focus_bg-color": "var(--color_blue-8)",
 									"--rac-placeholder_color": "var(--color_sand-11)",
-								}}
+								})}
 								segment={segment}
 							/>
 						)}
@@ -258,17 +257,17 @@ export const EventForm = ({
 				>
 					<Label>End date</Label>
 					<DateInput
-						style={mergeCss(inputCss, {
+						style={css(inputCss, {
 							"--display": "flex",
 						})}
 					>
 						{segment => (
 							<DateSegment
-								style={{
+								style={css({
 									"--border-radius": "var(--radii_base)",
 									"--rac-focus_bg-color": "var(--color_blue-8)",
 									"--rac-placeholder_color": "var(--color_sand-11)",
-								}}
+								})}
 								segment={segment}
 							/>
 						)}
@@ -277,12 +276,12 @@ export const EventForm = ({
 				</DateField>
 			</div>
 			<div
-				style={{
+				style={css({
 					"--align-items": "center",
 					"--display": "flex",
 					"--gap": "var(--scale_6)",
 					"--justify-content": "flex-end",
-				}}
+				})}
 			>
 				<Button onPress={onCancel} variant="muted">
 					Cancel
