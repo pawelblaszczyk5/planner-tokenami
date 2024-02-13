@@ -21,8 +21,8 @@ dependencies:
     specifier: 3.0.0-beta.1
     version: 3.0.0-beta.1(react@18.3.0-canary-c5b937576-20231219)
   '@tokenami/css':
-    specifier: ^0.0.20
-    version: 0.0.20(@tokenami/dev@0.0.20)(typescript@5.3.3)
+    specifier: ^0.0.22-next.0
+    version: 0.0.22-next.0(@tokenami/dev@0.0.22-next.0)(typescript@5.3.3)
   dexie:
     specifier: ^3.2.4
     version: 3.2.4
@@ -65,11 +65,11 @@ devDependencies:
     specifier: ^8.1.0
     version: 8.1.0(@svgr/core@8.1.0)
   '@tokenami/dev':
-    specifier: ^0.0.20
-    version: 0.0.20(typescript@5.3.3)
+    specifier: ^0.0.22-next.0
+    version: 0.0.22-next.0(typescript@5.3.3)
   '@tokenami/ts-plugin':
-    specifier: ^0.0.20
-    version: 0.0.20(@tokenami/dev@0.0.20)
+    specifier: ^0.0.22-next.0
+    version: 0.0.22-next.0(@tokenami/dev@0.0.22-next.0)
   '@types/react':
     specifier: ^18.2.45
     version: 18.2.46
@@ -2627,51 +2627,50 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
 
-  /@tokenami/config@0.0.20:
-    resolution: {integrity: sha512-feEdAcgo+mUfX5n7q0IaT6KciVJdcLs+si628g81LHIm3+VUWPduBpAnStGRSXqoDXlEC8Y7EDmQGp5WxKCGPg==}
+  /@tokenami/config@0.0.22-next.0:
+    resolution: {integrity: sha512-5aNDHhm6+01Q5kFn7iMEQDoP24bqQIirLNxBaByTrtrLY/bJHW/PsKGexgS9ex6lP3ci9KqTLxINA5EfZdlKjA==, tarball: https://npm.pkg.github.com/download/@tokenami/config/0.0.22-next.0/b2cae0fa3960df03ad55d8a88ed62b3041f108ae}
     dependencies:
       valibot: 0.25.0
 
-  /@tokenami/css@0.0.20(@tokenami/dev@0.0.20)(typescript@5.3.3):
-    resolution: {integrity: sha512-oZSBqpYbWcPB339tbeyu8Usur/bUlbvcsIkok3Hvds6o37f2AAbTJpPlkwi5yAY5l62cGewuuGYP0xHhdNHEgA==}
+  /@tokenami/css@0.0.22-next.0(@tokenami/dev@0.0.22-next.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-pWwxynW2J+ceS+Am4S+q1veUbKmvdB4M1QikOxm0CJIlv5IIZnRXxygZHoAgNXzbPVrVhqgiyFOed9w8DradqQ==, tarball: https://npm.pkg.github.com/download/@tokenami/css/0.0.22-next.0/8c7447b40106d1be259035bf396473c1d71a30f8}
     peerDependencies:
-      '@tokenami/dev': 0.0.20
+      '@tokenami/dev': 0.0.22-next.0
       typescript: '>= 5'
     dependencies:
-      '@tokenami/config': 0.0.20
-      '@tokenami/dev': 0.0.20(typescript@5.3.3)
+      '@tokenami/config': 0.0.22-next.0
+      '@tokenami/dev': 0.0.22-next.0(typescript@5.3.3)
       typescript: 5.3.3
     dev: false
 
-  /@tokenami/dev@0.0.20(typescript@5.3.3):
-    resolution: {integrity: sha512-p9kQVJbCpG3e67G9sSTcYYFMK07b2YZc0Vrs9OuJawiekv/OHnn1Ww9h/o/hc1vPJjKCnZn5W3AZsVaBr0tJpw==}
+  /@tokenami/dev@0.0.22-next.0(typescript@5.3.3):
+    resolution: {integrity: sha512-PMwhpEiq/1AM/NiednF/47K2YJ9NhI6qvshl4bZoeJ7Kn5yZ+Ym4ibbz6OGfHaorW34trLc5Vf+2dkxiuOsg8A==, tarball: https://npm.pkg.github.com/download/@tokenami/dev/0.0.22-next.0/665bcc301e801baed77f2627e7fea67b66bc917e}
     hasBin: true
     peerDependencies:
       typescript: '>= 5'
     dependencies:
       '@stitches/stringify': 1.2.8
-      '@tokenami/config': 0.0.20
+      '@tokenami/config': 0.0.22-next.0
       browserslist: 4.22.2
       cac: 6.7.14
       chalk: 5.3.0
       chokidar: 3.5.3
       csstype: 3.1.3
-      deepmerge: 4.3.1
       fast-glob: 3.3.2
       inquirer: 9.2.12
       jiti: 1.21.0
-      lightningcss: 1.22.1
+      lightningcss: 1.23.0
       pathe: 1.1.1
       sucrase: 3.35.0
       typescript: 5.3.3
 
-  /@tokenami/ts-plugin@0.0.20(@tokenami/dev@0.0.20):
-    resolution: {integrity: sha512-1F9EOorW4fuQRWOlEQB16deskIVqm/7diJW0kP39gyHxj0A/eQRxvF2N43kiqhImZ8YliJtimb8NQHR3kkl+eA==}
+  /@tokenami/ts-plugin@0.0.22-next.0(@tokenami/dev@0.0.22-next.0):
+    resolution: {integrity: sha512-Dc0u5EHtHCYwiS+5KNxDfbYzR1Q2SJQc32dLDtDRVFzN0xm76uOkbOBBUwaL2xFgvLU3nemxCpdbenJOOA2JDA==, tarball: https://npm.pkg.github.com/download/@tokenami/ts-plugin/0.0.22-next.0/9840a5012687f3bd6f167720d9720b7b59aff676}
     peerDependencies:
-      '@tokenami/dev': 0.0.20
+      '@tokenami/dev': 0.0.22-next.0
     dependencies:
-      '@tokenami/config': 0.0.20
-      '@tokenami/dev': 0.0.20(typescript@5.3.3)
+      '@tokenami/config': 0.0.22-next.0
+      '@tokenami/dev': 0.0.22-next.0(typescript@5.3.3)
     dev: true
 
   /@tufjs/canonical-json@2.0.0:
@@ -3413,6 +3412,7 @@ packages:
   /deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /defaults@1.0.4:
     resolution: {integrity: sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A==}
@@ -4996,93 +4996,93 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /lightningcss-darwin-arm64@1.22.1:
-    resolution: {integrity: sha512-ldvElu+R0QimNTjsKpaZkUv3zf+uefzLy/R1R19jtgOfSRM+zjUCUgDhfEDRmVqJtMwYsdhMI2aJtJChPC6Osg==}
+  /lightningcss-darwin-arm64@1.23.0:
+    resolution: {integrity: sha512-kl4Pk3Q2lnE6AJ7Qaij47KNEfY2/UXRZBT/zqGA24B8qwkgllr/j7rclKOf1axcslNXvvUdztjo4Xqh39Yq1aA==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     optional: true
 
-  /lightningcss-darwin-x64@1.22.1:
-    resolution: {integrity: sha512-5p2rnlVTv6Gpw4PlTLq925nTVh+HFh4MpegX8dPDYJae+NFVjQ67gY7O6iHIzQjLipDiYejFF0yHrhjU3XgLBQ==}
+  /lightningcss-darwin-x64@1.23.0:
+    resolution: {integrity: sha512-KeRFCNoYfDdcolcFXvokVw+PXCapd2yHS1Diko1z1BhRz/nQuD5XyZmxjWdhmhN/zj5sH8YvWsp0/lPLVzqKpg==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     optional: true
 
-  /lightningcss-freebsd-x64@1.22.1:
-    resolution: {integrity: sha512-1FaBtcFrZqB2hkFbAxY//Pnp8koThvyB6AhjbdVqKD4/pu13Rl91fKt2N9qyeQPUt3xy7ORUvSO+dPk3J6EjXg==}
+  /lightningcss-freebsd-x64@1.23.0:
+    resolution: {integrity: sha512-xhnhf0bWPuZxcqknvMDRFFo2TInrmQRWZGB0f6YoAsZX8Y+epfjHeeOIGCfAmgF0DgZxHwYc8mIR5tQU9/+ROA==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
     optional: true
 
-  /lightningcss-linux-arm-gnueabihf@1.22.1:
-    resolution: {integrity: sha512-6rub98tYGfE5I5j0BP8t/2d4BZyu1S7Iz9vUkm0H26snAFHYxLfj3RbQn0xHHIePSetjLnhcg3QlfwUAkD/FYg==}
+  /lightningcss-linux-arm-gnueabihf@1.23.0:
+    resolution: {integrity: sha512-fBamf/bULvmWft9uuX+bZske236pUZEoUlaHNBjnueaCTJ/xd8eXgb0cEc7S5o0Nn6kxlauMBnqJpF70Bgq3zg==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /lightningcss-linux-arm64-gnu@1.22.1:
-    resolution: {integrity: sha512-nYO5qGtb/1kkTZu3FeTiM+2B2TAb7m2DkLCTgQIs2bk2o9aEs7I96fwySKcoHWQAiQDGR9sMux9vkV4KQXqPaQ==}
+  /lightningcss-linux-arm64-gnu@1.23.0:
+    resolution: {integrity: sha512-RS7sY77yVLOmZD6xW2uEHByYHhQi5JYWmgVumYY85BfNoVI3DupXSlzbw+b45A9NnVKq45+oXkiN6ouMMtTwfg==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /lightningcss-linux-arm64-musl@1.22.1:
-    resolution: {integrity: sha512-MCV6RuRpzXbunvzwY644iz8cw4oQxvW7oer9xPkdadYqlEyiJJ6wl7FyJOH7Q6ZYH4yjGAUCvxDBxPbnDu9ZVg==}
+  /lightningcss-linux-arm64-musl@1.23.0:
+    resolution: {integrity: sha512-cU00LGb6GUXCwof6ACgSMKo3q7XYbsyTj0WsKHLi1nw7pV0NCq8nFTn6ZRBYLoKiV8t+jWl0Hv8KkgymmK5L5g==}
     engines: {node: '>= 12.0.0'}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /lightningcss-linux-x64-gnu@1.22.1:
-    resolution: {integrity: sha512-RjNgpdM20VUXgV7us/VmlO3Vn2ZRiDnc3/bUxCVvySZWPiVPprpqW/QDWuzkGa+NCUf6saAM5CLsZLSxncXJwg==}
+  /lightningcss-linux-x64-gnu@1.23.0:
+    resolution: {integrity: sha512-q4jdx5+5NfB0/qMbXbOmuC6oo7caPnFghJbIAV90cXZqgV8Am3miZhC4p+sQVdacqxfd+3nrle4C8icR3p1AYw==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /lightningcss-linux-x64-musl@1.22.1:
-    resolution: {integrity: sha512-ZgO4C7Rd6Hv/5MnyY2KxOYmIlzk4rplVolDt3NbkNR8DndnyX0Q5IR4acJWNTBICQ21j3zySzKbcJaiJpk/4YA==}
+  /lightningcss-linux-x64-musl@1.23.0:
+    resolution: {integrity: sha512-G9Ri3qpmF4qef2CV/80dADHKXRAQeQXpQTLx7AiQrBYQHqBjB75oxqj06FCIe5g4hNCqLPnM9fsO4CyiT1sFSQ==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     optional: true
 
-  /lightningcss-win32-x64-msvc@1.22.1:
-    resolution: {integrity: sha512-4pozV4eyD0MDET41ZLHAeBo+H04Nm2UEYIk5w/ts40231dRFV7E0cjwbnZvSoc1DXFgecAhiC0L16ruv/ZDCpg==}
+  /lightningcss-win32-x64-msvc@1.23.0:
+    resolution: {integrity: sha512-1rcBDJLU+obPPJM6qR5fgBUiCdZwZLafZM5f9kwjFLkb/UBNIzmae39uCSmh71nzPCTXZqHbvwu23OWnWEz+eg==}
     engines: {node: '>= 12.0.0'}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     optional: true
 
-  /lightningcss@1.22.1:
-    resolution: {integrity: sha512-Fy45PhibiNXkm0cK5FJCbfO8Y6jUpD/YcHf/BtuI+jvYYqSXKF4muk61jjE8YxCR9y+hDYIWSzHTc+bwhDE6rQ==}
+  /lightningcss@1.23.0:
+    resolution: {integrity: sha512-SEArWKMHhqn/0QzOtclIwH5pXIYQOUEkF8DgICd/105O+GCgd7jxjNod/QPnBCSWvpRHQBGVz5fQ9uScby03zA==}
     engines: {node: '>= 12.0.0'}
     dependencies:
       detect-libc: 1.0.3
     optionalDependencies:
-      lightningcss-darwin-arm64: 1.22.1
-      lightningcss-darwin-x64: 1.22.1
-      lightningcss-freebsd-x64: 1.22.1
-      lightningcss-linux-arm-gnueabihf: 1.22.1
-      lightningcss-linux-arm64-gnu: 1.22.1
-      lightningcss-linux-arm64-musl: 1.22.1
-      lightningcss-linux-x64-gnu: 1.22.1
-      lightningcss-linux-x64-musl: 1.22.1
-      lightningcss-win32-x64-msvc: 1.22.1
+      lightningcss-darwin-arm64: 1.23.0
+      lightningcss-darwin-x64: 1.23.0
+      lightningcss-freebsd-x64: 1.23.0
+      lightningcss-linux-arm-gnueabihf: 1.23.0
+      lightningcss-linux-arm64-gnu: 1.23.0
+      lightningcss-linux-arm64-musl: 1.23.0
+      lightningcss-linux-x64-gnu: 1.23.0
+      lightningcss-linux-x64-musl: 1.23.0
+      lightningcss-win32-x64-msvc: 1.23.0
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}

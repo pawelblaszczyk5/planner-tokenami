@@ -23,7 +23,7 @@ export const Component = () => {
 
 	return (
 		<div
-			style={{
+			style={css({
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": "var(--scale_8)",
@@ -33,17 +33,17 @@ export const Component = () => {
 				"--p": "var(--scale_2)",
 				"--py": "var(--scale_3)",
 				"--xs_p": "var(--scale_4)",
-			}}
+			})}
 		>
 			<RouterProvider navigate={navigate}>
 				<I18nProvider locale="en-US">
 					<ToastRegion />
 					<header
-						style={{
+						style={css({
 							"--align-items": "center",
 							"--display": "flex",
 							"--justify-content": "space-between",
-						}}
+						})}
 					>
 						<Logo />
 						<DialogTrigger>
@@ -63,22 +63,22 @@ export const Component = () => {
 					</main>
 					<ScrollRestoration />
 					<footer
-						style={{
+						style={css({
 							"--color": "var(--color_sand-11)",
 							"--font-size": "var(--font-size_sm)",
 							"--mt": "var(---, auto)",
 							"--text-align": "center",
-						}}
+						})}
 					>
-						<Link style={link()} to="/">
+						<Link style={link} to="/">
 							Home
 						</Link>{" "}
 						|{" "}
-						<Link style={link()} to="/info">
+						<Link style={link} to="/info">
 							Info
 						</Link>{" "}
 						|{" "}
-						<a href="https://planner-tailwind.vercel.app/" rel="noreferrer" style={link()}>
+						<a href="https://planner-tailwind.vercel.app/" rel="noreferrer" style={link}>
 							TailwindCSS&nbsp;version
 						</a>
 					</footer>

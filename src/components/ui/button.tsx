@@ -6,7 +6,7 @@ import type { Variants } from "#/utils/css";
 
 import { css } from "#/utils/css";
 
-const button = css(
+const button = css.compose(
 	{
 		"--align-items": "center",
 		"--border-radius": "var(--radii_base)",
