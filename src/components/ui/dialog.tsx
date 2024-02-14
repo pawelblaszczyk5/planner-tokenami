@@ -1,10 +1,17 @@
+import type { TokenamiProperties } from "@tokenami/dev";
 import type { ComponentPropsWithoutRef } from "react";
+import type { ModalRenderProps } from "react-aria-components";
 
 import { Dialog as RacDialog, Modal as RacModal, ModalOverlay as RacModalOverlay } from "react-aria-components";
 
 import { css } from "#/utils/css";
 
-export const Modal = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacModal>) => (
+export const Modal = ({
+	style,
+	...props
+}: Omit<ComponentPropsWithoutRef<typeof RacModal>, "style"> & {
+	style?: ((values: ModalRenderProps) => TokenamiProperties) | TokenamiProperties | undefined;
+}) => (
 	<RacModal
 		style={values => {
 			const overrides = typeof style === "function" ? style(values) : style;
@@ -32,7 +39,9 @@ export const ModalOverlay = ({
 	isDismissable = true,
 	style,
 	...props
-}: ComponentPropsWithoutRef<typeof RacModalOverlay>) => (
+}: Omit<ComponentPropsWithoutRef<typeof RacModalOverlay>, "style"> & {
+	style?: ((values: ModalRenderProps) => TokenamiProperties) | TokenamiProperties | undefined;
+}) => (
 	<RacModalOverlay
 		style={values => {
 			const overrides = typeof style === "function" ? style(values) : style;
@@ -52,7 +61,10 @@ export const ModalOverlay = ({
 	/>
 );
 
-export const Dialog = ({ style, ...props }: ComponentPropsWithoutRef<typeof RacDialog>) => (
+export const Dialog = ({
+	style,
+	...props
+}: Omit<ComponentPropsWithoutRef<typeof RacDialog>, "style"> & { style?: TokenamiProperties | undefined }) => (
 	<RacDialog
 		style={css(
 			{

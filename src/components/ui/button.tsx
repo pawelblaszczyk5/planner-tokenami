@@ -1,4 +1,6 @@
+import type { TokenamiProperties } from "@tokenami/dev";
 import type { ComponentPropsWithoutRef } from "react";
+import type { ButtonRenderProps } from "react-aria-components";
 
 import { Button as RacButton } from "react-aria-components";
 
@@ -47,7 +49,9 @@ export const Button = ({
 	style = {},
 	variant = "base",
 	...props
-}: ComponentPropsWithoutRef<typeof RacButton> & Variants<typeof button>) => (
+}: Omit<ComponentPropsWithoutRef<typeof RacButton>, "style"> & {
+	style?: ((values: ButtonRenderProps) => TokenamiProperties) | TokenamiProperties | undefined;
+} & Variants<typeof button>) => (
 	<RacButton
 		style={values => {
 			const overrides = typeof style === "function" ? style(values) : style;
