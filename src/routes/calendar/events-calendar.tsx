@@ -25,6 +25,7 @@ import { Button } from "#/components/ui/button";
 import { Dialog, DialogTrigger, Modal, ModalOverlay } from "#/components/ui/dialog";
 import { addEventDeletionNotification } from "#/components/ui/toast";
 import { deleteEvent, restoreEvent, useEventsCountForDate, useEventsForDate } from "#/lib/data";
+import { css } from "#/utils/css";
 import {
 	convertCalendarDateToDate,
 	convertIsoStringToZonedDateTime,
@@ -33,15 +34,15 @@ import {
 } from "#/utils/date";
 
 const HeaderRow = () => (
-	<CalendarGridHeader style={{ "--min-h": "var(--scale_8)" }}>
+	<CalendarGridHeader style={css({ "--min-h": "var(--scale_8)" })}>
 		{day => (
 			<CalendarHeaderCell
-				style={{
+				style={css({
 					"--w": "var(---, calc(100% / 7))",
-				}}
+				})}
 			>
 				<span
-					style={{
+					style={css({
 						"--align-items": "center",
 						"--color": "var(--color_orange-12)",
 						"--display": "flex",
@@ -54,7 +55,7 @@ const HeaderRow = () => (
 						"--xs_font-size": "var(--font-size_base)",
 						"--xs_m": "var(--scale_1-5)",
 						"--xs_p": "var(--scale_2-5)",
-					}}
+					})}
 				>
 					{day}
 				</span>
@@ -68,7 +69,7 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 
 	return (
 		<CalendarCell
-			style={{
+			style={css({
 				"--border-radius": "var(--radii_md)",
 				"--display": "flex",
 				"--flex-dir": "column",
@@ -91,38 +92,38 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 				...(date.toDate("utc").getDay() % 6 === 0 && {
 					"--bg-color": "var(--color_sand-2)",
 				}),
-			}}
+			})}
 			date={date}
 		>
 			{({ formattedDate }) => (
 				<>
 					<span
-						style={{
+						style={css({
 							"--font-size": "var(--font-size_sm)",
 							"--text-align": "right",
 							"--xs_font-size": "var(--font-size_lg)",
-						}}
+						})}
 					>
 						{formattedDate}
 					</span>
 					{eventsForDate > 0 && (
 						<div
-							style={{
+							style={css({
 								"--align-items": "center",
 								"--display": "flex",
 								"--mt": "var(---, auto)",
-							}}
+							})}
 						>
 							{/* TODO: Indicate somehow that ther're more events */}
 							{Array.from({ length: Math.min(eventsForDate, 4) }).map((_, index) => (
 								<span
-									style={{
+									style={css({
 										"--bg-color": "var(--color_orange-9)",
 										"--border-radius": "var(--radii_full)",
 										"--h": "var(--scale_2)",
 										"--mr": "var(---, -3px)",
 										"--w": "var(--scale_2)",
-									}}
+									})}
 									key={index}
 								/>
 							))}
@@ -135,16 +136,16 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 };
 
 const Header = () => (
-	<header style={{ "--align-items": "center", "--display": "flex", "--justify-content": "space-between" }}>
+	<header style={css({ "--align-items": "center", "--display": "flex", "--justify-content": "space-between" })}>
 		<Button slot="previous" variant="muted">
 			<TablerArrowBigLeft />
 		</Button>
 		<Heading
-			style={{
+			style={css({
 				"--color": "var(--color_orange-12)",
 				"--font-size": "var(--font-size_xl)",
 				"--font-weight": "var(--weight_semibold)",
-			}}
+			})}
 		/>
 		<Button slot="next" variant="muted">
 			<TablerArrowBigRight />
@@ -162,12 +163,12 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 
 	return (
 		<RacCalendar
-			style={{
+			style={css({
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": "var(--scale_4)",
 				"--w": "var(--size_full)",
-			}}
+			})}
 			aria-label="Events"
 			defaultFocusedValue={date}
 			focusedValue={focusedDate}
@@ -177,9 +178,9 @@ const Calendar = ({ date, onDateChange }: { date: CalendarDate; onDateChange: (d
 		>
 			<Header />
 			<CalendarGrid
-				style={{
+				style={css({
 					"--table-layout": "fixed",
-				}}
+				})}
 				weekdayStyle="short"
 			>
 				<HeaderRow />
@@ -207,17 +208,19 @@ const Event = ({ event }: { event: EventEntry }) => {
 	};
 
 	return (
-		<li style={{ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" }}>
+		<li style={css({ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" })}>
 			<div
-				style={{
+				style={css({
 					"--align-items": "center",
 					"--display": "flex",
 					"--flex-wrap": "wrap",
 					"--gap": "var(--scale_3)",
 					"--justify-content": "space-between",
-				}}
+				})}
 			>
-				<h3 style={{ "--font-size": "var(--font-size_2xl)", "--font-weight": "var(--weight_medium)" }}>{event.name}</h3>
+				<h3 style={css({ "--font-size": "var(--font-size_2xl)", "--font-weight": "var(--weight_medium)" })}>
+					{event.name}
+				</h3>
 				<p>
 					{formatter.format(convertIsoStringToZonedDateTime(event.startDate).toDate())} -{" "}
 					{formatter.format(convertIsoStringToZonedDateTime(event.endDate).toDate())}
@@ -225,12 +228,12 @@ const Event = ({ event }: { event: EventEntry }) => {
 			</div>
 			<p>{event.description}</p>
 			<div
-				style={{
+				style={css({
 					"--align-items": "center",
 					"--display": "flex",
 					"--gap": "var(--scale_3)",
 					"--justify-content": "flex-end",
-				}}
+				})}
 			>
 				<Button onPress={handleEventDelete} variant="negative">
 					Delete event <TablerTrash />
@@ -264,56 +267,56 @@ const List = ({ date }: { date: CalendarDate }) => {
 
 	return (
 		<div
-			style={{
+			style={css({
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": "var(--scale_8)",
 				"--w": "var(--size_full)",
-			}}
+			})}
 		>
 			<div
-				style={{
+				style={css({
 					"--align-items": "center",
 					"--display": "flex",
 					"--gap": "var(--scale_3)",
 					"--justify-content": "space-between",
-				}}
+				})}
 			>
 				<h2
-					style={{
+					style={css({
 						"--font-size": "var(--font-size_2xl)",
 						"--font-weight": "var(--weight_semibold)",
 						"--xs_font-size": "var(--font-size_3xl)",
-					}}
+					})}
 				>
 					Events for {formatter.format(convertCalendarDateToDate(date))}
 				</h2>
-				<Button onPress={navigateToToday} style={{ "--white-space": "nowrap" }} variant="muted">
+				<Button onPress={navigateToToday} style={css({ "--white-space": "nowrap" })} variant="muted">
 					Go to today
 					<TablerCalendar />
 				</Button>
 			</div>
 			{eventsForDate.length > 0 ? (
-				<ul style={{ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" }}>
+				<ul style={css({ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" })}>
 					{eventsForDate.map(event => (
 						<Event event={event} key={event.id} />
 					))}
 				</ul>
 			) : (
-				<p style={{ "--color": "var(--color_sand-11)" }}>No events for selected date</p>
+				<p style={css({ "--color": "var(--color_sand-11)" })}>No events for selected date</p>
 			)}
 			{eventsFromFuture.length > 0 && (
 				<>
 					<h2
-						style={{
+						style={css({
 							"--font-size": "var(--font-size_2xl)",
 							"--font-weight": "var(--weight_semibold)",
 							"--xs_font-size": "var(--font-size_3xl)",
-						}}
+						})}
 					>
 						Events for near future
 					</h2>
-					<ul style={{ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" }}>
+					<ul style={css({ "--display": "flex", "--flex-dir": "column", "--gap": "var(--scale_4)" })}>
 						{eventsFromFuture.map(event => (
 							<Event event={event} key={event.id} />
 						))}
@@ -356,11 +359,11 @@ export const EventsCalendar = () => {
 
 	return (
 		<div
-			style={{
+			style={css({
 				"--display": "flex",
 				"--flex-dir": "column",
 				"--gap": "var(--scale_8)",
-			}}
+			})}
 		>
 			<Calendar date={date} onDateChange={navigateToDate} />
 			<List date={date} />

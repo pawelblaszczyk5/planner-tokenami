@@ -1,17 +1,17 @@
 import { css } from "#/utils/css";
 
-const smallComponent = css(
+const smallComponent = css.compose(
 	{
 		"--bg-color": "var(--color_black-a1)",
 		"--border-style": "var(--line-style_solid)",
-		"--border-width": 0.25,
+		"--border-width": "var(--scale_1)",
 		"--color": "var(--color_white-a1)",
 		"--height": "var(--size_full)",
-		"--px": 2,
-		"--py": 4,
+		"--px": "var(--scale_2)",
+		"--py": "var(--scale_4)",
 		"--width": "var(--size_full)",
-		"--xs_px": 4,
-		"--xs_py": 6,
+		"--xs_px": "var(--scale_4)",
+		"--xs_py": "var(--scale_6)",
 	},
 	{
 		color: {
@@ -24,12 +24,12 @@ const smallComponent = css(
 		},
 		size: {
 			big: {
-				"--min-height": 32,
-				"--min-width": 32,
+				"--min-height": "var(--scale_32)",
+				"--min-width":"var(--scale_32)",
 			},
 			small: {
-				"--min-height": 16,
-				"--min-width": 16,
+				"--min-height": "var(--scale_32)",
+				"--min-width": "var(--scale_32)",
 			},
 		},
 	},
@@ -62,26 +62,26 @@ const timeAfterSmallComponent = performance.now();
 
 console.log("Small component all variants with overrides", timeAfterSmallComponent - timeBeforeSmallComponent);
 
-const mediumComponent = css(
+const mediumComponent = css.compose(
 	{
 		"--bg-color": "var(--color_blue-10)",
 		"--border-color": "var(--color_red-8)",
 		"--border-radius": "var(--radii_full)",
 		"--border-style": "var(--line-style_solid)",
-		"--border-width": 0.5,
-		"--bottom": 0,
+		"--border-width": "var(--scale_0-5)",
+		"--bottom": "var(--scale_0)",
 		"--color": "var(--color_red-8)",
 		"--h": "var(--size_full)",
 		"--hover_border-color": "var(--color_red-2)",
-		"--left": 0,
+		"--left": "var(--scale_0)",
 		"--position": "absolute",
-		"--right": 0,
-		"--top": 0,
+		"--right": "var(--scale_0)",
+		"--top": "var(--scale_0)",
 		"--w": "var(--size_full)",
-		"--xs_bottom": 2,
-		"--xs_left": 2,
-		"--xs_right": 2,
-		"--xs_top": 2,
+		"--xs_bottom": "var(--scale_2)",
+		"--xs_left": "var(--scale_2)",
+		"--xs_right": "var(--scale_2)",
+		"--xs_top": "var(--scale_2)",
 	},
 	{
 		color: {
@@ -118,28 +118,28 @@ const mediumComponent = css(
 		},
 		size: {
 			big: {
-				"--inset": 8,
-				"--min-h": 32,
-				"--min-w": 32,
-				"--xs_inset": 4,
-				"--xs_min-h": 48,
-				"--xs_min-w": 48,
+				"--inset": "var(--scale_8)",
+				"--min-h": "var(--scale_32)",
+				"--min-w": "var(--scale_32)",
+				"--xs_inset": "var(--scale_4)",
+				"--xs_min-h": "var(--scale_48)",
+				"--xs_min-w": "var(--scale_48)",
 			},
 			medium: {
-				"--inset": 4,
-				"--min-h": 24,
-				"--min-w": 24,
-				"--xs_inset": 2,
-				"--xs_min-h": 32,
-				"--xs_min-w": 32,
+				"--inset": "var(--scale_4)",
+				"--min-h": "var(--scale_24)",
+				"--min-w": "var(--scale_24)",
+				"--xs_inset": "var(--scale_2)",
+				"--xs_min-h": "var(--scale_32)",
+				"--xs_min-w": "var(--scale_32)",
 			},
 			small: {
-				"--inset": 2,
-				"--min-h": 16,
-				"--min-w": 16,
-				"--xs_inset": 2,
-				"--xs_min-h": 24,
-				"--xs_min-w": 24,
+				"--inset": "var(--scale_2)",
+				"--min-h": "var(--scale_16)",
+				"--min-w": "var(--scale_16)",
+				"--xs_inset": "var(--scale_2)",
+				"--xs_min-h": "var(--scale_24)",
+				"--xs_min-w": "var(--scale_24)",
 			},
 		},
 	},

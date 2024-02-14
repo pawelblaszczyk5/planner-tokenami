@@ -3,6 +3,7 @@ import { Button } from "react-aria-components";
 import FluentEmojiCalendar from "virtual:icons/fluent-emoji/calendar";
 
 import { insertBulkEvents } from "#/lib/data";
+import { css } from "#/utils/css";
 
 const PRESS_COUNT_TO_GENERATE_MOCK_DATA = 3;
 const TIMEOUT_TO_RESET = 1_000;
@@ -37,20 +38,20 @@ export const Logo = () => {
 
 	return (
 		<Button
-			style={{
+			style={css({
 				"--border-radius": "var(--radii_base)",
 				"--outline-color": "var(--color_blue-8)",
 				"--outline-offset": "var(--scale_0-5)",
 				"--outline-width": "var(--scale_0-5)",
 				"--rac-focus-visible_outline-style": "var(--line-style_solid)",
-			}}
+			})}
 			aria-label="Generate mock data"
 			onPress={handlePress}
 		>
 			<FluentEmojiCalendar
-				style={{
+				style={css({
 					"--font-size": "var(--font-size_4xl)",
-				}}
+				})}
 			/>
 		</Button>
 	);
