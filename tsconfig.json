@@ -43,6 +43,6 @@
 		"useUnknownInCatchVariables": true
 	},
 	"include": ["src", ".tokenami/**/*"],
-	"exclude": [".tokenami/tokenami.env.ci.d.ts"],
+	"exclude": [".tokenami/tokenami.env.ci.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
