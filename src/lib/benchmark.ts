@@ -25,7 +25,7 @@ const smallComponent = css.compose(
 		size: {
 			big: {
 				"--min-height": "var(--scale_32)",
-				"--min-width":"var(--scale_32)",
+				"--min-width": "var(--scale_32)",
 			},
 			small: {
 				"--min-height": "var(--scale_32)",
@@ -39,22 +39,22 @@ const timeBeforeSmallComponent = performance.now();
 
 smallComponent(
 	{ color: "black", size: "big" },
-	{ "--px": 2, "--py": 2 },
+	{ "--px": "var(--scale_2)", "--py": "var(--scale_2)" },
 	{ "--background-color": "var(--color_red-11)" },
 );
 smallComponent(
 	{ color: "black", size: "small" },
-	{ "--px": 2, "--py": 2 },
+	{ "--px": "var(--scale_2)", "--py": "var(--scale_2)" },
 	{ "--background-color": "var(--color_red-11)" },
 );
 smallComponent(
 	{ color: "white", size: "big" },
-	{ "--px": 2, "--py": 2 },
+	{ "--px": "var(--scale_2)", "--py": "var(--scale_2)" },
 	{ "--background-color": "var(--color_red-11)" },
 );
 smallComponent(
 	{ color: "white", size: "small" },
-	{ "--px": 2, "--py": 2 },
+	{ "--px": "var(--scale_2)", "--py": "var(--scale_2)" },
 	{ "--background-color": "var(--color_red-11)" },
 );
 
@@ -155,15 +155,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -183,15 +183,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -211,15 +211,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -239,15 +239,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -267,15 +267,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -295,15 +295,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -323,15 +323,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -351,15 +351,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -379,15 +379,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -408,15 +408,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -436,15 +436,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -464,15 +464,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -492,15 +492,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -520,15 +520,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -548,15 +548,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -576,15 +576,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -604,15 +604,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -632,15 +632,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -661,15 +661,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -689,15 +689,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -717,15 +717,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -745,15 +745,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -773,15 +773,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -801,15 +801,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -829,15 +829,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -857,15 +857,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -885,15 +885,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -914,15 +914,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -942,15 +942,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -970,15 +970,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -998,15 +998,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -1026,15 +1026,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -1054,15 +1054,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -1082,15 +1082,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -1110,15 +1110,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
@@ -1138,15 +1138,15 @@ mediumComponent(
 	},
 	{
 		"--hover_border-color": "var(--color_blue-2)",
-		"--inset": 4,
-		"--left": 2,
-		"--xs_left": 4,
+		"--inset": "var(--scale_4)",
+		"--left": "var(--scale_2)",
+		"--xs_left": "var(--scale_4)",
 	},
 	{
-		"--min-h": 16,
+		"--min-h": "var(--scale_16)",
 	},
 	{
-		"--min-w": 24,
+		"--min-w": "var(--scale_24)",
 	},
 	{
 		"--line-height": "var(---, 2px)",
