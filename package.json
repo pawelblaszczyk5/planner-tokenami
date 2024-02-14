@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "tokenami --output ./src/tokenami.css --watch & vite",
-		"build": "tokenami --output ./src/tokenami.css --minify && vite build",
+		"build": "tokenami --output ./src/tokenami.css && vite build",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --ignore-path .gitignore",
 		"typecheck": "tsc --project tsconfig.ci.json",
 		"preview": "vite preview",
