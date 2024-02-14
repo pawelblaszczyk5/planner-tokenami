@@ -74,10 +74,10 @@
 			}
 		}
 	},
-	"packageManager": "pnpm@8.9.2",
+	"packageManager": "pnpm@8.15.2",
 	"engines": {
 		"node": ">20.0.0",
-		"pnpm": "8.9.2"
+		"pnpm": "8.15.2"
 	},
 	"engineStrict": true
 }
