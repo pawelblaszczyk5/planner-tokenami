@@ -14,34 +14,34 @@
 		"update-dependencies": "taze major -Irw"
 	},
 	"dependencies": {
-		"@faker-js/faker": "^8.3.1",
+		"@faker-js/faker": "^8.4.1",
 		"@fontsource-variable/inter": "^5.0.16",
 		"@internationalized/date": "^3.5.1",
 		"@react-aria/toast": "3.0.0-beta.8",
 		"@react-stately/toast": "3.0.0-beta.1",
 		"@tokenami/css": "^0.0.22-next.5",
-		"dexie": "^3.2.4",
-		"nanoid": "^5.0.4",
+		"dexie": "^3.2.5",
+		"nanoid": "^5.0.5",
 		"react": "18.3.0-canary-c5b937576-20231219",
-		"react-aria": "^3.31.0",
-		"react-aria-components": "^1.0.0",
+		"react-aria": "^3.32.0",
+		"react-aria-components": "^1.1.0",
 		"react-dom": "18.3.0-canary-c5b937576-20231219",
-		"react-router-dom": "^6.21.1"
+		"react-router-dom": "^6.22.0"
 	},
 	"devDependencies": {
-		"@iconify-json/fluent-emoji": "^1.1.15",
-		"@iconify-json/lucide": "^1.1.138",
-		"@iconify-json/tabler": "^1.1.100",
-		"@react-aria/optimize-locales-plugin": "^1.0.0",
+		"@iconify-json/fluent-emoji": "^1.1.18",
+		"@iconify-json/lucide": "^1.1.165",
+		"@iconify-json/tabler": "^1.1.105",
+		"@react-aria/optimize-locales-plugin": "^1.0.1",
 		"@svgr/core": "^8.1.0",
 		"@svgr/plugin-jsx": "^8.1.0",
 		"@tokenami/dev": "^0.0.22-next.5",
 		"@tokenami/ts-plugin": "^0.0.22-next.5",
-		"@types/react": "^18.2.45",
-		"@types/react-dom": "^18.2.18",
-		"@typescript-eslint/eslint-plugin": "^6.16.0",
-		"@typescript-eslint/parser": "^6.16.0",
-		"@vitejs/plugin-react-swc": "^3.5.0",
+		"@types/react": "^18.2.55",
+		"@types/react-dom": "^18.2.19",
+		"@typescript-eslint/eslint-plugin": "^7.0.1",
+		"@typescript-eslint/parser": "^7.0.1",
+		"@vitejs/plugin-react-swc": "^3.6.0",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
@@ -56,15 +56,15 @@
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.5",
-		"eslint-plugin-regexp": "^2.1.2",
-		"eslint-plugin-unicorn": "^50.0.1",
-		"prettier": "^3.1.1",
-		"taze": "^0.13.1",
-		"type-fest": "^4.9.0",
+		"eslint-plugin-regexp": "^2.2.0",
+		"eslint-plugin-unicorn": "^51.0.1",
+		"prettier": "^3.2.5",
+		"taze": "^0.13.3",
+		"type-fest": "^4.10.2",
 		"typescript": "^5.3.3",
-		"unplugin-icons": "^0.18.1",
-		"vite": "^5.0.10",
-		"vite-tsconfig-paths": "^4.2.2"
+		"unplugin-icons": "^0.18.5",
+		"vite": "^5.1.3",
+		"vite-tsconfig-paths": "^4.3.1"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
@@ -74,10 +74,10 @@
 			}
 		}
 	},
-	"packageManager": "pnpm@8.15.2",
+	"packageManager": "pnpm@8.15.3",
 	"engines": {
 		"node": ">20.0.0",
-		"pnpm": "8.15.2"
+		"pnpm": "8.15.3"
 	},
 	"engineStrict": true
 }
