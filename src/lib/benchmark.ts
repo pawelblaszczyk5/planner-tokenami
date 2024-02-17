@@ -1,19 +1,18 @@
 import { css } from "#/utils/css";
 
-const smallComponent = css.compose(
-	{
-		"--bg-color": "var(--color_black-a1)",
-		"--border-style": "var(--line-style_solid)",
-		"--border-width": "var(--scale_1)",
-		"--color": "var(--color_white-a1)",
-		"--height": "var(--size_full)",
-		"--px": "var(--scale_2)",
-		"--py": "var(--scale_4)",
-		"--width": "var(--size_full)",
-		"--xs_px": "var(--scale_4)",
-		"--xs_py": "var(--scale_6)",
-	},
-	{
+const smallComponent = css.compose({
+	"--bg-color": "var(--color_black-a1)",
+	"--border-style": "var(--line-style_solid)",
+	"--border-width": "var(--scale_1)",
+	"--color": "var(--color_white-a1)",
+	"--height": "var(--size_full)",
+	"--px": "var(--scale_2)",
+	"--py": "var(--scale_4)",
+	"--width": "var(--size_full)",
+	"--xs_px": "var(--scale_4)",
+	"--xs_py": "var(--scale_6)",
+
+	variants: {
 		color: {
 			black: {
 				"--border-color": "var(--color_black-a2)",
@@ -33,7 +32,7 @@ const smallComponent = css.compose(
 			},
 		},
 	},
-);
+});
 
 const timeBeforeSmallComponent = performance.now();
 
@@ -62,28 +61,27 @@ const timeAfterSmallComponent = performance.now();
 
 console.log("Small component all variants with overrides", timeAfterSmallComponent - timeBeforeSmallComponent);
 
-const mediumComponent = css.compose(
-	{
-		"--bg-color": "var(--color_blue-10)",
-		"--border-color": "var(--color_red-8)",
-		"--border-radius": "var(--radii_full)",
-		"--border-style": "var(--line-style_solid)",
-		"--border-width": "var(--scale_0-5)",
-		"--bottom": "var(--scale_0)",
-		"--color": "var(--color_red-8)",
-		"--h": "var(--size_full)",
-		"--hover_border-color": "var(--color_red-2)",
-		"--left": "var(--scale_0)",
-		"--position": "absolute",
-		"--right": "var(--scale_0)",
-		"--top": "var(--scale_0)",
-		"--w": "var(--size_full)",
-		"--xs_bottom": "var(--scale_2)",
-		"--xs_left": "var(--scale_2)",
-		"--xs_right": "var(--scale_2)",
-		"--xs_top": "var(--scale_2)",
-	},
-	{
+const mediumComponent = css.compose({
+	"--bg-color": "var(--color_blue-10)",
+	"--border-color": "var(--color_red-8)",
+	"--border-radius": "var(--radii_full)",
+	"--border-style": "var(--line-style_solid)",
+	"--border-width": "var(--scale_0-5)",
+	"--bottom": "var(--scale_0)",
+	"--color": "var(--color_red-8)",
+	"--h": "var(--size_full)",
+	"--hover_border-color": "var(--color_red-2)",
+	"--left": "var(--scale_0)",
+	"--position": "absolute",
+	"--right": "var(--scale_0)",
+	"--top": "var(--scale_0)",
+	"--w": "var(--size_full)",
+	"--xs_bottom": "var(--scale_2)",
+	"--xs_left": "var(--scale_2)",
+	"--xs_right": "var(--scale_2)",
+	"--xs_top": "var(--scale_2)",
+
+	variants: {
 		color: {
 			black: {
 				"--color": "var(--color_black)",
@@ -143,7 +141,7 @@ const mediumComponent = css.compose(
 			},
 		},
 	},
-);
+});
 
 const timeBeforeMediumComponent = performance.now();
 
