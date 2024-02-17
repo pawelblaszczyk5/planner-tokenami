@@ -9,7 +9,7 @@ This project is a playground app that I've built and styled with both [Tokenami]
 - [Tokenami version](https://planner-tokenami.vercel.app)
 - [TailwindCSS version](https://planner-tailwind.vercel.app)
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Tokenami got some significant improvements since the first revision of this notes. I've updated it, feel free to check the history to see exact changes.
 
 ## What's Tokenami
@@ -160,18 +160,17 @@ That looks sweet! It even properly knows that `--padding` is shorthand that sets
 ```tsx
 import { css } from "@tokenami/css";
 
-const button = css.compose(
-	{
-		"--border-radius": "var(--radii_base)",
-		"--color": "var(--color_white)",
-		"--outline-color": "var(--color_blue-8)",
-		"--outline-offset": 0.75,
-		"--outline-width": 0.5,
-		"--px": 2.5,
-		"--py": 2,
-		"--focus-visible_outline-style": "var(--line-style_solid)",
-	},
-	{
+const button = css.compose({
+	"--border-radius": "var(--radii_base)",
+	"--color": "var(--color_white)",
+	"--outline-color": "var(--color_blue-8)",
+	"--outline-offset": 0.75,
+	"--outline-width": 0.5,
+	"--px": 2.5,
+	"--py": 2,
+	"--focus-visible_outline-style": "var(--line-style_solid)",
+
+	variants: {
 		variant: {
 			base: {
 				"--bg-color": "var(--color_orange-9)",
@@ -187,7 +186,7 @@ const button = css.compose(
 			},
 		},
 	},
-);
+});
 
 const exampleButtonBase = <button style={button({ variant: "base" })} />;
 
@@ -277,7 +276,7 @@ As you can see, Tokenami has smaller stylesheet size. The gap will probably grow
 | ---------- | --------- | ------------- | ----------- | ---------------- |
 | JS(X) size | 540.33 kB | 169.85 kB     | 542.96 kB   | 171.79 kB        |
 
-> [!WARNING]  
+> [!WARNING]
 > This metric isn't up to date, but should reflect the difference anyway. I'll update it eventually.
 
 This app is an SPA so HTML size is basically included in this one as JSX. Don't be afraid by the big numbers, that's mainly caused by some hefty libraries that I choose in this project (unrelated to styling), both Tokenami and Tailwind doesn't incur too big JS cost. However, this is influenced by styling solution in two ways - firstly, how terse are styles declarations, secondly - companion libraries. I'm usually using TailwindCSS in conjunction with CVA and tw-merge, Tokenami comes with a one built-in, so these are included here. Generally even if it looks like Tokenami is in the lead - it's important to note that that size is spread out differently. CVA + tw-merge for TailwindCSS is much bigger than Tokenami `css` utility. On the other hand, the styles declarations with Tokenami are bigger.
