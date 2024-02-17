@@ -9,6 +9,7 @@
 		"verbatimModuleSyntax": true,
 		"allowSyntheticDefaultImports": true,
 		"emitDeclarationOnly": true,
+		"outDir": "tsc-node",
 
 		/* Linting */
 		"strict": true,
