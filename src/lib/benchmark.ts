@@ -1,5 +1,11 @@
 import { css } from "#/utils/css";
 
+const invalidStyles = css({
+	// valid responsive + invalid selector
+	// this works for me in IDE, but errors in `tsc`
+	"--xs_test_bg-color": "var(---, red)",
+});
+
 const smallComponent = css.compose({
 	"--bg-color": "var(--color_black-a1)",
 	"--border-style": "var(--line-style_solid)",
