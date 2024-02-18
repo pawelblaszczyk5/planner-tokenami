@@ -268,7 +268,7 @@ Okay, let's go to the part that's probably more spicey 😄 I'm not taking concl
 
 |                 | Tokenami | Tokenami gzip | TailwindCSS | TailwindCSS gzip |
 | --------------- | -------- | ------------- | ----------- | ---------------- |
-| Stylesheet size | 8.17 kB  | 2.30 kB       | 8.58 kB     | 2.73 kB          |
+| Stylesheet size | 7.95 kB  | 2.23 kB       | 8.58 kB     | 2.73 kB          |
 
 As you can see, Tokenami has smaller stylesheet size. The gap will probably grow with the size of the app (as mentioned before, Tokenami generates rules for every property, while TailwindCSS for every property + value combination). However, the difference shouldn't skyrocket or anything - both solutions use atomic rules.
 
