@@ -1,8 +1,96 @@
-@layer reset {
-	/* Preflight from there https://elad2412.github.io/the-new-css-reset/ */
-	*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+@layer unset-all {
+	/* Reset all */
+	a,
+	address,
+	button,
+	blockquote,
+	body,
+	caption,
+	cite,
+	code,
+	dd,
+	details,
+	dialog,
+	dl,
+	dt,
+	em,
+	fieldset,
+	figcaption,
+	figure,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	hgroup,
+	hr,
+	html,
+	input,
+	kbd,
+	label,
+	legend,
+	li,
+	mark,
+	menu,
+	ol,
+	optgroup,
+	option,
+	output,
+	p,
+	pre,
+	select,
+	summary,
+	table,
+	td,
+	textarea,
+	th,
+	thead,
+	time,
+	tr,
+	ul,
+	progress,
+	meter {
 		all: unset;
 		display: revert;
+	}
+}
+
+@layer reset {
+	/* Revert table vertical-align */
+	tr,
+	th,
+	td,
+	thead,
+	tbody,
+	tfoot {
+		vertical-align: revert;
+		background-color: inherit;
+	}
+
+	/* Reset block */
+	img,
+	svg,
+	video,
+	canvas,
+	audio,
+	iframe,
+	embed,
+	object,
+	search,
+	hr,
+	summary,
+	pre > code {
+		display: block;
+	}
+
+	/* Improve consistency of default fonts in all browsers. */
+	code,
+	kbd,
+	samp,
+	pre {
+		font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+		font-size: 1em;
 	}
 
 	/* Preferred box-sizing value */
@@ -10,6 +98,27 @@
 	*::before,
 	*::after {
 		box-sizing: border-box;
+		-webkit-tap-highlight-color: rgb(255 255 255 / 0%);
+	}
+
+	/* Prevent 'sub' and 'sup' elements from affecting the line height in all browsers. */
+	sub,
+	sup {
+		vertical-align: baseline;
+		font-size: 100%;
+	}
+
+	sub {
+		font-variant-position: sub;
+	}
+
+	sup {
+		font-variant-position: super;
+	}
+
+	/* Add the correct text decoration in Chrome, Edge, and Safari. */
+	abbr[title] {
+		text-decoration: underline dotted;
 	}
 
 	/* Reapply the pointer cursor for anchor tags */
@@ -19,14 +128,15 @@
 	}
 
 	/* Remove list styles (bullets/numbers) */
-	ol,
+	ol:not([type]),
 	ul,
 	menu {
-		list-style: none;
+		list-style-type: "";
 	}
 
 	/* For images to not be able to exceed their container */
-	img {
+	img,
+	iframe {
 		max-inline-size: 100%;
 		max-block-size: 100%;
 	}
@@ -39,7 +149,8 @@
 	/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
 	input,
 	textarea {
-		-webkit-user-select: auto;
+		user-select: auto;
+		cursor: revert;
 	}
 
 	/* revert the 'white-space' property for textarea elements on Safari */
@@ -47,51 +158,50 @@
 		white-space: revert;
 	}
 
-	/* minimum style to allow to style meter element */
-	meter {
-		-webkit-appearance: revert;
-		appearance: revert;
-	}
-
-	/* preformatted text - use only for this feature */
-	:where(pre) {
-		all: revert;
-	}
-
 	/* reset default text opacity of input placeholder */
 	::placeholder {
 		color: unset;
 	}
 
-	/* remove default dot (•) sign */
-	::marker {
-		content: initial;
-	}
-
-	/* fix the feature of 'hidden' attribute.
-		display:revert; revert to element instead of attribute */
-	:where([hidden]:not([hidden="until-found"])) {
-		display: none;
-	}
-
 	/* revert for bug in Chromium browsers
-		- fix for the content editable attribute will work properly.
-		- webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
-	:where([contenteditable]:not([contenteditable="false"])) {
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
+	[contenteditable]:not([contenteditable="false"]) {
 		-moz-user-modify: read-write;
 		-webkit-user-modify: read-write;
 		overflow-wrap: break-word;
 		-webkit-line-break: after-white-space;
-		-webkit-user-select: auto;
+		user-select: auto;
 	}
 
 	/* apply back the draggable feature - exist only in Chromium and Safari */
-	:where([draggable="true"]) {
+	[draggable="true"] {
 		-webkit-user-drag: element;
 	}
 
-	/* Revert Modal native behavior */
-	:where(dialog:modal) {
-		all: revert;
+	/* Fix input styles */
+	input {
+		&::-webkit-datetime-edit-fields-wrapper,
+		&::-webkit-datetime-edit-text,
+		&::-webkit-datetime-edit,
+		&::-webkit-datetime-edit-hour-field,
+		&::-webkit-datetime-edit-minute-field {
+			padding: 0;
+		}
+
+		&::-webkit-calendar-picker-indicator,
+		&::-webkit-search-cancel-button {
+			align-self: center;
+			background-position: 50% 50%;
+		}
+	}
+
+	/* Remove details summary webkit styles */
+	::-webkit-details-marker {
+		display: none;
+	}
+
+	[hidden]:not([hidden="until-found"]) {
+		display: none;
 	}
 }
