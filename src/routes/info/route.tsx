@@ -17,6 +17,7 @@ export const Component = () => (
 					style={css({
 						"--border-radius": "var(--radii_sm)",
 						"--focus-visible_outline-style": "var(--line-style_solid)",
+						"--outline": "none",
 						"--outline-color": "var(--color_blue-8)",
 						"--outline-offset": "var(--scale_0-5)",
 						"--outline-width": "var(--scale_0-5)",

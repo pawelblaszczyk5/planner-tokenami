@@ -75,6 +75,7 @@ const DayCell = ({ date }: { date: CalendarDate }) => {
 				"--flex-dir": "column",
 				"--m": "var(---, 3px)",
 				"--min-h": "var(--scale_16)",
+				"--outline": "none",
 				"--outline-color": "var(--color_blue-8)",
 				"--outline-offset": "var(--scale_px)",
 				"--outline-width": "var(--scale_0-5)",

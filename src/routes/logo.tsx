@@ -40,6 +40,7 @@ export const Logo = () => {
 		<Button
 			style={css({
 				"--border-radius": "var(--radii_base)",
+				"--outline": "none",
 				"--outline-color": "var(--color_blue-8)",
 				"--outline-offset": "var(--scale_0-5)",
 				"--outline-width": "var(--scale_0-5)",
